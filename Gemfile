@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'github-pages', '~> 18'
+gem 'foundation', '~> 1.0.4'
+gem 'compass', '~> 0.12.6'
+gem 'jekyll-sitemap', '~> 0.2.0'
