@@ -1,2 +1,18 @@
-.idea/
+# Jekyll
+_site
+_drafts
+
+# Sass
+.sass-cache
+css
+
+# development
+bower_components
+node_modules
+
+# IntelliJ IDEA
+.idea
 *.iml
+
+# Mac
+*.DS_Store
