@@ -1,0 +1,22 @@
+{
+  "name": "coding.maier.asia",
+  "version": "0.1.0",
+  "author": "Thilo Maier",
+  "license": {
+    "type": "GPLv3",
+    "url": "http://choosealicense.com/licenses/gpl-v3/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mdotasia/coding.maier.asia.git"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-browser-sync": "^0.8.2",
+    "grunt-contrib-compass": "^0.7.2",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jekyll": "^0.4.2",
+    "grunt-prettify": "^0.3.4"
+  }
+}
