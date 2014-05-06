@@ -1,0 +1,24 @@
+# subdomain
+subdomain: coding
+
+# config
+encoding: utf-8
+timezone: America/New_York
+markdown: kramdown
+pygments: true
+
+# exclusions
+exclude:
+  - bower_components
+  - bower.json
+  - coding.maier.asia.iml
+  - Gemfile
+  - Gemfile.lock
+  - Gruntfile.js
+  - node_modules
+  - package.json
+  - README.md
+
+# plugins
+gems:
+  - jekyll-sitemap
