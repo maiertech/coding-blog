@@ -1,0 +1,26 @@
+language: ruby
+rvm: 2.1.0
+install: # override default "bundle install --deployment" and force install with PATH inclusion
+- bundle install
+- nvm install 0.10
+- npm install -g bower
+- npm install -g grunt-cli
+- npm install
+- bower install
+script:
+- grunt build:prod
+after_success:
+- openssl aes-256-cbc -k $SECRET -in .deploy/deploy.key.enc -d -a -out ~/.ssh/deploy.key
+- chmod 600 ~/.ssh/deploy.key
+- ls -l ~/.ssh/
+- echo -e "Host $SERVER" >> ~/.ssh/config
+- echo -e "\tUser $USER" >> ~/.ssh/config
+- echo -e "\tIdentityFile ~/.ssh/deploy.key" >> ~/.ssh/config
+- echo -e "\tStrictHostKeyChecking no" >> ~/.ssh/config
+- cat ~/.ssh/config
+- rsync -rzve ssh --delete _site/ $SERVER:/home/$USER/coding.maier.asia
+env:
+  global:
+  - secure: BE7CIal7UNLVBoyaL0fIvzHB9aROMBWzqTPW7OKXJr15Y4/x+MB4TqKJkDW5Ddq5kOE7kbtF3lftvo+5P5rwxvIdI64vPIuKXb0BUjvr7dS0B+UzYNBN6Y5/QHcsq9Aa366tG6vGi76iTVN1fWCnkBQ0Xq6jylTBcPq8FiD0okA=
+  - secure: VuC8y6o9kIesfBxXcpWP8miVwDwK0DP5OIAkJCqbFvS2aUb5IHwCP4+vd/z6F85XgLjYUQNRjsO9mIM9HUuTrO25fcAWMyoOooMzTgHiHl2nHOXf3iz8jzTGM56wlvZJYubTUyvls+KPP1gQUEvT0/GEBLAcIi+AaNREuKOdL+0=
+  - secure: MpIDfNRJYn5bxuirGPqyIWipn0BJR5G/TL0tpEDpMolDljH91lf455me5dGM1j6VTic4wGb8LmAi/P+qvSKUzBMl/LQxBiQE47z620Sjvm9PjTarczzCZU+s82ZsVZQDoncB2q0VAFhLa0gJd9nk0FUZDEpt1E6YVRDjUPYBAWM=
