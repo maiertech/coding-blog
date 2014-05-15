@@ -1,0 +1,16 @@
+# subdomain
+subdomain: coding
+
+# config
+encoding: utf-8
+timezone: America/New_York
+markdown: kramdown
+pygments: true
+
+include: ['.htaccess']
+exclude: ['bower_components','bower.json','config.rb']
+destination: _build
+
+# plugins
+gems:
+  - jekyll-sitemap

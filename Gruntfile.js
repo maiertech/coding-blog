@@ -11,7 +11,7 @@ module.exports = function (grunt) {
       options: {
         watchTask: true,
         server: {
-          baseDir: '_site'
+          baseDir: 'site/_build'
         }
       }
     },
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     compass: {
       all: {
         options: {
-          config: '_config/config.rb'
+          config: 'site/config.rb'
         }
       }
     },
@@ -30,14 +30,16 @@ module.exports = function (grunt) {
       },
       files: {
         expand: true,
-        cwd: '_site',
+        cwd: 'site/_build',
         src: ['**/*.html'],
-        dest: '_site'
+        dest: 'site/_build'
       }
     },
 
     jekyll: {
       options: {
+        src: 'site',
+        dest: 'site/_build',
         bundleExec: true
       },
       dev: {
@@ -60,21 +62,21 @@ module.exports = function (grunt) {
       },
       files: {
         expand: true,
-        cwd: '_site',
+        cwd: 'site/_build',
         src: ['**/*.html'],
-        dest: '_site'
+        dest: 'site/_build'
       }
     },
 
     watch: {
       compass: {
-        files: '_scss/**/*.scss',
+        files: 'site/_scss/**/*.scss',
         tasks: ['compass']
       },
       jekyll: {
         files: [
           '**/*{.html,.css,.js,.md,.yml}',
-          '!_site/**/*'
+          '!site/_build/**/*'
         ],
         tasks: ['jekyll:dev']
       }
