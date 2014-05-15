@@ -20,7 +20,7 @@ after_success:
 - echo -e "\tIdentityFile ~/.ssh/deploy.key" >> ~/.ssh/config
 - echo -e "\tStrictHostKeyChecking no" >> ~/.ssh/config
 - cat ~/.ssh/config
-- rsync -rzve ssh --delete site/_build/ $SERVER:/home/$USER/coding.maier.asia
+- rsync -rzcvve ssh --delete site/_build/ $SERVER:/home/$USER/coding.maier.asia
 env:
   global:
   - secure: BE7CIal7UNLVBoyaL0fIvzHB9aROMBWzqTPW7OKXJr15Y4/x+MB4TqKJkDW5Ddq5kOE7kbtF3lftvo+5P5rwxvIdI64vPIuKXb0BUjvr7dS0B+UzYNBN6Y5/QHcsq9Aa366tG6vGi76iTVN1fWCnkBQ0Xq6jylTBcPq8FiD0okA=
