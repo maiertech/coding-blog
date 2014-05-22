@@ -1,0 +1,8 @@
+# .htaccess for production server
+
+# Enforce HTTPS
+# https://uberspace.de/dokuwiki/webserver:htaccess#ssl_erzwingen
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{ENV:HTTPS} !=on
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]

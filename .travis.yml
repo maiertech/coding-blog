@@ -13,7 +13,7 @@ before_script:
 - openssl aes-256-cbc -k $SECRET -in .deploy/deploy.key.enc -d -a -out ~/.ssh/deploy.key
 - chmod 600 ~/.ssh/deploy.key
 script:
-- grunt ci --branch=$TRAVIS_BRANCH --user=$USER
+- grunt ci --user=$USER
 env:
   global:
   - secure: BE7CIal7UNLVBoyaL0fIvzHB9aROMBWzqTPW7OKXJr15Y4/x+MB4TqKJkDW5Ddq5kOE7kbtF3lftvo+5P5rwxvIdI64vPIuKXb0BUjvr7dS0B+UzYNBN6Y5/QHcsq9Aa366tG6vGi76iTVN1fWCnkBQ0Xq6jylTBcPq8FiD0okA=

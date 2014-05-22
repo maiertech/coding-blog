@@ -11,7 +11,7 @@ markdown: kramdown
 pygments: true
 
 include: ['.htaccess']
-exclude: ['bower_components','bower.json','config.rb']
+exclude: ['bower_components','bower.json']
 
 # plugins
 gems:

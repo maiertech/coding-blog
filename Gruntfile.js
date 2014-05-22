@@ -9,7 +9,8 @@ module.exports = function (grunt) {
 
   // Jekyll configuration
   var config = grunt.file.readYAML('site/_config-grunt.yml');
-  var travis = grunt.file.readYAML('.travis.yml')
+  var subdomain = grunt.file.readYAML('site/_data/coding.yml');
+  var travis = grunt.file.readYAML('.travis.yml');
 
   // set file encoding
   grunt.file.defaultEncoding = 'utf8';
@@ -120,16 +121,12 @@ module.exports = function (grunt) {
 
   });
 
-  // read command-line options
-  var branch = grunt.option('branch');
-
   /**
-   * Deploy task
-   *
+   * Deploy task.
    * Requires SSH user to be injected via --user=<username>.
-   * Creates ~/.ssh/config and then rsyncs build dir.
+   * Creates ~/.ssh/config and then syncs build dir.
    */
-  grunt.registerMultiTask('deploy', 'deploy build with rsync', function () {
+  grunt.registerMultiTask('deploy', 'create SSH config and then deploy build dir with rsync', function () {
 
     grunt.log.writeln('RUN TASK: ' + this.name);
 
@@ -140,7 +137,7 @@ module.exports = function (grunt) {
     // assert that user option has been set
     var user = grunt.option('user');
     if (typeof user == 'undefined') {
-      grunt.fail.fatal('User is required to configure SSH');
+      grunt.fail.fatal('User is required to configure SSH.');
     }
 
     // path to SSH config file
@@ -157,21 +154,22 @@ module.exports = function (grunt) {
     grunt.file.write(sshConfigFile, sshConfig);
     grunt.log.writeln('=> wrote config \n---\n' + sshConfig + '\n---\nto SSH config file');
 
+    // prod deployment
     if (this.target === 'prod') {
       grunt.log.writeln('=> run rsync:prod');
       return grunt.task.run(['rsync:prod']);
     }
 
-    grunt.log.writeln('=> run rsync:test');
-    return grunt.task.run(['rsync:test']);
+    // test deployment
+    grunt.log.writeln('=> run [addAuth, rsync:test]');
+    return grunt.task.run(['addAuth', 'rsync:test']);
   });
 
-  /*
-   * Build task
-   *
-   * Build for 'prod', 'test' or otherwise for 'dev'
+  /**
+   * Build task.
+   * Trigger build for 'prod', 'test' and by default for 'dev'.
    */
-  grunt.registerTask('build', 'build task', function (env) {
+  grunt.registerTask('build', 'run environment specific build', function (env) {
 
     grunt.log.writeln('RUN TASK: ' + this.name);
 
@@ -202,10 +200,16 @@ module.exports = function (grunt) {
 
   });
 
-  // this task is executed by Travis CI
-  grunt.registerTask('ci', function () {
+  /**
+   * This is the task that needs to be run on Travis CI.
+   * Requires SSH user to be injected via --user=<username>.
+   */
+  grunt.registerTask('ci', 'Travis CI task', function () {
 
     grunt.log.writeln('RUN TASK: ' + this.name);
+
+    // Check documentation for CI and TRAVIS_BRANCH env variables:
+    // http://docs.travis-ci.com/user/ci-environment/#Environment-variables
 
     if (typeof process.env.CI == 'undefined') {
       grunt.fail.fatal('This task can be executed only on the CI server!');
@@ -224,6 +228,33 @@ module.exports = function (grunt) {
     // deploy any other branch to test env
     grunt.log.writeln('=> run build:test');
     return grunt.task.run(['build:test']);
+  });
+
+  /**
+   * This tasks replaces the root .htaccess file to add authentication.
+   * This task is called prior to test deployment.
+   */
+  grunt.registerTask('addAuth', 'replace .htaccess file for test server deployment', function () {
+
+    grunt.log.writeln('RUN TASK: ' + this.name);
+
+    // assert that user option has been set
+    var user = grunt.option('user');
+    if (typeof user == 'undefined') {
+      grunt.fail.fatal('User is required to replace .htaccess file.');
+    }
+
+    // read name from subdomain configuration
+    var authName = subdomain.name + ' (Test Server)';
+
+    // overwrite .htaccess in build dir
+    var replace = {
+      authName: authName,
+      user: user
+    }
+    htaccess = grunt.template.process(grunt.file.read('.deploy/.htaccess'), {data: replace});
+    grunt.file.write('build/.htaccess', htaccess);
+    grunt.log.writeln('=> replaced .htaccess file for test server deployment')
   });
 
 }

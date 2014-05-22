@@ -1,0 +1,15 @@
+# .htaccess for test server
+
+# Enforce HTTPS
+# https://uberspace.de/dokuwiki/webserver:htaccess#ssl_erzwingen
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{ENV:HTTPS} !=on
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+# Configure authentication
+# https://uberspace.de/dokuwiki/webserver:htaccess#verzeichnisschutz
+AuthType Basic
+AuthName "<%= authName %>"
+AuthUserFile /var/www/virtual/<%= user %>/.htuser
+Require valid-user
