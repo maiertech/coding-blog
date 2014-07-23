@@ -2,7 +2,7 @@ language: ruby
 rvm: 2.1.1
 install: # override default "bundle install --deployment" and force install with PATH inclusion
 - bundle install
-- nvm install 0.10
+- nvm install 0.10.29
 - npm install -g bower
 - npm install -g grunt-cli
 - npm install
