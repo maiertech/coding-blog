@@ -2,6 +2,6 @@
   "name": "coding.maier.asia",
   "private": "true",
   "dependencies": {
-    "foundation": "~5.2.2"
+    "foundation": "~5.3.3"
   }
 }
