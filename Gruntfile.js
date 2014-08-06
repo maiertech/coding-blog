@@ -8,8 +8,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-rsync');
 
   // Jekyll configuration
-  var config = grunt.file.readYAML('site/_config-grunt.yml');
-  var subdomain = grunt.file.readYAML('site/_data/coding.yml');
+  var config = grunt.file.readYAML('_config.yml');
+  var subdomain = grunt.file.readYAML('_data/coding.yml');
   var travis = grunt.file.readYAML('.travis.yml');
 
   // set file encoding
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
       options: {
         watchTask: true,
         server: {
-          baseDir: '<%= config.destination %>'
+          baseDir: '_site'
         }
       }
     },
@@ -36,10 +36,7 @@ module.exports = function (grunt) {
 
     compass: {
       options: {
-        sassDir: '<%= config.source %>/_scss',
-        imagesDir: '<%= config.source %>/imgs',
-        cssDir: '<%= config.source %>/css',
-        importPath: '<%= config.source %>/bower_components/foundation/scss'
+        config: 'config.rb'
       },
       uncompressed: {
         options: {
@@ -68,7 +65,7 @@ module.exports = function (grunt) {
 
     jekyll: {
       options: {
-        config: '<%= config.source %>/_config-grunt.yml',
+        config: '_config.yml',
         bundleExec: true
       },
       noDrafts: {
@@ -87,7 +84,7 @@ module.exports = function (grunt) {
       options: {
         args: ['-vv'],
         compareMode: 'checksum',
-        src: '<%= config.destination %>/',
+        src: '_site/',
         ssh: true,
         syncDest: true,
         recursive: true
@@ -108,12 +105,17 @@ module.exports = function (grunt) {
 
     watch: {
       compass: {
-        files: '<%= config.source %>/_scss/**/*.scss',
+        files: '_scss/**/*.scss',
         tasks: ['compass:uncompressed']
       },
       jekyll: {
         files: [
-          '<%= config.source %>/**/*{.html,.css,.js,.md,.yml}'
+          'index.html',
+          '_includes/**/*.html',
+          '_layouts/**/*.html',
+          '_posts/**/*.md',
+          'css/**/*.css',
+          '_data/**/*.yml'
         ],
         tasks: ['jekyll:drafts']
       }
@@ -130,7 +132,7 @@ module.exports = function (grunt) {
 
     grunt.log.writeln('RUN TASK: ' + this.name);
 
-    // assert that server config is exists
+    // assert that server config exists
     this.requiresConfig(this.name + '.' + this.target + '.options.server');
     var server = this.options().server;
 
@@ -252,8 +254,8 @@ module.exports = function (grunt) {
       authName: authName,
       user: user
     }
-    htaccess = grunt.template.process(grunt.file.read('.deploy/.htaccess'), {data: replace});
-    grunt.file.write('build/.htaccess', htaccess);
+    htaccess = grunt.template.process(grunt.file.read('_deploy/.htaccess'), {data: replace});
+    grunt.file.write('_site/.htaccess', htaccess);
     grunt.log.writeln('=> replaced .htaccess file for test server deployment')
   });
 

@@ -1,17 +1,14 @@
 subdomain: coding
-source: site
-destination: build
 prodServer: coding.maier.asia
 testServer: coding-test.maier.asia
 
 # config
 encoding: utf-8
 timezone: America/New_York
-markdown: kramdown
-pygments: true
+highlighter: pygments
 
 include: ['.htaccess']
-exclude: ['bower_components','bower.json']
+exclude: ['bower.json', 'coding.maier.asia.iml', 'config.rb', 'Gemfile', 'Gemfile.lock', 'Gruntfile.js', 'package.json', 'README.md']
 
 # plugins
 gems:
