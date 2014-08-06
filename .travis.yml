@@ -1,16 +1,15 @@
 language: ruby
+cache: bundler
 rvm: 2.1.1
 install: # override default "bundle install --deployment" and force install with PATH inclusion
 - bundle install
-- nvm install 0.10.29
+- nvm install 0.10.30
 - npm install -g bower
 - npm install -g grunt-cli
 - npm install
-- cd site
 - bower install
-- cd ..
 before_script:
-- openssl aes-256-cbc -k $SECRET -in .deploy/deploy.key.enc -d -a -out ~/.ssh/deploy.key
+- openssl aes-256-cbc -k $SECRET -in _deploy/deploy.key.enc -d -a -out ~/.ssh/deploy.key
 - chmod 600 ~/.ssh/deploy.key
 script:
 - grunt ci --user=$USER
