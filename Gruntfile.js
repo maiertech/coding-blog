@@ -130,8 +130,6 @@ module.exports = function (grunt) {
    */
   grunt.registerMultiTask('deploy', 'create SSH config and then deploy build dir with rsync', function () {
 
-    grunt.log.writeln('RUN TASK: ' + this.name);
-
     // assert that server config exists
     this.requiresConfig(this.name + '.' + this.target + '.options.server');
     var server = this.options().server;
@@ -144,7 +142,6 @@ module.exports = function (grunt) {
 
     // path to SSH config file
     var sshConfigFile = process.env.HOME + '/.ssh/config';
-    grunt.log.writeln('=> Path to SSH config file: ' + sshConfigFile);
 
     // assemble SSH config
     var sshConfig = 'Host ' + server + '\n';
@@ -154,7 +151,8 @@ module.exports = function (grunt) {
 
     // Write SSH config
     grunt.file.write(sshConfigFile, sshConfig);
-    grunt.log.writeln('=> wrote config \n---\n' + sshConfig + '\n---\nto SSH config file');
+    grunt.log.writeln('=> SSH config: \n---\n' + sshConfig + '\n---\nto SSH config file');
+    grunt.log.writeln('=> SSH config written to: ' + sshConfigFile);
 
     // prod deployment
     if (this.target === 'prod') {
@@ -173,10 +171,7 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('build', 'run environment specific build', function (env) {
 
-    grunt.log.writeln('RUN TASK: ' + this.name);
-
     if (env === 'prod') {
-      grunt.log.writeln('=> run PROD build');
       return grunt.task.run([
         'compass:compressed', // Compass compile with compression
         'jekyll:noDrafts',    // Jekyll build without drafts
@@ -184,7 +179,6 @@ module.exports = function (grunt) {
       ]);
     }
     else if (env === 'test') {
-      grunt.log.writeln('=> run TEST build');
       return grunt.task.run([
         'compass:uncompressed', // Compass compile without compression
         'jekyll:drafts',        // Jekyll build with drafts
@@ -192,7 +186,6 @@ module.exports = function (grunt) {
       ]);
     }
 
-    grunt.log.writeln('=> run DEV build');
     return grunt.task.run([
       'compass:uncompressed', // Compass compile without compression
       'jekyll:drafts',        // Jekyll build with drafts
@@ -207,8 +200,6 @@ module.exports = function (grunt) {
    * Requires SSH user to be injected via --user=<username>.
    */
   grunt.registerTask('ci', 'Travis CI task', function () {
-
-    grunt.log.writeln('RUN TASK: ' + this.name);
 
     // Check documentation for CI and TRAVIS_BRANCH env variables:
     // http://docs.travis-ci.com/user/ci-environment/#Environment-variables
@@ -237,8 +228,6 @@ module.exports = function (grunt) {
    * This task is called prior to test deployment.
    */
   grunt.registerTask('addAuth', 'replace .htaccess file for test server deployment', function () {
-
-    grunt.log.writeln('RUN TASK: ' + this.name);
 
     // assert that user option has been set
     var user = grunt.option('user');
