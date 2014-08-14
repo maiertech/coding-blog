@@ -1,7 +1,7 @@
 language: ruby
 cache: bundler
 rvm: 2.1.1
-install: # override default "bundle install --deployment" and force install with PATH inclusion
+install:
 - bundle install
 - nvm install 0.10.30
 - npm install -g bower
@@ -15,5 +15,5 @@ script:
 - grunt ci --user=$USER
 env:
   global:
-  - secure: BE7CIal7UNLVBoyaL0fIvzHB9aROMBWzqTPW7OKXJr15Y4/x+MB4TqKJkDW5Ddq5kOE7kbtF3lftvo+5P5rwxvIdI64vPIuKXb0BUjvr7dS0B+UzYNBN6Y5/QHcsq9Aa366tG6vGi76iTVN1fWCnkBQ0Xq6jylTBcPq8FiD0okA=
-  - secure: MpIDfNRJYn5bxuirGPqyIWipn0BJR5G/TL0tpEDpMolDljH91lf455me5dGM1j6VTic4wGb8LmAi/P+qvSKUzBMl/LQxBiQE47z620Sjvm9PjTarczzCZU+s82ZsVZQDoncB2q0VAFhLa0gJd9nk0FUZDEpt1E6YVRDjUPYBAWM=
+  - secure: GAA53muGhqM+lBCS88NQW1j8OI42c7taDEdr0O4lmjNS6/nSrylJ311w6u3f6YjaMUagQpMrbg5+xY69dVzdpdXmbLPRCQ3yp3TTHZuV3Vjn6VxzoqZoL2xITyYpgHZJQQhyh20CIZv3ZcBElM2SDZ6iffyYVqXoHETgQrz17UI=
+  - secure: Muiu9PiGIRtLBEm0r+Ujx6GkF3qAEC/zokLcic2E+gdFEvoTdj86dXC6PylnIb5nchIf8Ikn/89BLgpr7RaNPgQl1B79WH65FKP0wtroqxV5ZNeMn8C3O6hDnBx8qT3AvDi9OBZKfL/43fENrGrxZSUN44I0eU0WErRgIHmXoPk=
