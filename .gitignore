@@ -7,7 +7,7 @@ _drafts
 css
 
 # development
-bower_components
+vendor
 node_modules
 
 # IntelliJ IDEA
