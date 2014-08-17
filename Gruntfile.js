@@ -115,6 +115,7 @@ module.exports = function (grunt) {
           '_layouts/**/*.html',
           '_posts/**/*.md',
           'css/**/*.css',
+          '_config.yml',
           '_data/**/*.yml'
         ],
         tasks: ['jekyll:drafts']
