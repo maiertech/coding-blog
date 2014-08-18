@@ -3,14 +3,10 @@ module.exports = function (grunt) {
   // load tasks
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-rsync');
-
-  // Jekyll configuration
-  var config = grunt.file.readYAML('_config.yml');
-  var subdomain = grunt.file.readYAML('_data/coding.yml');
-  var travis = grunt.file.readYAML('.travis.yml');
 
   // set file encoding
   grunt.file.defaultEncoding = 'utf8';
@@ -18,111 +14,137 @@ module.exports = function (grunt) {
   // task configurations
   grunt.initConfig({
 
-    browserSync: {
-      files: [
-        '**/*.html',
-        'css/*.css',
-        'js/**/*.js'
-      ],
-      options: {
-        watchTask: true,
-        server: {
-          baseDir: '_site'
-        }
-      }
-    },
-
-    config: config,
-
-    compass: {
-      options: {
-        config: 'config.rb'
-      },
-      uncompressed: {
-        options: {
-          outputStyle: 'expanded'
-        }
-      },
-      compressed: {
-        options: {
-          outputStyle: 'compressed'
-        }
-      }
-    },
-
-    deploy: {
-      prod: {
-        options: {
-          server: '<%= config.prodServer %>'
-        }
-      },
-      test: {
-        options: {
-          server: '<%= config.testServer %>'
-        }
-      }
-    },
-
-    jekyll: {
-      options: {
-        config: '_config.yml',
-        bundleExec: true
-      },
-      noDrafts: {
-        options: {
-          drafts: false
-        }
-      },
-      drafts: {
-        options: {
-          drafts: true
-        }
-      }
-    },
-
-    rsync: {
-      options: {
-        args: ['-vv'],
-        compareMode: 'checksum',
-        src: '_site/',
-        ssh: true,
-        syncDest: true,
-        recursive: true
-      },
-      prod: {
-        options: {
-          host: '<%= config.prodServer %>',
-          dest: '~/' + '<%= config.prodServer %>'
-        }
-      },
-      test: {
-        options: {
-          host: '<%= config.testServer %>',
-          dest: '~/' + '<%= config.testServer %>'
-        }
-      }
-    },
-
-    watch: {
-      compass: {
-        files: '_scss/**/*.scss',
-        tasks: ['compass:uncompressed']
-      },
-      jekyll: {
+      browserSync: {
         files: [
-          'index.html',
-          '_includes/**/*.html',
-          '_layouts/**/*.html',
-          '_posts/**/*.md',
-          'css/**/*.css',
-          '_config.yml',
-          '_data/**/*.yml'
+          '**/*.html',
+          'css/*.css',
+          'js/**/*.js'
         ],
-        tasks: ['jekyll:drafts']
-      }
-    }
+        options: {
+          watchTask: true,
+          server: {
+            baseDir: '_site'
+          }
+        }
+      },
 
-  });
+      compass: {
+        options: {
+          config: 'config.rb'
+        },
+        uncompressed: {
+          options: {
+            outputStyle: 'expanded'
+          }
+        },
+        compressed: {
+          options: {
+            outputStyle: 'compressed'
+          }
+        }
+      },
+
+      copy: {
+        fastclick: {
+          files: {
+            '_site/js/fastclick.js': '_bower_components/fastclick/lib/fastclick.js'
+          }
+        },
+        foundation: {
+          files: {
+            '_site/js/foundation.js': '_bower_components/foundation/js/foundation.js',
+            '_site/js/foundation.topbar.js': '_bower_components/foundation/js/foundation/foundation.topbar.js'
+          }
+        },
+        modernizr: {
+          files: {
+            '_site/js/modernizr.js': '_bower_components/modernizr/modernizr.js'
+          }
+        },
+        jquery: {
+          files: {
+            '_site/js/jquery.js': '_bower_components/jquery/dist/jquery.js'
+          }
+        },
+        options: {
+          nonull: true
+        }
+      },
+
+      deploy: {
+        prod: {
+          options: {
+            server: 'coding.maier.asia'
+          }
+        },
+        test: {
+          options: {
+            server: 'coding-test.maier.asia'
+          }
+        }
+      },
+
+      jekyll: {
+        options: {
+          config: '_config.yml',
+          bundleExec: true
+        },
+        noDrafts: {
+          options: {
+            drafts: false
+          }
+        },
+        drafts: {
+          options: {
+            drafts: true
+          }
+        }
+      },
+
+      rsync: {
+        options: {
+          args: ['-vv'],
+          compareMode: 'checksum',
+          src: '_site/',
+          ssh: true,
+          syncDest: true,
+          recursive: true
+        },
+        prod: {
+          options: {
+            host: 'coding.maier.asia',
+            dest: '~/coding.maier.asia'
+          }
+        },
+        test: {
+          options: {
+            host: 'coding-test.maier.asia',
+            dest: '~/coding-test.maier.asia'
+          }
+        }
+      },
+
+      watch: {
+        compass: {
+          files: '_scss/**/*.scss',
+          tasks: ['compass:uncompressed']
+        },
+        jekyll: {
+          files: [
+            'index.html',
+            '_includes/**/*.html',
+            '_layouts/**/*.html',
+            '_posts/**/*.md',
+            'css/**/*.css',
+            '_config.yml',
+            '_data/**/*.yml'
+          ],
+          tasks: ['jekyll:drafts']
+        }
+      }
+
+    }
+  );
 
   /**
    * Deploy task.
@@ -176,6 +198,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'compass:compressed', // Compass compile with compression
         'jekyll:noDrafts',    // Jekyll build without drafts
+        'copy',               // copy JavaScript files
         'deploy:prod'         // Deploy to prod server
       ]);
     }
@@ -183,6 +206,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'compass:uncompressed', // Compass compile without compression
         'jekyll:drafts',        // Jekyll build with drafts
+        'copy',                 // copy JavaScript files
         'deploy:test'           // Deploy to test server
       ]);
     }
@@ -190,6 +214,7 @@ module.exports = function (grunt) {
     return grunt.task.run([
       'compass:uncompressed', // Compass compile without compression
       'jekyll:drafts',        // Jekyll build with drafts
+      'copy',                 // copy JavaScript files
       'browserSync',          // Launch BrowserSync and watch build dir for changes
       'watch'                 // Watch Jekyll dir and trigger Compass compile or Jekyll build when files change
     ]);
