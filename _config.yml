@@ -1,8 +1,7 @@
-subdomain: coding
-prodServer: coding.maier.asia
-testServer: coding-test.maier.asia
-
-# config
+name: Coding Zeit
+tagline: A developer blog on web technologies.
+url: https://coding.maier.asia
+tracking_id: 53055c2e92c6ac4a4f003ed6
 encoding: utf-8
 timezone: America/New_York
 highlighter: pygments
