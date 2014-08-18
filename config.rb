@@ -1,5 +1,5 @@
 # Path to Foundation
-add_import_path "vendor/foundation/scss"
+add_import_path "_bower_components/foundation/scss"
 
 # Set paths
 http_path = "/"
