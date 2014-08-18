@@ -8,7 +8,7 @@ timezone: America/New_York
 highlighter: pygments
 
 include: ['.htaccess']
-exclude: ['bower.json', 'coding.maier.asia.iml', 'config.rb', 'Gemfile', 'Gemfile.lock', 'Gruntfile.js', 'package.json', 'README.md']
+exclude: ['bower.json', 'coding.maier.asia.iml', 'config.rb', 'Gemfile', 'Gemfile.lock', 'Gruntfile.js', 'node_modules', 'package.json', 'README.md']
 
 # plugins
 gems:
