@@ -1,3 +1,27 @@
 // Allows the use of rem-calc() or lower-bound() in settings
 @import "foundation/functions";
 
+// GLOBAL - colors
+$primary-color: hsl(220, 50, 40);
+$primary-color-dark: scale_color($primary-color, $lightness: -15%);
+$primary-color-light: scale_color($primary-color, $lightness: 15%);
+$secondary-color: hsl(40, 100, 50);
+$secondary-color-dark: scale_color($secondary-color, $lightness: -15%);
+$secondary-color-light: scale_color($secondary-color, $lightness: 15%);
+
+// TYPE
+$h5-font-size: rem-calc(18);
+$subheader-font-color: $secondary-color;
+
+// TOP BAR
+$topbar-bg: $primary-color;
+$topbar-title-font-size: $h5-font-size;
+$topbar-title-weight: bold;
+$topbar-link-bg-hover: $primary-color-light;
+
+// OFF CANVAS
+$tabbar-bg: $primary-color;
+$tabbar-left-section-border: 1px solid $primary-color-dark;
+$off-canvas-bg: $tabbar-bg;
+$off-canvas-link-color: #fff;
+$off-canvas-link-border-bottom: 1px solid $primary-color-dark;

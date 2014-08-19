@@ -3,7 +3,11 @@
 @import "settings";
 @import "foundation";
 
-@import "foundation/components/top-bar",
-"foundation/components/offcanvas",
+@import "foundation/components/offcanvas",
+"foundation/components/top-bar",
 "foundation/components/visibility";
+
+header {
+  margin-bottom: 1em;
+}
 

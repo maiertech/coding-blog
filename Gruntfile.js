@@ -53,6 +53,7 @@ module.exports = function (grunt) {
         foundation: {
           files: {
             '_site/js/foundation.js': '_bower_components/foundation/js/foundation.js',
+            '_site/js/foundation.offcanvas.js': '_bower_components/foundation/js/foundation/foundation.offcanvas.js',
             '_site/js/foundation.topbar.js': '_bower_components/foundation/js/foundation/foundation.topbar.js'
           }
         },
@@ -132,6 +133,7 @@ module.exports = function (grunt) {
         jekyll: {
           files: [
             'index.html',
+            '_drafts/**/*.html',
             '_includes/**/*.html',
             '_layouts/**/*.html',
             '_posts/**/*.md',
@@ -139,7 +141,7 @@ module.exports = function (grunt) {
             '_config.yml',
             '_data/**/*.yml'
           ],
-          tasks: ['jekyll:drafts']
+          tasks: ['jekyll:drafts', 'copy']
         }
       }
 

@@ -5,82 +5,30 @@
 
 <body>
 
-{% include header.html %}
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
 
-<!-- Nav Bar -->
-<div class="row">
-  <div class="large-12 columns">
-    <div class="nav-bar right">
-      <ul class="button-group">
-        <li><a href="#" class="button">Link 1</a></li>
-        <li><a href="#" class="button">Link 2</a></li>
-        <li><a href="#" class="button">Link 3</a></li>
-        <li><a href="#" class="button">Link 4</a></li>
-      </ul>
-    </div>
-    <h1>Blog
-      <small>{{ site.name }}</small>
-    </h1>
-    <hr/>
-  </div>
-</div>
-<!-- End Nav -->
+    {% include nav.html %}
+    {% include header.html %}
 
-<!-- Main Page Content and Sidebar -->
-<div class="row">
-
-  <!-- Main Blog Content -->
-  <div class="large-9 columns" role="content">
-    <article>
-
-      {{ content }}
-
-    </article>
-  </div>
-
-  <!-- Sidebar -->
-
-  <aside class="large-3 columns">
-
-    <h5>Categories</h5>
-    <ul class="side-nav">
-      <li><a href="#">News</a></li>
-      <li><a href="#">Code</a></li>
-      <li><a href="#">Design</a></li>
-      <li><a href="#">Fun</a></li>
-      <li><a href="#">Weasels</a></li>
-    </ul>
-
-    <div class="panel">
-      <h5>Featured</h5>
-
-      <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon
-        nulla pork belly cupidatat meatloaf cow.</p>
-      <a href="#">Read More →</a>
-    </div>
-
-  </aside>
-</div>
-
-<footer class="row">
-  <div class="large-12 columns">
-    <hr/>
     <div class="row">
-      <div class="large-6 columns">
-        <p>© Copyright no one at all. Go to town.</p>
-      </div>
-      <div class="large-6 columns">
-        <ul class="inline-list right">
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-          <li><a href="#">Link 4</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
 
+      <main class="large-9 columns">
+        {{ content }}
+      </main>
+
+      <aside class="large-3 columns">
+        {% include sidenav.html %}
+      </aside>
+    </div>
+
+    {% include footer.html %}
+
+    <a class="exit-off-canvas"></a>
+  </div>
+</div>
+
+{% include scripts.html %}
 {% include analytics.html %}
 
 </body>
