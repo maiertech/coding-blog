@@ -241,14 +241,17 @@ module.exports = function (grunt) {
       grunt.fail.fatal('TRAVIS_BRANCH env variable not set!');
     }
 
-    if (branch === 'master') { // deploy master to prod env
+    if (branch === 'master') { // deploy branch 'master' to production server
       grunt.log.writeln('=> run build:prod');
       return grunt.task.run(['build:prod']);
     }
-
-    // deploy any other branch to test env
-    grunt.log.writeln('=> run build:test');
-    return grunt.task.run(['build:test']);
+    else if (branch === 'test') { // deploy branch 'test' to test server
+      grunt.log.writeln('=> run build:test');
+      return grunt.task.run(['build:test']);
+    }
+    else {
+      grunt.fail.fatal('Branch ' + branch + ' is not a deployment branch!');
+    }
   });
 
   /**

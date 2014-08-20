@@ -13,6 +13,10 @@ before_script:
 - chmod 600 ~/.ssh/deploy.key
 script:
 - grunt ci --user=$USER
+branches:
+  only:
+    - master
+    - test
 env:
   global:
   - secure: GAA53muGhqM+lBCS88NQW1j8OI42c7taDEdr0O4lmjNS6/nSrylJ311w6u3f6YjaMUagQpMrbg5+xY69dVzdpdXmbLPRCQ3yp3TTHZuV3Vjn6VxzoqZoL2xITyYpgHZJQQhyh20CIZv3ZcBElM2SDZ6iffyYVqXoHETgQrz17UI=
