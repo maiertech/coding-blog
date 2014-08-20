@@ -263,12 +263,9 @@ module.exports = function (grunt) {
       grunt.fail.fatal('User is required to replace .htaccess file.');
     }
 
-    // read name from subdomain configuration
-    var authName = subdomain.name + ' (Test Server)';
-
     // overwrite .htaccess in build dir
     var replace = {
-      authName: authName,
+      authName: 'coding.maier.asia (Test Server)',
       user: user
     }
     htaccess = grunt.template.process(grunt.file.read('_deploy/.htaccess'), {data: replace});
