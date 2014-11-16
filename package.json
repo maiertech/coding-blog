@@ -1,6 +1,6 @@
 {
   "name": "coding.maier.asia",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "author": "Thilo Maier",
   "license": {
     "type": "GPLv3",
@@ -11,12 +11,10 @@
     "url": "git@github.com:mdotasia/coding.maier.asia.git"
   },
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-browser-sync": "~1.3.5",
-    "grunt-contrib-compass": "~0.9.1",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-jekyll": "~0.4.2",
-    "grunt-rsync": "~0.6.2"
-  }
+    "browser-sync": "~1.6.5",
+    "gulp": "~3.8.10",
+    "gulp-debug": "~1.0.1",
+    "run-sequence": "~1.0.1"
+  },
+  "private": true
 }
