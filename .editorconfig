@@ -1,4 +1,6 @@
 # editorconfig.org
+
+# top-most EditorConfig file
 root = true
 
 [*]
@@ -9,4 +11,12 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.md]
-trim_trailing_whitespace = false
+trim_trailing_whitespace = false # trailing whitespace is part of MD syntax
+
+[*.sh]
+end_of_line = lf # bash script files run on Vagrant VM and require LF even when working on Windows
+
+[{.ruby-version,.ruby-gemset,.nvmrc}]
+# these files may not have more than 1 line when read from bash script and require LF
+end_of_line = lf
+insert_final_newline = false

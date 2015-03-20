@@ -271,4 +271,4 @@ PLATFORMS
 DEPENDENCIES
   github-pages (~> 29)
   octopress-genesis-theme!
-  travis (~> 1.7.4)
+  travis (~> 1.7)

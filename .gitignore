@@ -1,18 +1,6 @@
-# Jekyll
 _site
 _drafts
-
-# Sass
+.git
 .sass-cache
-css
-
-# development
-_bower_components
-node_modules
-
-# IntelliJ IDEA
-.idea
-*.iml
-
-# Mac
-*.DS_Store
+.vagrant
+.DS_Store
