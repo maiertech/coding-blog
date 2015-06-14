@@ -1,8 +1,17 @@
+# coding: utf-8
 source 'https://rubygems.org'
 
-gem 'github-pages', '~> 29'
-gem 'octopress-genesis-theme', :git => 'https://github.com/octopress/genesis-theme.git', :ref => 'ee69a01cea'
+gem 'mdotasia-theme',
+    git: 'https://github.com/mdotasia/mdotasia-theme.git',
+    branch: 'master'
+
+group :deploy do
+  gem 'html-proofer'
+  gem 'rake'
+end
 
 group :development do
-  gem 'travis', '~> 1.7'
+  gem 'octopress-debugger'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
