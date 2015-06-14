@@ -15,6 +15,7 @@ exclude:
   - 'node_modules'
   - '*.json'
   - 'README.md'
+  - Rakefile
 
 gems:
   - jekyll-sitemap
