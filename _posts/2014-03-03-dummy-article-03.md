@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: The Insider's Guide to Coding
 ---
 

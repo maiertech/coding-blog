@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: How Hollywood Got Coding All Wrong
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: 9 Surprising Ways Coding Is More Refreshing than New Socks
 ---
 

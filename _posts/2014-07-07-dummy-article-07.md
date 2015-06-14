@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: The Evolution of Coding
 ---
 

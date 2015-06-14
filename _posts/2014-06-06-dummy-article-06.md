@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: How Coding Isn't as Bad as You Think
 ---
 

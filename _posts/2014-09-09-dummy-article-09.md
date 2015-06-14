@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: 10 Freaky Reasons Coding Could Get You Fired
 ---
 

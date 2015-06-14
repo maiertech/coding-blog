@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: Coding Taboos You Should Break
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: 13 Things That Won't Happen in Coding
 ---
 

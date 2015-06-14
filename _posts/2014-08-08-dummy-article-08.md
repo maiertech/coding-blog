@@ -1,5 +1,4 @@
 ---
-layout: theme:post
 title: 9 Facts about Coding That Will Impress Your Friends
 ---
 
