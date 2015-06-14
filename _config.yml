@@ -11,6 +11,10 @@ timezone: America/New_York
 # google_analytics_id:
 # google_site_verification_id:
 
+collections:
+  jekyll-sites:
+    output: false
+
 defaults:
   - scope:
       path: ''
