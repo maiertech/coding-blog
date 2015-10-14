@@ -1,8 +1,4 @@
+.cache/
+node_modules/
+public
 .DS_Store
-_site
-.git
-.ink-cache
-.jekyll-metadata
-.sass-cache
-_site
-.tags

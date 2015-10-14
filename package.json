@@ -1,0 +1,72 @@
+{
+  "name": "coding-blog",
+  "description": "Coding for the Web Blog (made with Gatsby)",
+  "version": "0.0.1",
+  "author": "Thilo Maier <git@maier.asia>",
+  "bugs": {
+    "url": "https://github.com/mdotasia/coding-blog/issues"
+  },
+  "homepage": "https://github.com/mdotasia/coding-blog#readme",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdotasia/coding-blog.git"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-links && gh-pages -d public",
+    "format": "eslint \"**/*.{js,jsx}\" --fix",
+    "lint": "eslint \"**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "gatsby": "^1.5.0",
+    "gatsby-link": "^1.5.2",
+    "gatsby-plugin-catch-links": "^1.0.1",
+    "gatsby-plugin-offline": "^1.0.9",
+    "gatsby-plugin-react-helmet": "^1.0.1",
+    "gatsby-plugin-styled-components": "^1.0.5",
+    "gatsby-remark-autolink-headers": "^1.4.1",
+    "gatsby-remark-copy-linked-files": "^1.5.0",
+    "gatsby-remark-smartypants": "^1.4.1",
+    "gatsby-source-filesystem": "^1.4.1",
+    "gatsby-transformer-remark": "^1.1.0",
+    "lodash": "^4.17.2",
+    "mda-components": "^0.0.7",
+    "moment": "^2.18.1",
+    "polished": "^1.3.0",
+    "prop-types": "^15.5.10",
+    "react-helmet": "^5.1.3",
+    "react-responsive-grid": "^0.3.3",
+    "react-typography": "^0.15.0",
+    "rebass": "^1.0.3",
+    "safe-access": "^0.1.0",
+    "styled-components": "^2.1.1",
+    "typeface-merriweather": "^0.0.31",
+    "typography": "^0.15.12",
+    "typography-theme-us-web-design-standards": "^0.15.10",
+    "underscore.string": "^3.2.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-graphql": "^1.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.3.0",
+    "gh-pages": "^1.0.0",
+    "npm-run-all": "^4.0.2",
+    "prettier": "^1.5.3"
+  },
+  "private": true
+}
