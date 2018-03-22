@@ -1,7 +1,5 @@
-# The Coding Zeit Blog
+# coding-blog
 
-[![Build Status](https://travis-ci.org/mdotasia/coding.maier.asia.svg?branch=master)](https://travis-ci.org/mdotasia/coding.maier.asia)
-[![Dependency Status](https://gemnasium.com/mdotasia/coding.maier.asia.svg)](https://gemnasium.com/mdotasia/coding.maier.asia)
-[![Code Climate](https://codeclimate.com/github/mdotasia/coding.maier.asia/badges/gpa.svg)](https://codeclimate.com/github/mdotasia/coding.maier.asia)
+This is the repository for the launch of my blog [Coding for the Web](https://www.codingfortheweb.blog). This project started a s a [Jekyll](https://jekyllrb.com) project, then temporarily turned into a [Metalsmith](http://www.metalsmith.io/) project and now finally I have settled on [Gatsby](https://github.com/gatsbyjs/gatsby) as my preferred static site generator.
 
-This is the repository for my blog [Coding Zeit](http://coding.maier.asia). I generate the blog with [Jekyll](http://jekyllrb.com/) using the [Octopress Genesis Theme](https://github.com/octopress/genesis-theme). I use [Gulp](http://gulpjs.com/) to pull everything together and publish the blog using [Travis CI](https://travis-ci.org/).  
+This blog uses [gatsby-starter-blog](https://github.com/gatsbyjs/gatsby-starter-blog) and the template will slowly evolve from there.
