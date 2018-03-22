@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "name": "coding-blog",
+  "description": "Coding for the Web Blog (made with Gatsby).",
+  "version": "0.0.0",
+  "author": "Thilo Maier <git@maier.asia>",
+  "bugs": {
+    "url": "https://github.com/mdotasia/coding-blog/issues"
+  },
+  "homepage": "https://www.codingfortheweb.blog",
+  "keywords": ["gatsby"],
+  "license": "MIT",
+  "repository": "mdotasia/coding-blog",
+  "scripts": {
+    "develop": "gatsby develop",
+    "debug": "node --inspect-brk node_modules/.bin/gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-links && gh-pages -d public",
+    "format": "prettier --write \"src/**/*.{js,jsx,md}\"",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "pretty-quick --staged"
+  },
+  "dependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-preset-react-app": "^3.1.1",
+    "eslint": "^4.1.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "gatsby": "^1.9.127",
+    "gatsby-link": "^1.6.30",
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-source-filesystem": "^1.5.9",
+    "gatsby-transformer-remark": "^1.7.23",
+    "gh-pages": "^1.0.0",
+    "husky": "^0.14.3",
+    "prettier": "^1.11.1",
+    "pretty-quick": "^1.4.1",
+    "prop-types": "^15.5.10"
+  },
+  "babel": {
+    "presets": ["react-app"]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}
