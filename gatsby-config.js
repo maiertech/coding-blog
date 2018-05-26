@@ -1,16 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Default Starter"
+    author: "Thilo Maier",
+    title: "Coding for the Web",
+    siteUrl: "https://www.codingfortheweb.blog"
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-remark`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `src`,
-        path: `${__dirname}/src`
+        name: "content",
+        path: `${__dirname}/content/`
       }
-    }
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-autolink-headers", "gatsby-remark-smartypants"]
+      }
+    },
+    "gatsby-plugin-blog",
+    "gatsby-plugin-react-helmet"
   ]
 };

@@ -3,48 +3,48 @@
   "name": "coding-blog",
   "description": "Coding for the Web Blog (made with Gatsby).",
   "version": "0.0.0",
-  "author": "Thilo Maier <git@maier.asia>",
-  "bugs": {
-    "url": "https://github.com/mdotasia/coding-blog/issues"
+  "author": {
+    "name": "Thilo Maier",
+    "email": "git@maier.asia"
   },
   "homepage": "https://www.codingfortheweb.blog",
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
-  "repository": "mdotasia/coding-blog",
   "scripts": {
-    "develop": "gatsby develop",
-    "debug": "node --inspect-brk node_modules/.bin/gatsby develop",
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-links && gh-pages -d public",
-    "format": "prettier --write \"src/**/*.{js,jsx,md}\"",
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gatsby develop",
+    "build": "rimraf ./public && gatsby build",
+    "format": "pretty-quick",
+    "inspect": "node --inspect-brk node_modules/.bin/gatsby develop",
+    "lint": "eslint --ignore-path .gitignore .",
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
+    "@mdotasia/components": "^0.5.0",
+    "gatsby": "^2.0.0-beta.61",
+    "gatsby-plugin-react-helmet": "^3.0.0-beta.4",
+    "gatsby-remark-autolink-headers": "^2.0.0-beta.4",
+    "gatsby-remark-smartypants": "^2.0.0-beta.3",
+    "gatsby-source-filesystem": "^2.0.1-beta.10",
+    "gatsby-transformer-remark": "^2.1.1-beta.5",
+    "prop-types": "^15.5.10",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-helmet": "^5.2.0",
+    "rehype-react": "^3.0.3"
+  },
+  "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "babel-preset-react-app": "^3.1.1",
     "eslint": "^4.1.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.34.1",
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "gatsby": "^1.9.127",
-    "gatsby-link": "^1.6.30",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-source-filesystem": "^1.5.9",
-    "gatsby-transformer-remark": "^1.7.23",
-    "gh-pages": "^1.0.0",
     "husky": "^0.14.3",
     "prettier": "^1.11.1",
     "pretty-quick": "^1.4.1",
-    "prop-types": "^15.5.10"
-  },
-  "babel": {
-    "presets": ["react-app"]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "rimraf": "^2.6.2"
   }
 }
