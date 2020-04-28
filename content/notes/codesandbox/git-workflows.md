@@ -37,6 +37,7 @@ seen as a branch.
 - If you have write permission, every commit goes to master directly.
 
 This workflow is bad when you have write access to the linked repository. You
-will end up with unwanted commits to master. The `Open PR` button creates a PR
-from whatever is in you editor. It is not aware of previous or subsequent
-commits. You cannot commit into a previously opened PR.
+will end up with unwanted commits to master. The `Commit` and `Open PR` buttons
+are completley unaware of each other. `Commit` commits any changes to master.
+`Open PR` creates a PR with all changes. `Open PR` not aware of previous or
+subsequent commits. `Commit` will not commit into a previously opened PR.
