@@ -1,16 +1,14 @@
 {
   "private": true,
-  "name": "coding-blog",
-  "description": "My coding blog (made with Gatsby).",
+  "name": "codesandbox-note",
+  "description": "",
   "version": "0.0.0",
   "author": {
     "name": "Thilo Maier",
     "email": "git@maier.asia"
   },
   "homepage": "https://www.codingfortheweb.blog",
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": [],
   "license": "MIT",
   "scripts": {
     "start": "gatsby develop",
