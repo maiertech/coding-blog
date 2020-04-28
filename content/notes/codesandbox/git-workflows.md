@@ -34,5 +34,5 @@ seen as a branch.
   [githubbox.com](https://github.com/dferber90/githubbox)).
 - The created sandbox is not editable.
 - Fork sandbox to make it editable.
-- With write permission every commit goes to master directly.
-- Test
+- With write permission every commit goes to master directly, even after opening
+  a PR.
