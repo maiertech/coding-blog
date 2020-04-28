@@ -1,24 +1,15 @@
 module.exports = {
   siteMetadata: {
     author: "Thilo Maier",
-    title: "Coding for the Web",
-    siteUrl: "https://www.codingfortheweb.blog"
+    title: "C is for Coding",
+    siteUrl: "https://coding.maier.tech",
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-theme-notes`,
       options: {
-        name: "content",
-        path: `${__dirname}/content/`
-      }
+        basePath: `/notes`,
+      },
     },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: ["gatsby-remark-autolink-headers", "gatsby-remark-smartypants"]
-      }
-    },
-    "gatsby-plugin-blog",
-    "gatsby-plugin-react-helmet"
-  ]
+  ],
 };
