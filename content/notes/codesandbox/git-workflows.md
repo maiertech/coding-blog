@@ -2,42 +2,55 @@
 
 Vercel's concept of
 [immutable deployments](https://vercel.com/docs/v2/platform/deployments)
-requires a mental shift of how I think about deployments. I used to think about
-deployments as an expensive resource to be used sparingly. Immutable deployments
-turn deployments into a commodity. Vercel creates a new deployment every single
-time and even keeps the old one around forever.
+redfines deployments as a commodity that is meant to be used lavishly. Likewise,
+Codesandbox redefines an editor, such as a locallly installed
+[VS Code](https://code.visualstudio.com/), as a commodity that is meant to be
+used lavishly. Condesandbox makes it easy to create, fork and discard sandboxes.
+Lavish use of deployments or editors makes it possible to redefine traditionsl
+workflows.
 
-Codesandbox is different from a locally installed editor such as
-[VS Code](https://code.visualstudio.com/). I can have as many sandboxes as I
-want. And just like immutable deployments, the best way to use sandboxes is by
-being wasteful. I can fork and discard sandboxes as I please.
+## GitHub view
 
-One feature I thought Codesandbox is missing is a better Git integration (like
-the one VS Code has). But the
-[Codesandbox documentation points out](https://codesandbox.io/docs/git#committing-and-opening-prs)
-that a sandbox (forked from a sandbox created from a GitHub repository), can be
-seen as a branch.
+Condesandbox's GitHub view is minimalistic. It features two buttons: `Commit`
+and `OpenPR`. At first glance, it looks like Codesandbox is missing branches.
+But it handles branches differently:
 
-## The branch workflow
-
-- Create a branch in repository on github.com.
-- Create a new sandbox from the branch's URL (use
+- You can create an immutable sandbox from any GitHub repository URL (including
+  branch URLs) as described
+  [here](https://codesandbox.io/docs/importing#import-from-github) or by using
   [githubbox.com](https://github.com/dferber90/githubbox)).
-- The created sandbox is not editable.
-- Fork sandbox to make it editable.
-- Rename the sandbox with the branch name.
-- Commit often or create PR.
+- You can make this immutable sandbox editable by forking it. A fork maintains a
+  link to the underlying GitHub repository.
+- As mentioned
+  [here](https://codesandbox.io/docs/git#committing-and-opening-prs), a forked
+  sandbox can be seen as a branch.
 
-## The no-branch workflow
+The `Commit` button commits all changes to the linked repository. The `Open PR`
+button creates a pull request that contains all changes. This creates a new
+branch for the pull request with target `master`. Your sandbox then switches
+context to a new immutable sandbox created form the new branch.
 
-- Create new sandbox from master (use
-  [githubbox.com](https://github.com/dferber90/githubbox)).
-- The created sandbox is not editable.
-- Fork sandbox to make it editable.
-- If you have write permission, every commit goes to master directly.
+Once you have created a pull request, you cannot push other commits to it. You
+would have to create a new pull request (lavish use of pull requests).
 
-This workflow is bad when you have write access to the linked repository. You
-will end up with unwanted commits to master. The `Commit` and `Open PR` buttons
-are completley unaware of each other. `Commit` commits any changes to master.
-`Open PR` creates a PR with all changes. `Open PR` not aware of previous or
-subsequent commits. `Commit` will not commit into a previously opened PR.
+## Git workflows
+
+### The no-branch workflow
+
+- Create an immutable sandbox from `master`.
+- Fork the sandbox to make it editable.
+- If you have write permission to the linked repository, every commit goes to
+  `master` and you might end up with unwanted commits on `master`.
+- If you do not have write permission to the linked repository, you can still
+  open a pull request.
+- After you create the pull request, you can discard your sandbox.
+
+### The branch workflow
+
+- Create an immutable sandbox from a branch.
+- Fork the sandbox to make it editable.
+- Commits go to the branch from which the sandbox was created.
+- If you create a pull request on github.com and not using the `Open PR` button,
+  any subsequent commits update the pull request.
+- If you create a pull request with the `Open PR` button, this will create a new
+  branch for the pull request and your sandbox will switch to the new branch.
