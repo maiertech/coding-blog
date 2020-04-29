@@ -25,13 +25,11 @@ But it handles branches differently:
   [here](https://codesandbox.io/docs/git#committing-and-opening-prs), a forked
   sandbox can be seen as a branch.
 
-The `Commit` button commits all changes to the linked repository. The `Open PR`
-button creates a pull request that contains all changes. This creates a new
-branch for the pull request with target `master`. Your sandbox then switches
-context to a new immutable sandbox created form the new branch.
-
-Once you have created a pull request, you cannot push other commits to it. You
-would have to create a new pull request (lavish use of pull requests).
+The `Commit` button commits all changes to the linked repository. Before hitting
+the `Open PR` button you need to commit all changes that should be part of the
+pull request. This creates a new branch for the pull request with the branch
+from which the sandbox was created as target. Your sandbox then switches context
+to a new immutable sandbox created form this new branch.
 
 ## Git workflows
 
@@ -42,15 +40,17 @@ would have to create a new pull request (lavish use of pull requests).
 - If you have write permission to the linked repository, every commit goes to
   `master` and you might end up with unwanted commits on `master`.
 - If you do not have write permission to the linked repository, you can still
-  open a pull request.
-- After you create the pull request, you can discard your sandbox.
+  open a pull request that contains all changes.
+- After you have created the pull request, you can discard your sandbox.
 
 ### The branch workflow
 
 - Create an immutable sandbox from a branch.
 - Fork the sandbox to make it editable.
-- Commits go to the branch from which the sandbox was created.
-- If you create a pull request on github.com and not using the `Open PR` button,
-  any subsequent commits update the pull request.
+- Commits go to the branch from which the sandbox has been created.
+- If you create a pull request on github.com (not using Codesandbox's `Open PR`
+  button), then any subsequent commits also update the pull request.
 - If you create a pull request with the `Open PR` button, this will create a new
   branch for the pull request and your sandbox will switch to the new branch.
+  This is a potential pitfall since you would expect the pull request to be
+  created from the branch from which you created the sandbox.
