@@ -1,3 +1,3 @@
 # coding-blog
 
-My digital garden for anything coding related.
+My digital garden for web development.
