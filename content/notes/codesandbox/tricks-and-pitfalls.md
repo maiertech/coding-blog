@@ -1,4 +1,4 @@
-# Tricks and pitfalls in Codesandbox
+# Tricks and pitfalls in CodeSandbox
 
 ## Renaming a sandbox
 
@@ -10,3 +10,10 @@ sandboxes.
 Renaming a sandbox from the dashboard currently does not alter `package.json`.
 Codesandbox support considers this to be a bug that they plan to fix. Therefore,
 if you need to organize your sandboxes, use folders
+
+## Open in CodeSandbox badge
+
+Combine [githubbox.com](https://githubbox.com) with
+[shields.io](https://shields.io/):
+
+https://github.com/dferber90/githubbox/blob/master/README.md
