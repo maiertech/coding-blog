@@ -17,3 +17,12 @@ Combine [githubbox.com](https://githubbox.com) with
 [shields.io](https://shields.io/):
 
 https://github.com/dferber90/githubbox/blob/master/README.md
+
+## Conflict with Save to Pocket Chrome extension
+
+The
+[Save to Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj)
+Chrome extension uses `⌘ ⇧ P` to activate. This conflicts with `⌘ ⇧ P` in
+CodeSandbox. To deactivate `⌘ ⇧ P`, load extension's
+[options](chrome-extension://niloccemoadcdkdjlinkgdfekeahmflj/options.html) in
+Chrome and leave shortcut empty.
