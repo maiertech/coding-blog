@@ -1,21 +1,21 @@
 {
   "private": true,
   "name": "coding-blog",
-  "description": "",
+  "description": "My digital garden for web development.",
   "version": "0.0.0",
-  "author": {
-    "name": "Thilo Maier",
-    "email": "git@maier.asia"
-  },
-  "homepage": "https://www.codingfortheweb.blog",
-  "keywords": [],
+  "author": "Thilo Maier <git@maier.asia>",
+  "homepage": "https://coding.maier.dev",
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "scripts": {
-    "start": "gatsby develop",
-    "build": "rm -rf ./public && gatsby build",
-    "clean": "gatsby clean"
+    "start": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
+    "build": "rm -rf ./public && cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby build",
+    "clean": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby clean"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "gatsby": "^2.21.1",
     "gatsby-theme-notes": "^1.3.1",
     "prop-types": "^15.7.2",
