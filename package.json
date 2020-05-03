@@ -10,7 +10,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
+    "develop": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
     "build": "rm -rf ./public && cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby build",
     "clean": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby clean"
   },
