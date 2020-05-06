@@ -48,6 +48,11 @@ a specific Node version with
 If you use `yarn`, to install package `node`, the Node binary does not get
 downloaded. You need to run
 
-    yarn --check-files
+    yarn --check-files --ignore-scripts
 
-to fix this.
+to fix this. To automate this workaround, add script
+
+    "postinstall": "yarn --check-files --ignore-scripts"
+
+to your `package.json` (as seen in
+[this comment](https://github.com/yarnpkg/yarn/issues/3421#issuecomment-443972019)).
