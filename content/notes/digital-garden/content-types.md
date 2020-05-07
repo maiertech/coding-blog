@@ -1,6 +1,8 @@
 # Content types
 
-My content types follow [Chris Biscardi](https://www.christopherbiscardi.com/)'s pos [Content Production](https://www.christopherbiscardi.com/content-production). Chris has implemented his personal website as a digital garden. The term digital garden was coined by [Tom Critchlow](https://tomcritchlow.com/2018/10/10/of-gardens-and-wikis/) and a prominent early adopter is [Joel Hooks](https://joelhooks.com/digital-garden) from [Egghead](https://egghead.io/).
+My content types follow [Chris Biscardi](https://www.christopherbiscardi.com/)'s
+post on
+[Content Production](https://www.christopherbiscardi.com/content-production).
 
 ## `note`
 
@@ -8,7 +10,8 @@ My content types follow [Chris Biscardi](https://www.christopherbiscardi.com/)'s
 - Notes are organized in non-nested categories, not by date.
 - The main benefits od notes are curation and interlinks.
 - Notes are public, but not actively shared or promoted.
-- Notes can originate from every day work, reading an article, listening to a podcast, or watching a tutorial video.
+- Notes can originate from every day work, reading an article, listening to a
+  podcast, or watching a tutorial video.
 
 ## `post`
 
