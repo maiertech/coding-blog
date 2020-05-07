@@ -1,5 +1,9 @@
 # Tricks and pitfalls in CodeSandbox
 
+## `npm` support
+
+CodeSandbox does not support npm, but Yarn only.
+
 ## Renaming a sandbox
 
 When you rename a sandbox from within the sandbox, this also changes the `name`
