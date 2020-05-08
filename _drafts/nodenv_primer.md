@@ -28,4 +28,5 @@ nodenv rehash
 
 Clean, simple and non-intrusive.
 
-Here is the problem with Atom: This brings us back to the atom dependencies project from which you should start Atom to get everything right.
+Here is the problem with Atom: This brings us back to the atom dependencies
+project from which you should start Atom to get everything right.
