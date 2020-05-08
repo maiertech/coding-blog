@@ -8,6 +8,9 @@
   "keywords": [
     "gatsby"
   ],
+  "engines": {
+    "node": "10.x"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
