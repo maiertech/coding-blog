@@ -28,3 +28,7 @@ top border on slides.
 
 This should be fixable, hoping for someone to fix it or need to look myself into
 it.
+
+However, using `gatsby-theme-mdx-deck` as part of an existing website does not
+work since this theme cannot handle `defaultLayouts` in `gatsby-plugin-mdx`. See
+this [issue](https://github.com/UNStats/covid-19-response/issues/183).
