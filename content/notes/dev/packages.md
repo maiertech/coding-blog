@@ -57,45 +57,65 @@ modules:
 | `module` | path to file | `module` is an inofficial prop in `package.json` that signals that a package is an ES module. It is honored by [Rollup](https://rollupjs.org/guide/en/) and [Webpack](https://webpack.js.org/)). |
 | `type`   | `module`     | Signals that this package should be interpreted as ES module. This is the carte blanche approach. If you want to do file by file yuo need to work with the `.mjs` extension.                     |
 
-## Tooling to create NPM packages
+## Bundlers for NPM packages
 
 If you write your own NPM package, you should support at least CommonJS and ES
 modules. Your `package.json` needs to have a `main` entry point for CommonJS and
-a `module` entry point for ES modules. These are your tooling options:
+a `module` entry point for ES modules.
 
-### No tooling
+You do not have to use a bundler to create an NPM package, but there are some
+benefits:
 
-This is only an option if your package is not supposed to be used in browsers.
-This is because when writing your package, module specifiers are file names that
-cannot be resolved by browsers. As long as you use Node v12 or higher and
-[supported ES2020 features](https://node.green/), you do not need to use
-[Babel](https://babeljs.io/) and can roll without any tooling.
+- A bundler can bundle only what is used and tree shake all dependencies.
+- A bundler can create different distributions of your package, eg CJS, ESM and
+  UMD.
+- For formats that can be loaded from the web, such as UMD, the bundler can
+  bundler all dependencies.
+- A bundler can optimize CSS or package assets.
 
-### Rollup
+These are your tooling options:
 
-[Rollup](https://rollupjs.org/guide/en/)
+### No bundler
 
-### Microbundle
-
-If you want to use the benefits of rollup.js with less configuration hassle, you
-can use [Microbundle](https://github.com/developit/microbundle).
-
-Microbundle supports multiple distributions generated into the `dist` folder.
-You can assign them to different entry points, eg `main` for the CommonJS
-distribution or `module` for the ES module distribution.
-
-The downside seems to be that the CommonJS distribution is bundled.
-
-### Webpack
-
-[Authoring libraries](https://webpack.js.org/guides/author-libraries/)
+This [blog post](https://2ality.com/2019/10/hybrid-npm-packages.html) discusses
+options to manually create hybrid NPM packages that support ESM and CJS. If you
+do not bundle your package, you need to be aware of all the things ES modules do
+not support, eg if you require CommonJS modules from an ES module, named imports
+do not work. There is a workaround for that, using package
+[`esm`](https://www.npmjs.com/package/esm), but it's another tool when you
+probably did not want to use a tool in the first place..
 
 ### @pika/pack
 
-Package build pipeline.
+[Introducing: @pika/pack](https://www.pika.dev/blog/introducing-pika-pack)
 
-## Caveats
+You can think of this package build pipeline as a lightweight bundler.
+`@pika/pack` is mostly about choosing good defaults for common tools such as
+Babel and Rollup to minimize configuration. It can also help create multiple
+distributions.
 
-If you require CommonJS modules from an ES module distribution, named imports do
-not work. The workaround is using package
-[`esm`](https://www.npmjs.com/package/esm).
+### Microbundle
+
+With [Microbundle](https://github.com/developit/microbundle) you can use
+[Rollup](https://rollupjs.org/guide/en/) with having to become an expert in
+configuring it. You get most of Rollup's benefits, such as tree shaking.
+
+Microbundle supports multiple entry points for different distributions, eg.
+`main` for CJS and `module` for the ESM. For ESM and CJS it bundles your code
+but not dependencies. It also supports UMD with bundled dependencies.
+
+### Rollup
+
+[Rollup](https://rollupjs.org/guide/en/) is the bundler that introduces tree
+shaking. It is able to do static code analysis and include only named imports
+into the bundle. It's complicated to use and you should therefore consider using
+it in its `@pika/pack` or Microbundle incarnation. Rollup will load an ESM
+version of a package when the `module` field is present.
+
+### Webpack
+
+Technically you can use Webpack for
+[authoring libraries](https://webpack.js.org/guides/author-libraries/). If you
+consider Webpack you should probably choose Rollup instead. While it caught up
+with Rollup's features, such as tree shaking, it lacks other features such as
+support for different distributions.
