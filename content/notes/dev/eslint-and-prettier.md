@@ -152,3 +152,7 @@ with the following configuration in `settings.json`:
     "source.fixAll.eslint": true,
 }
 ```
+
+The big advantage of running Prettier through ESLint is that any Prettier errors
+will show up as ESLint errors and can be visually highlighted with this
+extension. This is not possible when Prettier runs with the Prettier extension.
