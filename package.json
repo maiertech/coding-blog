@@ -17,18 +17,19 @@
     "build": "rm -rf ./public && cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby build",
     "serve": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby serve",
     "clean": "cross-env GATSBY_TELEMETRY_DISABLED=1 gatsby clean",
-    "lint": "yarn run lint:code && yarn run lint:other",
-    "lint:code": "eslint . --ignore-path .gitignore",
-    "lint:other": "yarn run prettier --check",
-    "prettier": "prettier \"**/*.{md,mdx,css,yaml,yml}\" --ignore-path .gitignore",
-    "format": "yarn run format:code && yarn run format:other",
-    "format:code": "yarn run lint:code --fix",
-    "format:other": "yarn run prettier --write",
+    "lint": "yarn run lint:eslint && yarn run lint:prettier",
+    "lint:eslint": "eslint . --ignore-path .gitignore",
+    "lint:prettier": "yarn run prettier --check",
+    "prettier": "prettier . --ignore-path .gitignore",
+    "format": "yarn run format:eslint && yarn run format:prettier",
+    "format:eslint": "yarn run lint:eslint --fix",
+    "format:prettier": "yarn run prettier --write",
     "purge": "rm -rf ./node_modules"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run lint"
     }
   },
   "dependencies": {
@@ -40,9 +41,9 @@
     "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "@maiertech/eslint-config": "0.9.0",
+    "@maiertech/eslint-config": "0.10.0",
     "eslint": "6.8.0",
     "husky": "4.2.5",
-    "lint-staged": "10.2.2"
+    "lint-staged": "10.2.4"
   }
 }
