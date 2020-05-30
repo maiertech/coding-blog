@@ -1,7 +1,6 @@
 # Gatsby Themes
 
-## Useful themes
+## Doctocat
 
-### For docs
-
-- https://github.com/primer/doctocat
+[Doctocat](https://github.com/primer/doctocat) is backed by GitHub and a pretty
+polished theme that is suitable to document component libraries.
