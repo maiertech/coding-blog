@@ -1,4 +1,4 @@
-# Screencasts and streaming
+# Video production
 
 ## People to learn from
 
@@ -23,6 +23,7 @@ supported camera:
   not line up perfectly. Can be powered by USB.
 - On the higher end a Canon m200 retails for 500\$. Back screen can fold up. For
   high end video.
+- Sony's vlog camera ZV-1 for 800\$ has been release in June 2020.
 
 ## Microphone
 
@@ -35,5 +36,5 @@ which feeds your audio to your Mac.
 
 ## Canon EOS 1100D
 
-- `brew cask install camera-live`
-- Install [CamTwist Studio](http://camtwiststudio.com/) manually.
+Experiments with EOS 1100D were not succesful. The max quality was 720p and in
+my narrow setup there is no space for anything other than a mirrorless camera.
