@@ -1,6 +1,7 @@
-/.cache
-/node_modules
-/public
+.cache/
+node_modules/
+public/
 
-yarn-error.log
+.env
 .DS_Store
+yarn-error.log
