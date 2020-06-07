@@ -1,7 +1,7 @@
 ---
-author: 'Thilo Maier'
-title: "How Coding Isn't as Bad as You Think"
-tags: ['pork', 'beef', 'leberkas']
+title: '9 Facts about Coding That Will Impress Your Friends'
+date: 2014-08-08
+tags: ['pork', 'hamburger', 'leberkas']
 ---
 
 Bacon ipsum dolor sit amet eu leberkas beef ribs ham hock, strip steak tongue

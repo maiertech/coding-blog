@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: '10 Freaky Reasons Coding Could Get You Fired'
+date: 2014-09-09
 tags: ['beef', 'ham', 'loin']
 ---
 

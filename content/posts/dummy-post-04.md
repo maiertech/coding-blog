@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: '9 Surprising Ways Coding Is More Refreshing than New Socks'
+date: 2014-04-04
 tags: ['ham', 'loin', 'pork']
 ---
 

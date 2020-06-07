@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: 'Coding Taboos You Should Break'
+date: 2014-10-10
 tags: ['bacon', 'porchetta', 'kielbasa']
 ---
 
