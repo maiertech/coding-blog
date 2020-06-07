@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: 'How Hollywood Got Coding All Wrong'
+date: 2014-02-02
 tags: ['ribs', 'sausage', 'pork']
 ---
 

@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: "The Insider's Guide to Coding"
+date: 2014-03-03
 tags: ['beef', 'ribs', 'mignon']
 ---
 

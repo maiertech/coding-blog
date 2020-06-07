@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: "13 Things That Won't Happen in Coding"
+date: 2014-01-01
 tags: ['beef', 'pork', 'ribs']
 ---
 

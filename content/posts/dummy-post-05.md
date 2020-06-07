@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: 'Get Better Coding Results By Following 3 Simple Steps'
+date: 2014-05-05
 tags: ['beef', 'pork', 'ribs']
 ---
 

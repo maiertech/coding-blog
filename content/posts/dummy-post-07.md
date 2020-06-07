@@ -1,6 +1,6 @@
 ---
-author: 'Thilo Maier'
 title: 'The Evolution of Coding'
+date: 2014-07-07
 tags: ['ham', 'pork', 'beef']
 ---
 
