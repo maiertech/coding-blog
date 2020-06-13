@@ -8,22 +8,41 @@
 
 ## Software
 
-For screencasts: [ScreenFlow](http://www.telestream.net/screenflow/). For live
-streaming: [OBS](https://obsproject.com/) or
-[Ecamm Live](https://www.ecamm.com/mac/ecammlive/).
+### Screencasts
+
+- [Quicktime](/notes/digital-garden/quicktime) is already on your Mac and you
+  can start recording immediatley.
+- When you feel that you have reached the limits of quicktime you should look
+  into [ScreenFlow](http://www.telestream.net/screenflow/).
+
+### Streaming
+
+- De facto standard: [OBS](https://obsproject.com/) (open source).
+- Easier to use but subscription:
+  [Ecamm Live](https://www.ecamm.com/mac/ecammlive/).
 
 ## Camera
 
 Everyone recommends
 [Elgato Cam Link 4K](https://www.elgato.com/en/gaming/cam-link-4k), which
 normally costs around 130\$. This helps you get a clean HDMI stream from a
-supported camera:
+supported camera. During the COVID-19 pandemic this device has been sold out
+retailed for about 300\$.
 
-- A GoPro Hero5 retails for 149\$. There is a chance that audio and video will
-  not line up perfectly. Can be powered by USB.
-- On the higher end a Canon m200 retails for 500\$. Back screen can fold up. For
-  high end video.
-- Sony's vlog camera ZV-1 for 800\$ has been release in June 2020.
+Somewhat hidden on the
+[Cam Link 4K's video conferencing page](https://help.elgato.com/hc/en-us/articles/360041358791-Cam-Link-4K-Video-Conferencing#:~:text=The%20Elgato%20Game%20Capture%20HD60%20S%2B%20features%20up%20to%204K60,compatible%20with%20video%20conferencing%20software.)
+it is mentioned that the
+[Elgato HD60 S+](https://www.elgato.com/en/gaming/game-capture-hd60-s-plus) can
+be used like the Cam Link 4K. This device retails for 199\$ and is a more
+reasonable purchase than an overpriced Cam Link 4K.
+
+The following cameras seemed reasonable choices at both ends of the price range:
+
+- A [GoPro Hero5](https://gopro.com/en/us/update/hero5) retails for 149\$. Has a
+  webcam mode and can be powered with USB.
+- On the higher end a
+  [Canon m200](https://www.usa.canon.com/internet/portal/us/home/products/details/cameras/eos-dslr-and-mirrorless-cameras/mirrorless/eos-m200-ef-m-15-45mm-is-stm-kit)
+  mirrorless camera retails for 500\$. Back screen can fold up.
 
 ## Microphone
 
@@ -33,8 +52,3 @@ which feeds your audio to your Mac.
 - [Audio-Technica BPHS1 Broadcast Stereo Headset with Dynamic Cardioid Boom Mic](https://www.amazon.com/Audio-Technica-BPHS1-Broadcast-Headset-Cardioid/dp/B003D87JI2/ref=sr_1_2?dchild=1&keywords=audio+technica+headset&qid=1590183383&sr=8-2)
   (Wes Bos)
 - [Audio-Technica AT2020 Cardioid Condenser Studio XLR Microphone, Black, Ideal for Project/Home Studio Applications](https://www.amazon.com/gp/product/B0006H92QK/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0006H92QK&linkCode=as2&tag=webo080-20&linkId=PHY64E6Y43GHI55T)
-
-## Canon EOS 1100D
-
-Experiments with EOS 1100D were not succesful. The max quality was 720p and in
-my narrow setup there is no space for anything other than a mirrorless camera.
