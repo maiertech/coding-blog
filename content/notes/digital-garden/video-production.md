@@ -11,15 +11,18 @@
 ### Screencasts
 
 - [Quicktime](/notes/digital-garden/quicktime) is already on your Mac and you
-  can start recording immediatley.
-- When you feel that you have reached the limits of quicktime you should look
-  into [ScreenFlow](http://www.telestream.net/screenflow/).
+  can start recording immediatley. It seems a bit too simple for even basic use
+  cases.
+- Despite all it's limitaions and bugs, there seems to be consensus that
+  [ScreenFlow](/notes/digital-garden/screenflow) is the way to go.
 
 ### Streaming
 
-- De facto standard: [OBS](https://obsproject.com/) (open source).
-- Easier to use but subscription:
-  [Ecamm Live](https://www.ecamm.com/mac/ecammlive/).
+- De facto standard: [OBS](https://obsproject.com/) (open source). My first
+  impression was: too complex, but maybe I'm wrong.
+- [Ecamm Live](https://www.ecamm.com/mac/ecammlive/) seems a more polished
+  option and if you are serious about streaming the monthly subscription fee is
+  probably worth paying for less hassle.
 
 ## Camera
 
@@ -36,13 +39,13 @@ it is mentioned that the
 be used like the Cam Link 4K. This device retails for 199\$ and is a more
 reasonable purchase than an overpriced Cam Link 4K.
 
-The following cameras seemed reasonable choices at both ends of the price range:
+For the time being, I am using my iPhone because I have no space to place a
+better camera a few feet in front of me. When that changes, I would look into a
+[Canon m200](https://www.usa.canon.com/internet/portal/us/home/products/details/cameras/eos-dslr-and-mirrorless-cameras/mirrorless/eos-m200-ef-m-15-45mm-is-stm-kit).
 
-- A [GoPro Hero5](https://gopro.com/en/us/update/hero5) retails for 149\$. Has a
-  webcam mode and can be powered with USB.
-- On the higher end a
-  [Canon m200](https://www.usa.canon.com/internet/portal/us/home/products/details/cameras/eos-dslr-and-mirrorless-cameras/mirrorless/eos-m200-ef-m-15-45mm-is-stm-kit)
-  mirrorless camera retails for 500\$. Back screen can fold up.
+I tried the [GoPro Hero5](https://gopro.com/en/us/update/hero5), which gets
+praises to be used as Webcam, but in my model the battery got very hot when
+powering it with USB-C. This is why I returned it.
 
 ## Microphone
 
