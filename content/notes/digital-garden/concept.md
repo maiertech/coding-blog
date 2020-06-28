@@ -16,6 +16,10 @@ from [Egghead](https://egghead.io/).
 - Support for self hosted images.
 - Support for YouTube videos.
 
+## Digital garden terms of service
+
+- https://www.swyx.io/writing/digital-garden-tos/
+
 ## Inspiration
 
 - [Let's just design our own corporate blog](https://mux.com/blog/lets-just-design-our-own-corporate-blog/)
