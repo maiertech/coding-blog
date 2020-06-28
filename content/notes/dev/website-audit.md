@@ -7,7 +7,7 @@
 
 ## Services
 
-- https://webpagetest.org/
 - https://web.dev/measure/
 - https://lighthouse-metrics.com/
+- https://webpagetest.org/
 - https://www.websitecarbon.com/
