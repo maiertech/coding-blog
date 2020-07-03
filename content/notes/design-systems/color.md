@@ -17,3 +17,9 @@ Automatically generate a color palette based on one input color. See
 https://colorable.jxnblk.com/
 
 Calculate contrast and check if it passes AA or AAA accessibility.
+
+### Contrast Swatch
+
+https://github.com/jxnblk/contrast-swatch
+
+Image microservice for color contrast information.
