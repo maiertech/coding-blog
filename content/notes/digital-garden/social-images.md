@@ -12,3 +12,4 @@ https://unfurler.com/
   [overview article](https://wesbos.com/new-wesbos-website). Verify with
   unfurler. He generates images serverless during Gatsby build.
 - [Social sharing cards with Gatsby](https://www.gatsbyjs.org/tutorial/seo-and-social-sharing-cards-tutorial/)
+- [Designing OpenGraph unfurls in Figma](https://egghead.io/lessons/figma-designing-opengraph-unfurls-in-figma)
