@@ -1,5 +1,7 @@
 # Renovate Bot
 
+**Deprecated in favor of [Dependabot](/notes/github/dependabot).**
+
 A good starting point for a `renovate.json` is
 [`config:base`](https://docs.renovatebot.com/presets-config/#configbase):
 
