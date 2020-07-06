@@ -7,6 +7,10 @@ from [Egghead](https://egghead.io/).
 
 ## Principles for my digital garden
 
+- My digital garden is a tool to learn in public and to help me
+  [switch gears](https://www.swyx.io/writing/learning-gears/).
+- The ultimate goal is to
+  [switch from consumer to creator](https://nathanbarry.com/consumer-to-creator/).
 - Implement with Gatsby, since I have invested heavily into Gatsby for work.
 - Mobile first design.
 - Content is stored in MDX files in a GitHub repo, no CMS.
