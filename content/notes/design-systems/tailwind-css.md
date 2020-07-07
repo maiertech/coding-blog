@@ -117,6 +117,12 @@ Not in plain HTML and CSS. Here your only option is copy paste. But if you have
 some kind of template engine, then you can use template partials to abstract
 components.
 
+## Examples
+
+- [swr.vercel.app](https://github.com/vercel/swr-site) is built with Tailwind.
+- It is based on [Nextra](https://github.com/shuding/nextra), which is also
+  built with Tailwind.
+
 ## Links
 
 Checkout https://egghead.io/instructors/adam-wathan.
