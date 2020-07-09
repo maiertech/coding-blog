@@ -30,3 +30,18 @@ The default is `flex-shrink: 1`. Let's say the width of 4 flex items combined is
 88px, then anything with shrink rate 1 shrinks by 2px and anything with shrink
 rate 2 shrinks by 4px. `justify-content` is moot the moment something starts
 shrinking.
+
+`flex-basis` is an ideal hypthetical size before any growing or shrinking.
+
+`flex-basis` deals with size in the flex-direction. If `flex-basis` is set for a
+flex item with flex-direction `row` or `row-reverse`, `width` gets ignored.
+`flex-basis` respects `min-width` as lower limit. E.g. if `flex-basis` is 100px
+and `min-width` is 300px then de facto `flex-basis` is 300px. Same applies to
+`max-width`. E.g. if `flex-basis` is 400px and `max-width` is 100px then de
+facto flex basis is 100px.
+
+If `flex-direction` is `column` or `column-reverse` then `flex-basis` overrides
+`height`. Analogously, `flex-basis` respects `min-height` and `max-height`.
+
+default value: `flex-basis: auto` means rely on width or height dpendening on
+flex-direction.
