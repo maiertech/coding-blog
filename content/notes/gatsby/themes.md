@@ -1,5 +1,13 @@
 # Gatsby Themes
 
+## Blog
+
+[`gatsby-theme-blog` 2.0](https://www.gatsbyjs.org/blog/2020-07-08-blog-2.0/)
+
+## Book
+
+https://github.com/SaraVieira/gatsby-starter-book
+
 ## Catalyst
 
 Still need to vet [Catalyst](https://www.gatsbycatalyst.com/) to see if its good
