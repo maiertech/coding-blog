@@ -45,3 +45,13 @@ If `flex-direction` is `column` or `column-reverse` then `flex-basis` overrides
 
 default value: `flex-basis: auto` means rely on width or height dpendening on
 flex-direction.
+
+`order`: the higher the order the farther away along the main axis. The lower
+the number the closer along main axis. `order` can also be negative, default
+order is 0. `order` is like `z-index`. It's not an absolute position but a
+weight. The sequence is: first all flex items without order in theri original
+order, then ascending by weight and if weight is the same then in original
+order.
+
+The `:nth-of-type()` selector always applies to the sequence in which flex-items
+appear in the source code. Applying `order` does not change this.
