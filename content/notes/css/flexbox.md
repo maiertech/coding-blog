@@ -55,3 +55,16 @@ order.
 
 The `:nth-of-type()` selector always applies to the sequence in which flex-items
 appear in the source code. Applying `order` does not change this.
+
+`flex-wrap` default is `nowrap`. Set `flex-wrap` to `wrap` to create new lines.
+Lines are parallel to the main axis.
+
+When elements wrap parallel to the main axis, `align-items` applies to each
+line. When `flex-wrap` is set to `wrap-reverse`, `align-items` reverses too,
+even if nothing wraps. Everything we hav learnt before applies to every wrapped
+line!
+
+About shrinking: wrap first, then shrink.
+
+`justify-content` matters in the same way as for non wrapping elements. If there
+are non-growing flex items on a line without any growing items, then it matters.
