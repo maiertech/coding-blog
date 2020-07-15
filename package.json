@@ -8,9 +8,6 @@
   "keywords": [
     "gatsby"
   ],
-  "engines": {
-    "node": "10.x"
-  },
   "license": "MIT",
   "scripts": {
     "dev": "node -r dotenv/config node_modules/.bin/gatsby develop",
