@@ -1,70 +1,153 @@
 # Flexbox
 
-- [Flexbox Zombies](https://mastery.games/flexboxzombies/)
+The free course [Flexbox Zombies](https://mastery.games/flexboxzombies/) is the
+best learning resource for Flexbox I came across.
 
-Use `display: flex;` to activate flexbox layout.
+Use `display: flex;` on a div to switch to flexbox layout. Everyting inside the
+div is referred to as flex items.
 
-Use `flex-direction` to determine main axis and direction: `row` (default),
-`row-reverse`, `column` and `column-reverse`. Can be omitted for default
-direction.
+## flex-direction
 
-Use `justify-content` to place items along the main axis. This value is moot if
-you have at least one item with `flex-grow`, which will take up all additional
-available space. `flex-start` (default), `center`, `flex-end`, `space-between`,
-`space-around` (equal space around each item).
+Determine the main axis and direction by setting `flex-direction` to
 
-Use `algin-items` to align along cross axis. `stretch` (default), `flex-start`,
-`center` and `flex-end`. Aligment follows reading direction, i.e. left to right,
-top to bottom.
+| Value            | Default |
+| :--------------- | :------ |
+| `row`            | ✓       |
+| `row-reverse`    |         |
+| `column`         |         |
+| `column-reverse` |         |
 
-Use `align-self` to define exceptions along the cross-axis for individual items.
+Flex items are placed along the main axis.
 
-`flex-grow` defines how elements grow along main axis. Defines the ratio with
-which additional space is allocated to each growing element. Default is `0`. If
-anything uses `flex-grow`, `justify-content` is moot.
+## justify-content
 
-`flex-shrink` defines how elements shrink along the main axis when there is not
-enough space for all elements. It only kicks in when there is not enough space.
-The default is `flex-shrink: 1`. Let's say the width of 4 flex items combined is
-100px. 2 shrink at rate `1` and 2 shrink at rate `2`. If you shrink the width to
-88px, then anything with shrink rate 1 shrinks by 2px and anything with shrink
-rate 2 shrinks by 4px. `justify-content` is moot the moment something starts
-shrinking.
+`justify-content` determines how flex items are placed along the main axis. You
+can set it to
 
-`flex-basis` is an ideal hypthetical size before any growing or shrinking.
+| Value           | Default | Description                   |
+| :-------------- | :------ | :---------------------------- |
+| `flex-start`    | ✓       |                               |
+| `center`        |         |                               |
+| `flex-end`      |         |                               |
+| `space-between` |         |                               |
+| `space-around`  |         | Equal space around each item. |
 
-`flex-basis` deals with size in the flex-direction. If `flex-basis` is set for a
-flex item with flex-direction `row` or `row-reverse`, `width` gets ignored.
-`flex-basis` respects `min-width` as lower limit. E.g. if `flex-basis` is 100px
-and `min-width` is 300px then de facto `flex-basis` is 300px. Same applies to
-`max-width`. E.g. if `flex-basis` is 400px and `max-width` is 100px then de
-facto flex basis is 100px.
+`justify-content` is moot if you have at least one item with `flex-grow` which
+takes up all additional available space.
 
-If `flex-direction` is `column` or `column-reverse` then `flex-basis` overrides
-`height`. Analogously, `flex-basis` respects `min-height` and `max-height`.
+## align-items
 
-default value: `flex-basis: auto` means rely on width or height dpendening on
-flex-direction.
+Use `algin-items` to align all flex items along the cross axis. You can set it
+to
 
-`order`: the higher the order the farther away along the main axis. The lower
-the number the closer along main axis. `order` can also be negative, default
-order is 0. `order` is like `z-index`. It's not an absolute position but a
-weight. The sequence is: first all flex items without order in theri original
-order, then ascending by weight and if weight is the same then in original
-order.
+| Value        | Default |
+| :----------- | :------ |
+| `stretch`    | ✓       |
+| `flex-start` |         |
+| `center`     |         |
+| `flex-end`   |         |
 
-The `:nth-of-type()` selector always applies to the sequence in which flex-items
-appear in the source code. Applying `order` does not change this.
+Aligment follows reading direction, i.e. left to right and top to bottom.
 
-`flex-wrap` default is `nowrap`. Set `flex-wrap` to `wrap` to create new lines.
-Lines are parallel to the main axis.
+## align-self
 
-When elements wrap parallel to the main axis, `align-items` applies to each
-line. When `flex-wrap` is set to `wrap-reverse`, `align-items` reverses too,
-even if nothing wraps. Everything we hav learnt before applies to every wrapped
-line!
+Use `align-self` to define exceptions from `align-items` for individual flex
+items.
 
-About shrinking: wrap first, then shrink.
+## flex-grow
 
-`justify-content` matters in the same way as for non wrapping elements. If there
-are non-growing flex items on a line without any growing items, then it matters.
+`flex-grow` is a positive number that defines how flex items grow along main
+axis. The default is `0`. It represents a ratio in comparison to other flex
+items that grow. The ratio defines how additional pixels along the main axis are
+allocated to each growing flex-item.
+
+The moment one flex item has a `flex-grow` with a positive number defined,
+`justify-content` is moot.
+
+## flex-shrink
+
+`flex-shrink` is a positive number that defines how flex items shrink along the
+main axis when there is not enough space. The default is `1`, i.e., flex items
+shrink by default. To prevent a flex-item from shrinking, set it to `0`. It also
+represents a ratio by which space that is lost is allocated to shrinking flex
+items.
+
+The moment `flex-shrink` kicks in, `justify-content` is moot.
+
+## flex-basis
+
+`flex-basis` is an ideal hypthetical size along the main axis before any growing
+or shrinking kicks in:
+
+| `flex-direction` | `flex-basis` overrides | Min `flex-basis` | Max `flex-basis` |
+| :--------------- | :--------------------- | :--------------- | :--------------- |
+| `row`            | `width`                | `min-width`      | `max-width`      |
+| `row-reverse`    | `width`                | `min-width`      | `max-width`      |
+| `column`         | `height`               | `min-height`     | `max-height`     |
+| `column-reverse` | `height`               | `min-height`     | `max-height`     |
+
+The default value for `flex-basis` is `auto` which means that a flex item honors
+`width` (for `flex-direction` `row` or `row-reverse`) or `height` (for
+`flex-direction` `column` or `column-reverse`). If no width or height are
+defined, a flex item renders with its intrinsic size.
+
+Setting `flex-basis` to `0` is like setting `width` to `0`. It forces a flex
+item to its smallest size possible (not its intrinsic size).
+
+## order
+
+`order` defines an order along the main axis. `order` is a weight rather than an
+absolue position, similar to `z-index`. The default is `0`.
+
+The higher `order` the farther away a flex item is placed along the
+`flex-direction`. `order` can also be negative. Flex items are ordered as
+follows. Flex items is the same order appear in the seqeunce in which they are
+defined (in HTML).
+
+If you use the `:nth-of-type()` pseudo class, it always refers to the order in
+which flex items are defined, not the order defined by `order`.
+
+## flex-wrap
+
+Lines are defined along the `flex-direction`. By default there is only one line.
+This is the case when `flex-wrap` is set to default value `nowrap`.
+
+When `flex-wrap` is set to `wrap`, a new line is created when flex items do not
+fit on existing lines. New lines are created along reading directions: top to
+bottom for `flex-direction` `row` or `row-reverse` and left to right for
+`flex-direction` `column` or `column-reverse`.
+
+Everything you have learnt about other Flexbox CSS elements still applies for
+each line. Except `flex-shrink`. The rule is: wrap first, then shrink.
+
+When `flex-wrap` is set to `wrap-reverse` lines are created bottom to top
+instead of top to bottom and right to left instead of left to right. This also
+reverses `align-items` to keep things consistent.
+
+## align-content
+
+`align-content` is like `align-items` for wrapped lines. It accepts the same
+values and uses the same default `stretch`. When using `align-content`, you can
+think of each line as a flex item. If `flex-wrap` is set to `nowrap`,
+`align-content` has no effect.
+
+## flex
+
+`flex` is a shortcut for `flex-grow`, `flex-shrink` and `flex-basis` (in that
+order), e.g.
+
+```
+flex: 1 0 auto;
+```
+
+| Setting        | Description                                                 |
+| :------------- | :---------------------------------------------------------- |
+| `flex: 2 2;`   | `flex-grow: 2;`, `flex-shrink: 2;` and `flex-basis: 0;`.    |
+| `flex: 1 30px` | `flex-grow: 1;`, `flex-basis: 30px;` and `flex-shrink: 1;`. |
+| `flex: 1;`     | `flex-grow: 1;`, `flex-shrink: 1;` and `flex-basis: 0;`.    |
+| `flex: auto;`  | `flex-grow: 1;`, `flex-shrink: 1;` and `flex-basis: auto;`. |
+| `flex: none;`  | `flex-grow: 0;`, `flex-shrink: 0;` and `flex-basis: auto;`. |
+
+## flex-flow
+
+Sets `flex-direction` and `flex-wrap` settings in this order.
