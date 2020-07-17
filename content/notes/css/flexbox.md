@@ -1,7 +1,8 @@
 # Flexbox
 
 The free course [Flexbox Zombies](https://mastery.games/flexboxzombies/) is the
-best learning resource for Flexbox I came across.
+best learning resource for Flexbox I came across. As an alternative you can take
+[What the Flexbox?!](https://flexbox.io/).
 
 Use `display: flex;` on a div to switch to flexbox layout. Everyting inside the
 div is referred to as flex items.
