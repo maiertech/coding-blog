@@ -1,6 +1,8 @@
 # Learn Next.js
 
+- [SSR vs. Static Generation](https://vercel.com/blog/nextjs-server-side-rendering-vs-static-generation)
 - [Basic course on Next.js website](https://nextjs.org/learn/)
+- [Mastering Next.js](https://masteringnextjs.com/)
 
 ## Articles
 

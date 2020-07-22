@@ -1,5 +1,7 @@
 # Positioning
 
+https://twitter.com/b0rk/status/1285257205571366917
+
 ## Fixed
 
 Removes an element from the normal flow. Element does not inherit width or
