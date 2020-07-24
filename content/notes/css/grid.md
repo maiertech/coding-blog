@@ -37,8 +37,16 @@ grid-template-columns: repeat(4, 100px);
 is the same as
 
 ```
-grid-template-columns: 100px, 100px, 100px, 100px;
+grid-template-columns: 100px 100px 100px 100px;
 ```
+
+Spoiler alert! Above definition actually means
+
+```
+grid-template-columns: [1] 100px [2] 100px [3] 100px [4] 100px [5];
+```
+
+with line names enclosed in `[]`. Each `[]` can contain multiple names.
 
 ## grid-template-rows
 
@@ -58,6 +66,14 @@ is the same as
 grid-template-rows: 1fr 2fr 1fr 2fr;
 ```
 
+Spoiler alert! Above definition actually means
+
+```
+grid-template-rows: [1] 1fr [2] 2fr [3] 1fr [4] 1fr [5];
+```
+
+with line names enclosed in `[]`. Each `[]` can contain multiple names.
+
 ## grid-gap
 
 If you provide one value only, it sets both `grid-row-gap` and
@@ -66,3 +82,28 @@ and the second one `grid-column-gap` (rows then columns).
 
 You can use the following units: `vw`, `vh`, `%`, `px`, `rem`. You cannot use
 `fr`.
+
+## grid-column-start, grid-column-end, grid-row-start, grid-row-end
+
+Grid lines are numbered starting with 1. Positioning is done by lines not by
+tracks. Negative line numbers start at -1 from the opposite direction.
+
+Instead of providing a line number you can indicate how many rows or columns a
+grid item should span in its natural position, e.g., `span 3`. You can span in
+revese direction by setting `grid-*-end` and `span x` on the corresponding
+`grid-*-start`. If you set a span for both `grid-*-start` and `grid-*-end`, then
+`grid-*-start` wins.
+
+## grid-column, grid-row
+
+`grid-*: 2 / 4;` is a shortcut for `grid-*-start: 2;` and `grid-*-end: 4;`. If
+you provide only one value it's `grid-*-start`.
+
+## Line numbers and names
+
+When you define a grid with `grid-template-columns` and `grid-template-rows` you
+can add one or more line names in `[]` in front of the track definition. If you
+repeat a line name for different tracks, that line name comes with a counter
+starting at 1 to identify specific lines.
+
+Think of a line with a gap as a thick line.
