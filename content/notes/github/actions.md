@@ -20,21 +20,24 @@ this
 
     - uses: actions/checkout@v2
 
-By default, this action checks out the latest commit only.To checkout the entire
-commit history, configure
+By default, this action checks out the latest commit only. To checkout the
+entire commit history, configure
 
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
 
-By default, this action persists auto generated `GITHUB_TOKEN` to enable Git
-commands in subsequent steps. This will override any persoanl authentication
-token you might want to use in subsequent actions to ensure they trigger
-workflows. You can configure
+By default, this action persists the auto generated `GITHUB_TOKEN` to enable
+`git` commands in subsequent steps. If you would to use your own personal access
+token subsequently, you need to prevent persisting `GITHUB_TOKEN`:
 
     - uses: actions/checkout@v2
       with:
         persist-credentials: false
+
+Now you can overwrite `GITHUB_TOKEN` with a personal access token. A personal
+access token is needed, e.g., to trigger workflows, which do not get triggered
+with the automatically created `GITHUB_TOKEN`.
 
 ### actions/setup-node
 
@@ -42,9 +45,9 @@ Action
 [Setup Node.js environment](https://github.com/marketplace/actions/setup-node-js-environment)
 is often used like this
 
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
-        node-version: '12.x'
+        node-version: '12'
 
 or with a matrix. If you just need Node on a `ubuntu-latest` image, you do not
 need to use this action. You also do not need this actions when using the
