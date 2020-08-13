@@ -1,7 +1,0 @@
-{
-  "extends": ["config:base", "schedule:weekly"],
-  "labels": ["dependencies"],
-  "reviewers": ["454de6e"],
-  "rebaseWhen": "never",
-  "semanticCommits": false
-}
