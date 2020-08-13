@@ -107,3 +107,11 @@ repeat a line name for different tracks, that line name comes with a counter
 starting at 1 to identify specific lines.
 
 Think of a line with a gap as a thick line.
+
+## grid-area
+
+Shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end`,
+`grid-column-end` in this sequence and separated with `/` (counter clockwise
+top, left, bottom, right).
+
+You can set any value to `auto` to make it use its default positioning.
