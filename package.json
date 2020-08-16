@@ -10,10 +10,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "node -r dotenv/config node_modules/.bin/gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
-    "serve": "node -r dotenv/config node_modules/.bin/gatsby serve",
-    "clean": "node -r dotenv/config node_modules/.bin/gatsby clean",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint . --ignore-path .gitignore",
     "lint:prettier": "yarn run prettier --check",
@@ -41,7 +41,6 @@
   "devDependencies": {
     "@maiertech/eslint-config": "0.12.1",
     "@maiertech/prettier-config": "0.2.1",
-    "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
