@@ -1,0 +1,101 @@
+# Refs
+
+## Class components
+
+Refs provide a way to access DOM nodes or React elements created in the render
+method. They were originally introduced for class components:
+
+```
+class MyComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  render() {
+    return <div ref={this.myRef} />;
+  }
+}
+```
+
+In this example an instance variable is created and assigned to a component in
+the `render` method us the `ref` prop. A reference to the node is available as
+`this.myRef.current`:
+
+- When `ref` is used on an HTML element, `current` contains the underlying DOM
+  element.
+- When `ref` is used on a custom class component, `custom` is the mounted
+  instance.
+
+## Function components
+
+You cannot use `ref` on function components because they do not have instances:
+
+```
+function MyFunctionComponent() {
+  return <input />;
+}
+
+class Parent extends Component {
+  constructor(props) {
+    super(props);
+    this.textInput = React.createRef();
+  }
+  render() {
+    // This will *not* work!
+    return (
+      <MyFunctionComponent ref={this.textInput} />
+    );
+  }
+}
+```
+
+But you can use `ref` inside a function component as long as you refer to a DOM
+element or a class component:
+
+```
+function CustomTextInput(props) {
+  // textInput must be declared here so the ref can refer to it
+  const textInput = useRef(null);
+
+  function handleClick() {
+    textInput.current.focus();
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        ref={textInput} />
+      <input
+        type="button"
+        value="Focus the text input"
+        onClick={handleClick}
+      />
+    </div>
+  );
+}
+```
+
+## Forwarding refs
+
+Ref forwarding is an opt-in feature, mostly used in component libraries, that
+lets some components take a ref they receive, and pass it further down (in other
+words, "forward" it) to a child.
+
+```
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="FancyButton">
+    {props.children}
+  </button>
+));
+```
+
+Now we can get a ref directly to the DOM button:
+
+```
+const ref = React.createRef();
+<FancyButton ref={ref}>Click me!</FancyButton>;
+```
+
+Ref forwarding is not limited to DOM components. You can forward refs to class
+component instances, too.

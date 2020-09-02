@@ -100,6 +100,38 @@ rerender with the latest context value passed to that `MyContext` provider.
 A component calling `useContext` will always re-render when the context value
 changes.
 
+## useRef
+
+```
+const refContainer = useRef(initialValue);
+```
+
+`useRef` returns a mutable ref object whose `current` property is initialized to
+`initialValue`. The returned object persists for the full lifetime of the
+component and does not get erased when there is a re-render. You can use this to
+keep any mutable value around.
+
+But: mutating the `current` property does not trigger a re-render.
+
+This goes beyond refs in class components, but one use case is refs in
+functional components:
+
+```
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current.focus();
+  };
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  );
+}
+```
+
 ## Custom hooks
 
 Building your custom hooks lets you extract component logic into reusable
