@@ -27,8 +27,3 @@ polished theme that is suitable to document component libraries.
 
 [Reflex](https://reflexjs.org/) is a collection og packages and Gatsby themes.
 Awesome material to learn from.
-
-## Waves
-
-[Waves](https://github.com/pomber/gatsby-waves) is a theme for NYTimes style
-articles (story maps).
