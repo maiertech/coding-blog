@@ -39,7 +39,7 @@
     "theme-ui": "0.3.1"
   },
   "devDependencies": {
-    "@maiertech/eslint-config": "0.12.1",
+    "@maiertech/eslint-config": "0.13.0",
     "@maiertech/prettier-config": "0.2.1",
     "eslint": "6.8.0",
     "husky": "4.2.5",
