@@ -1,5 +1,7 @@
 # VS Code containers
 
+https://css-tricks.com/a-gentle-introduction-to-using-a-docker-container-as-a-dev-environment/
+
 ## How to run containers
 
 ### Locally
@@ -60,3 +62,18 @@ additional Linux packages.
 
 If you do not need to customize the Docker image, you could just reference the
 Docker image in `devcontainer.json` directly.
+
+## Env variables
+
+[This article](https://code.visualstudio.com/docs/remote/containers-advanced#_adding-environment-variables)
+outlines how to define env variables inside a container:
+
+- You can use prop `remoteEnv` in `devcontainer.json` to set env variables that
+  are availalbe inside VS Code and its terminal. For this to work you need to
+  set `terminal.integrated.inheritEnv` to `true`. However, this did not result
+  in consistent results for me. More often than not defined env variables were
+  not present in launched containers. See
+  [this discussion](https://github.community/t/variable-defined-in-remoteenv-via-devcontainer-json-are-not-present/133847)
+- You can use `containerEnv` in `devcontainer.json` to set env variables that
+  apply to the entire container, not just VS Code. This seems to work reliably
+  and is the recommended way of setting env variables.
