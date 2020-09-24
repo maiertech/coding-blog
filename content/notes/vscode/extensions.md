@@ -1,16 +1,22 @@
 # Extensions
 
-VS Code extensions are stored in `~/.vscode/extensions` where each extensions is
+VS Code extensions are stored in `~/.vscode/extensions` where each extension is
 stored in a separate subfolder.
 
 ## Workspace extensions
 
 Use You can define **project specific** extensions under the `extensions` prop
 in `devcontainer.json`. This will install defined extensions into a container
-when the container is created. These extensions should be duplicated to
-`.vscode/extensions.json` under the `recommendations` prop to allow anyone not
-using containers easy installation of the same set of extensions into their
-local VS Code.
+when the container is created. This is the best way to handle workspace
+extensions when your team develops with containers only.
+
+If your team also develops locally, you should duplicate workspace extensions to
+`.vscode/extensions.json` under the `recommendations` prop to allow easy local
+installation of the same set of extensions. But the moment you install
+recommended extensions locally, they will be synchronzed with settings sync.
+This is not what you wnat for workspace extensions. Therefore, you shouls add
+common workspace extensions to `settingsSync.ignoredExtensions` in your
+settings.
 
 Settings for these extensions should go into `.vscode/settings.json` as
 workspace settings and not into `devcontainer.json`. This ensures that extension
@@ -33,7 +39,9 @@ extension.
 
 When you install a user extension, it will be synced together with any extension
 settings. The extension plus its settings will be availalbe in every VS Code
-instance with settings sync turned on, including containers.
+instance with settings sync turned on, including containers. All you need to do
+to activate your user extensions inside your container is to reload your VS Code
+instance after the container setup is complete.
 
 If you have extensions that are specific to Codespaces only, you can define them
 in your `settings.json` under the `codespaces.defaultExtensions` key. Any
