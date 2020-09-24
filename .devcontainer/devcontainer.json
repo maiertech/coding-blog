@@ -13,7 +13,7 @@
   "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
   "forwardPorts": [8000],
   "postCreateCommand": "yarn install",
-  "remoteEnv": {
+  "containerEnv": {
     "GATSBY_TELEMETRY_DISABLED": "1"
   },
   "remoteUser": "node"
