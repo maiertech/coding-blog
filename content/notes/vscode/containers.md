@@ -1,6 +1,7 @@
 # VS Code containers
 
-https://css-tricks.com/a-gentle-introduction-to-using-a-docker-container-as-a-dev-environment/
+[This article](https://css-tricks.com/a-gentle-introduction-to-using-a-docker-container-as-a-dev-environment/)
+is a very good introduction to developing with containers.
 
 ## How to run containers
 
@@ -9,8 +10,7 @@ https://css-tricks.com/a-gentle-introduction-to-using-a-docker-container-as-a-de
 You can run containers locally with
 [Docker](https://formulae.brew.sh/cask/docker) and either clone your repo inside
 a container or open a locally cloned repo inside a container. However, running
-containers locally is not recommended since this comes with a huge performance
-penalty.
+containers locally comes with a huge performance penalty.
 
 To run containers locally, follow these steps:
 
@@ -28,14 +28,16 @@ To run containers locally, follow these steps:
 In this scenario you connect to a Codespaces container from your local VS Code
 using the
 [Visual Studio Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline)
-extension. This feels like a local VS Code experience minus any network latnecy
-issues.
+extension. This feels like a local VS Code experience. Since all the heavy
+lifting is done in the cloud, even an underpowerd Macbook Air makes for a very
+good developing machine.
 
 ### Access Codespaces container via browser
 
 In this scneario you not only run your container in the cloud, but you also
 access it at https://github.com/codespaces via your browser. In this case VS
-Code runs inside your browser and replaces your local VS Code.
+Code runs inside your browser and replaces your local VS Code. This is suitable
+even for Chromebooks.
 
 ## vscode-dev-containers
 
@@ -58,10 +60,8 @@ following files:
 To add a container definition to your repo, you only need to copy `Dockerfile`
 and `devcontainer.json` into folder `.devcontainer`. If you need to customize
 the image from the registry you can modify `Dockerfile`, e.g., by installing
-additional Linux packages.
-
-If you do not need to customize the Docker image, you could just reference the
-Docker image in `devcontainer.json` directly.
+additional Linux packages. If you do not need to customize the Docker image, you
+could just reference the Docker image in `devcontainer.json` directly.
 
 ## Env variables
 
@@ -77,3 +77,9 @@ outlines how to define env variables inside a container:
 - You can use `containerEnv` in `devcontainer.json` to set env variables that
   apply to the entire container, not just VS Code. This seems to work reliably
   and is the recommended way of setting env variables.
+
+## GitHub Codespaces
+
+This is GitHub's implementation of cloud hosted dev containers. Once a container
+is created, it is persisted and any changes you make to the container, e.g.
+changinge VS Code settings, are persisted, too.
