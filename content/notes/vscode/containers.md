@@ -83,3 +83,12 @@ outlines how to define env variables inside a container:
 This is GitHub's implementation of cloud hosted dev containers. Once a container
 is created, it is persisted and any changes you make to the container, e.g.
 changinge VS Code settings, are persisted, too.
+
+### Known problems
+
+- Codespaces always opens the `README` file when launched for the first time.
+  Currently there is no way to change this behavior. See
+  [here](https://github.community/t/preventing-new-codespaces-container-from-opening-readme-in-tab/134081).
+- Extensions installed via user settings sync require a reload before they can
+  be used. See
+  [here](https://github.community/t/reload-required-for-extensions-installed-via-settings-sync-of-user-settings/133837).
