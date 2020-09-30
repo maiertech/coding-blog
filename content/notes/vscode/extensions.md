@@ -39,9 +39,12 @@ extension.
 
 When you install a user extension, it will be synced together with any extension
 settings. The extension plus its settings will be availalbe in every VS Code
-instance with settings sync turned on, including containers. All you need to do
-to activate your user extensions inside your container is to reload your VS Code
-instance after the container setup is complete.
+instance with settings sync turned on, including containers.
+
+During Codespaces beta, I observed inconsistent behavior of how user extensions
+are handled inside a contianer. At one point user extensions were installed into
+the container but needed to be activated with a reload, while at a later point
+user extensions were not installed at all.
 
 If you have extensions that are specific to Codespaces only, you can define them
 in your `settings.json` under the `codespaces.defaultExtensions` key. Any
