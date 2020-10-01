@@ -5,6 +5,7 @@
 - https://joelhooks.com/dSLR-webcam-for-live-streaming
 - https://wesbos.com/uses
 - https://adamwathan.me/uses/
+- https://theworst.dev/my-livestreaming-setup/
 
 ## Software
 
@@ -13,8 +14,11 @@
 - [Quicktime](/notes/digital-garden/quicktime) is already on your Mac and you
   can start recording immediatley. It seems a bit too simple for even basic use
   cases.
-- Despite all it's limitaions and bugs, there seems to be consensus that
+- Despite all its limitaions and bugs, there seems to be consensus that
   [ScreenFlow](/notes/digital-garden/screenflow) is the way to go.
+
+There is a
+[Screenflow training on LinkedIn](https://www.linkedin.com/learning/screenflow-8-essential-training/customizing-your-keyboard-shortcuts?u=70939946).
 
 ### Streaming
 
@@ -24,13 +28,20 @@
   option and if you are serious about streaming the monthly subscription fee is
   probably worth paying for less hassle.
 
+### Window managers
+
+- [Magnet](https://magnet.crowdcafe.com/)
+- [Rectangle](https://rectangleapp.com/)
+- [Spectacle](https://www.spectacleapp.com/) (no longer maintained)
+
 ## Camera
 
 Everyone recommends
 [Elgato Cam Link 4K](https://www.elgato.com/en/gaming/cam-link-4k), which
-normally costs around 130\$. This helps you get a clean HDMI stream from a
+normally costs around
+130$. This helps you get a clean HDMI stream from a
 supported camera. During the COVID-19 pandemic this device has been sold out
-retailed for about 300\$.
+retailed for about 300$.
 
 Somewhat hidden on the
 [Cam Link 4K's video conferencing page](https://help.elgato.com/hc/en-us/articles/360041358791-Cam-Link-4K-Video-Conferencing#:~:text=The%20Elgato%20Game%20Capture%20HD60%20S%2B%20features%20up%20to%204K60,compatible%20with%20video%20conferencing%20software.)
