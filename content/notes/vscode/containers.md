@@ -9,8 +9,8 @@ is a very good introduction to developing with containers.
 
 You can run containers locally with
 [Docker](https://formulae.brew.sh/cask/docker) and either clone your repo inside
-a container or open a locally cloned repo inside a container. However, running
-containers locally comes with a huge performance penalty.
+a container or open a locally cloned repo inside a container. The recommended
+way of using containers locally is cloning the repo inside the container.
 
 To run containers locally, follow these steps:
 
@@ -21,7 +21,8 @@ To run containers locally, follow these steps:
 1. Install the
    [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
    extension, with which you can open a locally cloned repo inside a container
-   or clone a repo into a local container.
+   or clone a repo into a local container. This extension is able to use your
+   local SSH key and `.gitconfig` to authenticate to GitHub.
 
 ### Connect to Codespaces container from local VS Code
 
