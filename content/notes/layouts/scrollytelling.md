@@ -5,7 +5,7 @@ I came across [Waves](https://github.com/pomber/gatsby-waves) and its successor
 would be to create my own scrollytelling layout. This note explores scrolling
 layouts.
 
-## Examples
+## Prior art
 
 ### Image Wave
 
@@ -42,6 +42,19 @@ https://canals-amsterdam.nl/
 On desktops this websites surpises by enforcing horizontal scrolling. On small
 screens it uses no scrolling effect, but a simple sequential stacked layout. The
 latter seems the best option for small screens.
+
+### New York Times
+
+https://www.nytimes.com/interactive/2020/09/02/magazine/food-insecurity-hunger-us.html
+
+Article with beautiful scroll effects.
+
+### Code Hike
+
+- https://codehike.org/
+- https://github.com/code-hike/codehike
+- https://mdxconf2020.pomb.us/
+- https://github.com/pomber/the-x-in-mdx
 
 ## Responsive Layout
 
