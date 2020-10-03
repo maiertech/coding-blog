@@ -7450,10 +7450,10 @@ gatsby-theme-blog@2.0.2:
     react-helmet "^5.2.1"
     theme-ui "0.4.0-alpha.3"
 
-gatsby-theme-notes@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-notes/-/gatsby-theme-notes-2.0.1.tgz#f7514311ed9cb611bff6694637866d52a50ff937"
-  integrity sha512-OfUMdaAG6Sy+4qtrRcq3lTQHcXoxnKzw+CzCA1p+ELWuoETkpoLP72hGvP8ds+3wGXREqpfzr0fRZRL8yMK1rQ==
+gatsby-theme-notes@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-notes/-/gatsby-theme-notes-2.0.3.tgz#ba74a53cfa3d3f5e45df027d1e6aaddc4b96e99b"
+  integrity sha512-BPLGV7WE+GYM9/Ch9n6Xa/tY0H+umAd5MPw4y3q43SeHqYDSAq7Obo7KLAAoqlsacEwznDtieI8oXT8KNgW77w==
   dependencies:
     "@mdx-js/mdx" "^1.6.14"
     gatsby-core-utils "^1.3.13"
@@ -7464,12 +7464,12 @@ gatsby-theme-notes@2.0.1:
     gatsby-plugin-redirects "^1.0.0"
     gatsby-plugin-theme-ui "0.4.0-alpha.3"
     gatsby-source-filesystem "^2.3.22"
-    gatsby-theme-ui-preset "^1.0.0"
+    gatsby-theme-ui-preset "^1.0.2"
     is-present "^1.0.0"
     react-feather "^1.1.6"
     theme-ui "0.4.0-alpha.3"
 
-gatsby-theme-ui-preset@^1.0.0, gatsby-theme-ui-preset@^1.0.2:
+gatsby-theme-ui-preset@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/gatsby-theme-ui-preset/-/gatsby-theme-ui-preset-1.0.2.tgz#e87cdbb169dd52c0c46f66f2751e5d677a8bdb62"
   integrity sha512-WF72PoC2n2oY9tVANpYENvNqoYrPeG55y8DzkTpwxDuOoyZojk5Isx3zXm+TegeWyWpkHxMAtKrDPdgCXQLlew==
