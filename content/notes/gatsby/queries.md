@@ -20,7 +20,8 @@ template and will throw an error.
 You can run queries inside of `gatsby-node.js`, e.g., to select nodes for which
 pages shoudl be created. However, you cannot use any custom fragments since
 Gatsby makes them availalbe only after queries in `gatsby-node.js` have been
-executed.
+executed (see
+[this comment](https://github.com/gatsbyjs/gatsby/issues/12155#issuecomment-493692855)).
 
 You might be tempted to move page queries into `gatsby-node.js` to be able to
 customize them with theme options. Bad idea, because custom fragments are not

@@ -57,6 +57,10 @@ file is shadowed in more than one location, the follwoing rules apply:
 - Shadowing in the site always takes precedence over any other location.
 - The first shadowing plugin of the sequence described above wins.
 
+See
+[this file](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/src/utils/merge-gatsby-config.ts)
+for the algorithm to merge `gatsby-config.js` files.
+
 ## Recommendations
 
 - [`gatsby-theme-blog`](https://github.com/gatsbyjs/themes/tree/master/packages/gatsby-theme-blog)
