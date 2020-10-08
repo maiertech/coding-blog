@@ -1,40 +1,61 @@
 # Themes
 
-## Naming conventions
+## Definitions
 
-Themes configured in `gatsby-config.js` are called sibling themes. A theme that
-is used by another them is called parent theme.
+- Themes are plugins that include a `gatsby-config.js`.
+- Themes that are configured in `gatsby-config.js` are called sibling themes.
+- A theme that is used by another theme is called parent theme. In other words:
+  any theme defined in a theme's `gatsby-config.js` is a parent theme.
 
 ## Composition
 
-Your website's `gatsby-config.js` defines a `plugins` array with all sibling
-themes being used on your site. Each sibling theme defines its own
-`gatsby-config.js` and can use any number of parent themes.
+Your site's `gatsby-config.js` defines a `plugins` array that contains plugins
+and themes. Each theme in the `plugins` array comes with a `gatsby-config.js`
+that needs to be somehow merged with the site's `gatsby-config.js`. The problem
+of merging all configs can be broken down to merging two configs. Every prop in
+a `gatsby-config.js`, but the `plugins` prop, is deep merged. In a deep merge
+the last value always wins.
 
-Gatsby needs to do flatten recursive plugin definitions. This happens in the
-sequence in which sibling themes are defined. For each sibling theme its parent
-themes go first (in the sequence in which they are defined), then the theme
-itself and then the following sibling's parent themes and so on. If a theme or
-plugin occurs multiple times, it's last occurrence wins. Options of previous
-occurrences are not merged, the last one rules them all.
+How are two `plugins` arrays merged? Use these simple rules:
 
-Gatsby's composition mechanism also defines how component shadowing works. If a
-resource is shadowed in multiple locations, the last occurrence as defined by
-the flattened plugins array wins. Anything shadowed in your Gatsby project
-always wins.
+1. The initial merge step starts with an empty consolidation array, which will
+   hold the result of the current merge step. Start iterating through the
+   `plugins` array of the site's `gatsby-config.js`.
+1. If the current element is a plugin, add it to the consolidation array.
+1. If the current element is a theme, recursively start a new merge step using
+   that theme's `plugins` array and a separate consolidation array for this
+   step. Start iterating through the theme's `plugins` array and process plugins
+   and themes. the resulting consolidation array then needs to be merged into
+   the consolidation array of the previous merge step.
+1. Plugins are normalized to make it easier to figure out whether two plugins
+   are duplicates, factoring in options. When mergin a consolidation array into
+   a consolidation array one recursion step higher, only keep the first
+   occurrence of a duplicate.
+1. At the end of every merge step the consolidation array contains plugins only,
+   no themes.
 
-If you run into unexpected behavior in your Gatsby website, it may be related to
-composition, or more precisely your expectation being at odds with the
-composition algorithm.
+In the consolidated array plugins are ordered in the sequence in which sibling
+themes are defined. For each sibling theme its parent themes go first (in the
+sequence in which they are defined), then the theme itself and then the
+following sibling's parent themes and so on. Keep in mind that themes are
+eventually replaced with a collection of plugins that make up a theme. The
+consolidated array does not contain duplicates (meaning the same plugin with the
+same options), but it can contain the same plugin with different options. For
+some plugins, such as
+[`gatsby-source-filesystem`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-filesystem),
+multiple occurrences of this plugin are no issue. In this example multiple
+occurrences define multiple file locations to be processed by Gatsby. For other
+plugins, such as
+[`gatsby-plugin-theme-ui`](https://theme-ui.com/packages/gatsby-plugin/),
+multiple occurrences overwrite each other and the last occurrence wins. Options
+of previous occurrences are not merged.
 
-For example, I was using `gatsby-theme-blog` and `gatsby-theme-notes` as sibling
-themes defined in this sequence. Both themes use `gatsby-plugin-theme-ui` as
-parent plugin with possibly diverging plugin options. In this example each theme
-was providing its own preset as a theme option. If we do nothing, the preset
-that `gatsby-theme-notes` defines for `gatsby-plugin-theme-ui` wins. To use our
-own preset we have to define `gatsby-plugin-theme-ui` with our preset as option
-in the root Gatsby website **after** `gatsby-theme-blog` and
-`gatsby-theme-notes`.
+Component shadowing can be done in a site or in any plugin, including themes.
+The consolidated array also defines how component shadowing works. If the same
+file is shadowed in more than one location, the follwoing rules apply:
+
+- Shadowing in the site always takes precedence over any other location.
+- The first shadowing plugin of the sequence described above wins.
 
 ## Recommendations
 
