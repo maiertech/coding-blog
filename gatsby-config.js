@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'c4g digital garden',
     author: 'Thilo Maier',
-    description: "Thilo Maier's digital garden on full-stack web development.",
+    description: "Thilo Maier's digital garden for full-stack web development.",
     siteUrl: 'https://coding.maier.dev',
     social: [
       {
