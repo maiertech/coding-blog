@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'C is for Coding',
+    title: 'c4g digital garden',
     author: 'Thilo Maier',
-    description: 'A blog on full-stack web development.',
-    siteUrl: 'https://coding.maier.tech',
+    description: "Thilo Maier's digital garden on full-stack web development.",
+    siteUrl: 'https://coding.maier.dev',
     social: [
       {
         name: 'Twitter',
@@ -17,14 +17,22 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-theme-blog`,
-      options: {},
+      resolve: 'gatsby-theme-blog',
+      options: {
+        basePath: '/blog',
+      },
     },
     {
-      resolve: `gatsby-theme-notes`,
+      resolve: 'gatsby-theme-notes',
       options: {
-        basePath: `/notes`,
+        basePath: '/notes',
       },
+    },
+    'gatsby-plugin-catch-links',
+    // Override gatsby-plugin-theme-ui in blog and notes themes.
+    {
+      resolve: 'gatsby-plugin-theme-ui',
+      options: {},
     },
   ],
 };
