@@ -140,6 +140,13 @@ confiugred multiple times in a meaningful way.
 **A theme cannot be configured more than once in a site, unless you add theme
 options to make using it more than once meaningful.**
 
+## Webpack
+
+It is important to mention that Gatsby themes are buil on webpack and the
+component shadowing mechanism is follows webpack's way of resolving modules.
+This means that a core functionality of Gatsby is married to Webpack and will
+make it difficult long term to move away from Webpack.
+
 ## Recommendations
 
 - [`gatsby-theme-blog`](https://github.com/gatsbyjs/themes/tree/master/packages/gatsby-theme-blog)

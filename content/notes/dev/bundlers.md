@@ -5,6 +5,10 @@ There are two main reasons why you would want to use a bundler:
 1. being able to use NPM packages,
 1. production code optimization.
 
+Watch
+[Unbundling the Jamstack by Chris Biscardi](https://www.youtube.com/watch?v=wtIsCBrXluI)
+for an overview of how module systems and bundler are related.
+
 ## Snowpack
 
 [Introduction to Snowpack (version 1)](https://www.youtube.com/watch?v=nbwt3A9RzNw)
