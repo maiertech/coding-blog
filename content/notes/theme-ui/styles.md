@@ -20,6 +20,13 @@ You can use `variant` within `sx` and all styles defined before `variant` can be
 overwritten by this variant and all styles defined after `variant` cannot be
 overwritten by this variant.
 
+## Duplicate properties
+
+If you define duplicate properties, `theme-ui` will only use the last one, no
+matter if it is valid or not. The idea is that you do not manually duplicate
+properties, but let the auto-prefixer decide when it makes sense to duplicate
+CSS props.
+
 ## ThemeProvider
 
 [`ThemeProvider`](https://github.com/system-ui/theme-ui/blob/v0.3.1/packages/theme-provider/src/index.js)

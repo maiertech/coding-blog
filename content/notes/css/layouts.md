@@ -5,15 +5,31 @@
 - [Article Layout with CSS Grid](https://mastery.games/post/article-grid-layout/)
 - [Inclusive Components](https://inclusive-components.design/)
 
-## Useful CSS for layouts
+## The `100vh` challenge
 
 When using `min-height: 100vh;`, on iOS Safari you do not get the expected
 result since the viewport is bigger than the visible area due to Safari showing
-its address bar.
-
-The trick is to use:
+its address bar. The common solution that you will find when googling is this
+trick:
 
 ```
 min-height: 100vh;
-min-height: -webkit-fill-available;
+min-height: fill-available;
 ```
+
+`fill-available` will then be auto-prefixed to `-webkit-fill-available` and
+`-moz-available`. Usually this is done on `body`. The only problem: it does not
+universally work.
+
+First, in a CSS-in-JS library, such as Theme UI, you cannot repeat CSS
+properties. The idea is that repeating CSS properties should only be done by the
+auto-prefixer, while you write clean CSS. Second, Chrome recognizes
+`-webkit-fill-available`, but it does not result in the desired effect when
+there are `html`, `body` or any `div`s further up the tree whose height is
+defined by their content. If you fix this bei assigning a `height` of `100%` to
+all of them, it works in Chrome but not in Firefox where `-moz-available` does
+not do what it is supposed to do.
+
+That's why the best thing to do is to set `height` to 100% on your flexbox it on
+every `div`, `body` and `html`. Then you can make your sticky footer work with
+Flexbox and make it look as expected on mobile Safari.
