@@ -36,3 +36,21 @@ The following extensions add resolver options to fields of a type:
 | `@link`               | Connect to a different node.                  |
 | `@fileByRelativePath` | Connect to a file node. Same as `@link`.      |
 | `@proxy`              | Proxy field names from underlying node.       |
+
+## Node API
+
+### onCreateNode
+
+`onCreateNode` is intended to be used for plugins that wish to extend or
+transform nodes created by other plugins. Therefore, nodes created within
+`onCreateNode` should always have `parent.id` set. Nodes created by
+`onCreateNode` that do not have a parent assigned, will get erased from the
+Gatsby cache.
+
+You do not have access to `graphql` in `onCreateNode`.
+
+### sourceNodes
+
+Extension point to source nodes from whatever source. You do not have access to
+`graphql` to query the Gatsby graph, but you can of course source nodes from
+GraphQL APIs.
