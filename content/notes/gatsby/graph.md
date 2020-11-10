@@ -9,7 +9,9 @@ cannot be altered by another plugin. With one exception: you can use the
 action to add a field to a node that a plugin does not own. The plugin eill then
 own that field.
 
-## createSchemaCustomization
+## Node API
+
+### createSchemaCustomization
 
 Use `createSchemaCustomization` Node API method to get access to the
 `createTypes` action. This action is used to define GraphQL types using the
@@ -37,7 +39,17 @@ The following extensions add resolver options to fields of a type:
 | `@fileByRelativePath` | Connect to a file node. Same as `@link`.      |
 | `@proxy`              | Proxy field names from underlying node.       |
 
-## Node API
+### createResolvers
+
+If you used the `createTypes` action to define types, you need a way to define
+resolvers for any fields whose value does not live on the node and needs to be
+resolved.
+
+You basically create an object with type names as props and then field names
+with their resolvers. You can also use the alternative API to do this via
+`schema.buildObjectType` where you can co-locate fields and their resolvers. See
+[here](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-mdx/gatsby/source-nodes.js)
+for an example.
 
 ### onCreateNode
 
