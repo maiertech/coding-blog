@@ -12,3 +12,13 @@ From within directory in which to create symbolic link run
     ln -s ../undataforum/content content
 
 This will be translated to file `content`
+
+## Shallow fetch
+
+With `git fetch` you can shorten the history of a repo based on different
+criteria. This is something that GitHub Codespaces does under the hood to
+accelerate spinning up new instances. You can revert this with
+
+```
+git fetch --unshallow
+```
