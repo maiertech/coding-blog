@@ -36,7 +36,7 @@
     "gatsby": "2.26.1",
     "gatsby-plugin-catch-links": "2.3.15",
     "gatsby-plugin-mdx": "1.2.46",
-    "gatsby-plugin-theme-ui": "0.3.0",
+    "gatsby-plugin-theme-ui": "0.3.4",
     "gatsby-theme-blog": "2.0.2",
     "gatsby-theme-notes": "2.0.3",
     "prop-types": "15.7.2",
