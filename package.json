@@ -9,47 +9,46 @@
     "gatsby"
   ],
   "license": "MIT",
-  "scripts": {
-    "dev": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "lint": "run-s lint:*",
-    "lint:eslint": "eslint . --ignore-path .gitignore",
-    "lint:prettier": "yarn run prettier --check",
-    "prettier": "prettier . --ignore-path .gitignore",
-    "format": "run-s format:*",
-    "format:eslint": "yarn run lint:eslint --fix",
-    "format:prettier": "yarn run prettier --write",
-    "purge": "rm -rf ./node_modules"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push": "yarn run lint"
     }
   },
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "yarn run lint:eslint && yarn run lint:prettier",
+    "lint:eslint": "eslint . --ignore-path .gitignore",
+    "lint:prettier": "yarn run prettier --check",
+    "prettier": "prettier . --ignore-path .gitignore",
+    "format": "yarn run format:eslint && yarn run format:prettier",
+    "format:eslint": "yarn run lint:eslint --fix",
+    "format:prettier": "yarn run prettier --write",
+    "purge": "rm -rf ./node_modules"
+  },
   "dependencies": {
-    "@emotion/core": "10.0.35",
-    "@maiertech/components": "0.20.0",
-    "@maiertech/preset": "0.1.0",
-    "gatsby": "2.26.1",
-    "gatsby-plugin-catch-links": "2.3.15",
-    "gatsby-plugin-mdx": "1.2.46",
-    "gatsby-plugin-theme-ui": "0.3.0",
-    "gatsby-theme-blog": "2.0.2",
-    "gatsby-theme-notes": "2.0.3",
-    "prop-types": "15.7.2",
-    "react": "16.14.0",
-    "react-dom": "16.13.1",
-    "theme-ui": "0.3.1"
+    "@emotion/core": "^10.0.35",
+    "@maiertech/components": "^0.20.0",
+    "@maiertech/preset": "^0.1.0",
+    "gatsby": "^2.26.1",
+    "gatsby-plugin-catch-links": "^2.3.15",
+    "gatsby-plugin-mdx": "^1.2.46",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-theme-blog": "^2.0.2",
+    "gatsby-theme-notes": "^2.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "theme-ui": "^0.3.1"
   },
   "devDependencies": {
-    "@maiertech/eslint-config": "0.15.0",
-    "@maiertech/prettier-config": "0.2.1",
-    "eslint": "6.8.0",
-    "husky": "4.3.0",
-    "lint-staged": "10.5.1",
-    "npm-run-all": "4.1.5"
+    "@maiertech/eslint-config": "^0.16.0",
+    "@maiertech/prettier-config": "^0.2.1",
+    "eslint": "^7.14.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1"
   }
 }
