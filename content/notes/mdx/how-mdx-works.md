@@ -1,7 +1,8 @@
 # How MDX works
 
-Summary of this brillinat talk: https://egghead.io/talks/mdx-demystifying-mdx.
-Slides here: https://github.com/colebemis/demystifying-mdx-talk.
+This is the summary of this great talk:
+https://egghead.io/talks/mdx-demystifying-mdx. Slides here:
+https://github.com/colebemis/demystifying-mdx-talk.
 
 MDX (the library) transforms MDX (the syntax) into JSX (see
 https://mdxjs.com/advanced/api). To understand MDX we need to understand how
