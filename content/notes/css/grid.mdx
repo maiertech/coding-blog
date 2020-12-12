@@ -1,0 +1,122 @@
+---
+title: CSS Grid
+description: My cheatsheet on how to master CSS grid.
+tags:
+  - css
+---
+
+If all you need is a refresher, check out
+[Learn CSS Grid](https://learncssgrid.com/). If you want to thoroughly learn CSS
+Grid, check out paid [Grid Critters](https://mastery.games/gridcritters/).
+[CSS Grid](https://cssgrid.io/) is a free alternative.
+
+Use `display: grid;` on a div to switch to grid layout. Everyting inside the div
+is referred to as grid items. A grid is made up of columns and rows, which both
+are referred to as tracks.
+
+You can think of an unspecified grid as
+
+```
+grid-template-columns: 1fr;
+grid-template-rows: 1fr;
+```
+
+By default, there is one column with grid items taking up the the entire width
+and rendering with their intrinsic height.
+
+`fr` takes into considerations gaps while `%` does not. If a column is `50%` of
+the grid it will be 50% no matter what.
+
+## grid-template-columns
+
+Define columns with `grid-template-columns` by providing one or more arguments
+that are either widths like `100px` or fractions of remaining space like `1fr`.
+The default value is `none`.
+
+To avoid repetition you can use `repeat` to create tracks.
+
+```
+grid-template-columns: repeat(4, 100px);
+```
+
+is the same as
+
+```
+grid-template-columns: 100px 100px 100px 100px;
+```
+
+Spoiler alert! Above definition actually means
+
+```
+grid-template-columns: [1] 100px [2] 100px [3] 100px [4] 100px [5];
+```
+
+with line names enclosed in `[]`. Each `[]` can contain multiple names.
+
+## grid-template-rows
+
+Define rows with `grid-template-rows` by providing one or more arguments that
+are either heights like `100px` or fractions of remaining space like `1fr`. The
+default value is `none`.
+
+To avoid repetition you can use `repeat` to create tracks.
+
+```
+grid-template-rows: repeat(2, 1fr 2fr);
+```
+
+is the same as
+
+```
+grid-template-rows: 1fr 2fr 1fr 2fr;
+```
+
+Spoiler alert! Above definition actually means
+
+```
+grid-template-rows: [1] 1fr [2] 2fr [3] 1fr [4] 1fr [5];
+```
+
+with line names enclosed in `[]`. Each `[]` can contain multiple names.
+
+## grid-gap
+
+If you provide one value only, it sets both `grid-row-gap` and
+`grid-column-gap`. If you provide two values, the first one sets `grid-row-gap`
+and the second one `grid-column-gap` (rows then columns).
+
+You can use the following units: `vw`, `vh`, `%`, `px`, `rem`. You cannot use
+`fr`.
+
+## grid-column-start, grid-column-end, grid-row-start, grid-row-end
+
+Grid lines are numbered starting with 1. Positioning is done by lines not by
+tracks. Negative line numbers start at -1 from the opposite direction.
+
+Instead of providing a line number you can indicate how many rows or columns a
+grid item should span in its natural position, e.g., `span 3`. You can span in
+revese direction by setting `grid-*-end` and `span x` on the corresponding
+`grid-*-start`. If you set a span for both `grid-*-start` and `grid-*-end`, then
+`grid-*-start` wins.
+
+## grid-column, grid-row
+
+`grid-*: 2 / 4;` is a shortcut for `grid-*-start: 2;` and `grid-*-end: 4;`. If
+you provide only one value it's `grid-*-start`.
+
+## Line numbers and names
+
+When you define a grid with `grid-template-columns` and `grid-template-rows` you
+can add one or more line names in `[]` in front of the track definition. If you
+repeat a line name for different tracks, that line name comes with a counter
+starting at 1 to identify specific lines.
+
+Think of a line with a gap as a thick line.
+
+## grid-area
+
+Shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end`,
+`grid-column-end` in this sequence and separated with `/` (counter clockwise
+top, left, bottom, right).
+
+You can set any value to `auto` to make it use its default positioning.

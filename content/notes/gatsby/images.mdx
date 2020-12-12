@@ -1,0 +1,50 @@
+---
+title: Images
+description: How to deal with images in Gatsby.
+tags:
+  - gatsby
+---
+
+Gatsby was the first framework that made creating responsive images a breeze
+with plugins
+[`gatsby-plugin-sharp`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp)
+and
+[`gatsby-transformer-sharp`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp).
+Querying image nodes would trigger image processing and generation of metadata
+that could be passed into `Img` from
+[`gatsby-image`](https://www.gatsbyjs.com/plugins/gatsby-image/) to create fixed
+or fluid images. The big downside of this approach is that image processing
+happens at build time, which puts a huge penalty on build duration. It's also
+not great that image processing can only be griggered through GraphQL queries.
+
+Chris Biscardi says in [this video](https://www.youtube.com/watch?v=wtIsCBrXluI)
+that Gatsby's build process is 100% not the place to process images, because it
+slows you down. He says you need to have a separate process for image
+processing, e.g., a service like [Cloudinary](https://cloudinary.com/).
+
+There are two cloud-based solutions that remove image processing from the build
+process:
+
+- Use Cloudinary with
+  [these plugins](https://cloudinary.com/blog/introducing_cloudinary_s_gatsby_plugins).
+  This transfers the pain of creating images in different sizes over to
+  Cloudinary and the transformer plugin can pull in cached processed images
+  during the build process.
+- Use [imgIX](https://www.imgix.com/) with
+  [`@imgix/gatsby-transform-url`](https://github.com/imgix/gatsby/tree/main/packages/gatsby-transform-url).
+  Same approach as for Cloudinary.
+
+You need to be familiar with their APIs to make this work.d
+
+Instead of removing image processing from the build process you can also try to
+optimize the build process:
+
+- You can use [Gatsby cloud](https://www.gatsbyjs.com/cloud/) to accelerate
+  builds. The first thing this does is it parallelizes image processing. The
+  second thing it does it keeps Gatsby's cache around between builds. This
+  dramatically reduces build times.
+- You can
+  [enable Gatsby incremental builds on Netlify](https://www.netlify.com/blog/2020/04/23/enable-gatsby-incremental-builds-on-netlify/?utm_source=blog&utm_medium=gatsby-perf-jl&utm_campaign=devex).
+  This is poor man's Gatsby cloud. It keeps Gatsby's build cache around,
+  avoiding having to reprocess all images on every build, but it does not
+  parallelize image processing.
