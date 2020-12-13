@@ -1582,23 +1582,23 @@
     "@maiertech/gatsby-helpers" "0.2.1"
     prop-types "15.7.2"
 
-"@maiertech/gatsby-theme-theme-ui@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@maiertech/gatsby-theme-theme-ui/-/gatsby-theme-theme-ui-0.1.1.tgz#eba4a0b87a9744baf2994308e9866226c7cbf840"
-  integrity sha512-SLXgGjNbOgZhNrmfJCEdbKhhQKWUk9V9peU2MoxxlOhTXxUNNHb7tiNdL3gXw7mx1exc3nVl5lBALj0NxBKRKg==
+"@maiertech/gatsby-theme-theme-ui@^0.1.1", "@maiertech/gatsby-theme-theme-ui@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@maiertech/gatsby-theme-theme-ui/-/gatsby-theme-theme-ui-0.1.2.tgz#ed99b52200ac2051c52cad5416dc5c5a791388bb"
+  integrity sha512-qPhtyXznajvYkVyuj1uZnzTwGlWNRF4ruy4DkfpivJrcvWjTjQy63CU9uHTMvY+RABYW4xnZD+FcSn60CseC2A==
   dependencies:
     "@emotion/react" "^11.1.2"
     "@maiertech/components" "^0.21.1"
-    "@maiertech/preset" "^0.4.0"
+    "@maiertech/preset" "^0.4.1"
     gatsby-plugin-catch-links "^2.6.0"
     gatsby-plugin-theme-ui "^0.3.4"
     prop-types "^15.7.2"
     theme-ui "^0.3.4"
 
-"@maiertech/preset@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@maiertech/preset/-/preset-0.4.0.tgz#02d0d78f7b6a8177aecc87dde70a666e03f7bcef"
-  integrity sha512-q+OfpI26Zzzn6GIIK3bjC1x0tCUUYdiVF4EmpNdFnCU/X4AnzMSImoiC+Fi27HYy/Qr3Vf9IbjM4pLd5yuh8bA==
+"@maiertech/preset@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@maiertech/preset/-/preset-0.4.1.tgz#d792706ef2db0cfeced5f1c9803ea86b75b05650"
+  integrity sha512-nT2Pzac/iPHZSoCzzb+JN2ssiT8aRsyEUwVxtxl1gzvGOPIUXueFey8DpHKyFnGGOFsSHQ4gusQUkrKahuErCA==
   dependencies:
     "@theme-ui/preset-base" "^0.3.4"
 
