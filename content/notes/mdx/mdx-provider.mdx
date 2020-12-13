@@ -1,0 +1,13 @@
+---
+title: MDXProvider
+description: How to customize MDX component mappings.
+tags:
+  - mdx
+---
+
+[This table](https://mdxjs.com/getting-started#table-of-components) shows the
+default mapping between Markdown syntax and React components.
+
+With Theme UI `theme.styles` is used for `components` in `MDXProvider`. Anything
+not defined in `theme.styles` results in the default mapping with classname
+`css-0`. Not clear if that classname is coming from Theme UI or MDX.
