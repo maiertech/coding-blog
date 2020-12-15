@@ -38,21 +38,21 @@ component.
 You can import another MDX file into an MDX file and use it as if it were a
 component:
 
-```
-import AnotherFile from './another-file.mdx'
+```jsx
+import AnotherFile from './another-file.mdx';
 
-<AnotherFile />
+<AnotherFile />;
 ```
 
 You can even pass props into the imported MDX file component:
 
-```
+```jsx
 <AnotherFile title="Hello World!" />
 ```
 
 And use access the props like this:
 
-```
+```md
 // another-file.mdx
 
 # {props.title}
@@ -63,7 +63,7 @@ Some text.
 You can export data from `another-file.mdx` and access it inside its parent (the
 file that imports `another-file.mdx`).
 
-```
+```md
 // another-file.mdx
 
 # Heading
@@ -75,10 +75,10 @@ export const data someData = { key: 'value' }
 
 In the parent file you can do this import:
 
-```
-import AnotherFile, { someData } from './another-file.mdx'
+```md
+import AnotherFile, { someData } from './another-file.mdx';
 
-{someData.key}
+{ someData.key; }
 ```
 
 ## MDXProvider and global layout

@@ -9,7 +9,9 @@ tags:
 
 The standard way of installing `node` is with [Homebrew](https://brew.sh/):
 
-    brew install node
+```bash
+brew install node
+```
 
 This gives you the latest version of Node, easy to update. In most cases, using
 the latest version of Node, installed with Homebrew, works just fine and using
@@ -22,7 +24,7 @@ If you need more flexibility to switch between different versions of Node,
 with Homebrew, but requires modifying `~/.zshrc` or `~/.bashrc` to hook it up
 inside your terminal:
 
-```
+```bash
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 ```
@@ -37,7 +39,7 @@ to go through a manual setup to make it work and that is a big downside.
 be installed with Homebrew. It manages the system Node. To switch to the latest
 LTS run
 
-```
+```bash
 n lts
 ```
 
@@ -57,16 +59,22 @@ your shell and launches its version of Node.
 If you install package `node` with `npm` it just works and you can test running
 a specific Node version with
 
-    npx node
+```bash
+npx node
+```
 
 If you use `yarn`, to install package `node`, the Node binary does not get
 downloaded. You need to run
 
-    yarn --check-files --ignore-scripts
+```bash
+yarn --check-files --ignore-scripts
+```
 
 to fix this. To automate this workaround, add script
 
-    "postinstall": "yarn --check-files --ignore-scripts"
+```json
+"postinstall": "yarn --check-files --ignore-scripts"
+```
 
 to your `package.json` (as seen in
 [this comment](https://github.com/yarnpkg/yarn/issues/3421#issuecomment-443972019)).

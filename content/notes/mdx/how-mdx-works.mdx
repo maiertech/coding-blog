@@ -14,8 +14,8 @@ https://mdxjs.com/advanced/api). To understand MDX we need to understand how
 this transformation happens. MDX at its core is a function that accepts an MDX
 string and returns a JSX string:
 
-```
-const mdx = require('@mdx-js/mdx')
+```js
+const mdx = require('@mdx-js/mdx');
 
 await mdx(`
 import Button from './button'
@@ -25,7 +25,7 @@ import Button from './button'
 Hello world!
 
 <Button>Click me</Button>
-`)
+`);
 ```
 
 MDX is built with [unified](https://github.com/unifiedjs/unified), which is used
@@ -42,21 +42,18 @@ Processors process strings in 3 stages:
 You can think of unified as a kit to construct a processor by chaining plugins
 that define what happens in each stage. This looks like this:
 
-```
-unified()
-  .use(parser)
-  .use(transformer)
-  .use(compiler)
+```js
+unified().use(parser).use(transformer).use(compiler);
 ```
 
 For MDX it looks like this:
 
-```
+```js
 unified()
-  .use(toMDAST)         // MDX to MDAST
-  .use(remarkMdx)       // MDAST to MDXAST
+  .use(toMDAST) // MDX to MDAST
+  .use(remarkMdx) // MDAST to MDXAST
   .use(mdxAstToMdxHast) // MDXAST to MDXHAST
-  .use(mdxHastToJsx)    // MDXHAST to JSX
+  .use(mdxHastToJsx); // MDXHAST to JSX
 ```
 
 [MDXAST](https://github.com/mdx-js/specification#mdxast) is a superset of
@@ -66,16 +63,16 @@ unified()
 
 The real code looks like this:
 
-```
+```js
 async function mdx(mdxString) {
   const processor = unified()
     .use(toMDAST)
     .use(remarkMdx)
     .use(mdxAstToMdxHast)
-    .use(mdxHastToJsx)
+    .use(mdxHastToJsx);
 
-  const file = await processor.process(mdxString)
+  const file = await processor.process(mdxString);
 
-  return file.contents
+  return file.contents;
 }
 ```

@@ -16,7 +16,7 @@ are referred to as tracks.
 
 You can think of an unspecified grid as
 
-```
+```css
 grid-template-columns: 1fr;
 grid-template-rows: 1fr;
 ```
@@ -35,19 +35,19 @@ The default value is `none`.
 
 To avoid repetition you can use `repeat` to create tracks.
 
-```
+```css
 grid-template-columns: repeat(4, 100px);
 ```
 
 is the same as
 
-```
+```css
 grid-template-columns: 100px 100px 100px 100px;
 ```
 
 Spoiler alert! Above definition actually means
 
-```
+```css
 grid-template-columns: [1] 100px [2] 100px [3] 100px [4] 100px [5];
 ```
 
@@ -61,19 +61,19 @@ default value is `none`.
 
 To avoid repetition you can use `repeat` to create tracks.
 
-```
+```css
 grid-template-rows: repeat(2, 1fr 2fr);
 ```
 
 is the same as
 
-```
+```css
 grid-template-rows: 1fr 2fr 1fr 2fr;
 ```
 
 Spoiler alert! Above definition actually means
 
-```
+```css
 grid-template-rows: [1] 1fr [2] 2fr [3] 1fr [4] 1fr [5];
 ```
 

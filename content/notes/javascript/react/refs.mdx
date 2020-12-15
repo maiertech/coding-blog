@@ -10,7 +10,7 @@ tags:
 Refs provide a way to access DOM nodes or React elements created in the render
 method. They were originally introduced for class components:
 
-```
+```js
 class MyComponent extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ the `render` method us the `ref` prop. A reference to the node is available as
 
 You cannot use `ref` on function components because they do not have instances:
 
-```
+```js
 function MyFunctionComponent() {
   return <input />;
 }
@@ -47,9 +47,7 @@ class Parent extends Component {
   }
   render() {
     // This will *not* work!
-    return (
-      <MyFunctionComponent ref={this.textInput} />
-    );
+    return <MyFunctionComponent ref={this.textInput} />;
   }
 }
 ```
@@ -57,7 +55,7 @@ class Parent extends Component {
 But you can use `ref` inside a function component as long as you refer to a DOM
 element or a class component:
 
-```
+```js
 function CustomTextInput(props) {
   // textInput must be declared here so the ref can refer to it
   const textInput = useRef(null);
@@ -68,14 +66,8 @@ function CustomTextInput(props) {
 
   return (
     <div>
-      <input
-        type="text"
-        ref={textInput} />
-      <input
-        type="button"
-        value="Focus the text input"
-        onClick={handleClick}
-      />
+      <input type="text" ref={textInput} />
+      <input type="button" value="Focus the text input" onClick={handleClick} />
     </div>
   );
 }
@@ -87,7 +79,7 @@ Ref forwarding is an opt-in feature, mostly used in component libraries, that
 lets some components take a ref they receive, and pass it further down (in other
 words, "forward" it) to a child.
 
-```
+```js
 const FancyButton = React.forwardRef((props, ref) => (
   <button ref={ref} className="FancyButton">
     {props.children}
@@ -97,7 +89,7 @@ const FancyButton = React.forwardRef((props, ref) => (
 
 Now we can get a ref directly to the DOM button:
 
-```
+```js
 const ref = React.createRef();
 <FancyButton ref={ref}>Click me!</FancyButton>;
 ```

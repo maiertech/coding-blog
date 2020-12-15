@@ -21,7 +21,7 @@ In its
 [`gatsby-node.js`](https://github.com/reflexjs/reflex/blob/%40reflexjs/gatsby-theme-post%400.6.8/packages/gatsby-theme-post/gatsby-node.js),
 this theme defines `PostTag` interface
 
-```
+```graphql
 interface PostTag @nodeInterface {
   id: ID!
   name: String
@@ -31,7 +31,7 @@ interface PostTag @nodeInterface {
 
 which is linked to the `Post` interface via
 
-```
+```graphql
 tags: [PostTag] @link(by: "name")
 ```
 
@@ -41,14 +41,14 @@ corresponding paths to tag pages. The theme makes use of the
 [`onCreateNode`](https://www.gatsbyjs.com/docs/node-apis/#onCreateNode) Node API
 extension and for each post iterates through its tags:
 
-```
+```js
 if (tags) {
-  const nodeType = "MdxPostTag"
+  const nodeType = 'MdxPostTag';
   tags.forEach((name) => {
     const tagNode = {
       name,
       slug: `${basePath}/tags/${toSlug(name)}`,
-    }
+    };
 
     actions.createNode({
       id: createNodeId(`${nodeType}-${name}`),
@@ -57,8 +57,8 @@ if (tags) {
         type: nodeType,
         contentDigest: createContentDigest(`${nodeType}-${name}`),
       },
-    })
-  })
+    });
+  });
 }
 ```
 
@@ -107,7 +107,7 @@ In its
 [`gatsby-node.js`](https://github.com/gatsbyjs/themes/blob/gatsby-theme-blog-core%402.0.2/packages/gatsby-theme-blog-core/gatsby-node.js)
 this theme defines type `BlogPost` as `tags: [String]!` and sets
 
-```
+```js
 tags: node.frontmatter.tags || [],
 ```
 
@@ -115,9 +115,7 @@ Other than that it does nothing more with the tags like cretaing tag nodes or
 creating tag pages. This means that as of this version this theme does not
 support real tagging.
 
-##
-
-What is Gatsby's take on this?
+## What is Gatsby's take on this?
 
 ## @lekoarts/gatsby-theme-minimal-blog(-core)
 
@@ -131,7 +129,7 @@ These two themes are part of a collection of very polished themes featured at
 
 The core theme defines in its [`gatsby-config.js`]() type `PostTag`:
 
-```
+```graphql
 type PostTag {
   name: String
   slug: String
@@ -140,27 +138,27 @@ type PostTag {
 
 and type `Post` with
 
-```
+```graphql
 tags: [PostTag]
 ```
 
 The theme processes tags in the `onCreteNode` lifecycle method:
 
-```
+```js
 if (node.frontmatter.tags) {
   modifiedTags = node.frontmatter.tags.map((tag) => ({
     name: tag,
     slug: kebabCase(tag),
-  }))
+  }));
 } else {
-  modifiedTags = null
+  modifiedTags = null;
 }
 ```
 
 It does not create any tags nodes. To create tag pages, the `createPages`
 lifecycle methods runs this query:
 
-```
+```graphql
 tags: allPost(sort: { fields: tags___name, order: DESC }) {
   group(field: tags___name) {
     fieldValue
