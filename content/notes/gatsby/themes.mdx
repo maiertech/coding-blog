@@ -152,6 +152,15 @@ component shadowing mechanism is follows webpack's way of resolving modules.
 This means that a core functionality of Gatsby is married to Webpack and will
 make it difficult long term to move away from Webpack.
 
+## Static files
+
+In dev static files from a theme are not copied to `public`, see
+https://github.com/gatsbyjs/gatsby/issues/14003. Files from themes are copied
+during build. If there are conflicting files, processing sequence matters. Site
+static files always win.
+
+See https://github.com/maiertech/gatsby-themes/issues/125.
+
 ## Recommendations
 
 - [`gatsby-theme-blog`](https://github.com/gatsbyjs/themes/tree/master/packages/gatsby-theme-blog)
