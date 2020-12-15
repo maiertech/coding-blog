@@ -18,7 +18,7 @@ components. Hooks are special functions that let you hook into React features.
 
 This is how you declare a single state variable and pass in initial state:
 
-```
+```js
 const [count, setCount] = useState(0);
 ```
 
@@ -37,7 +37,7 @@ If you want to manage an array or an object in your state, consider using the
 fashion. Use this when you have complex state logic or when the next state
 depends on the previous state.
 
-```
+```js
 const [state, dispatch] = useReducer(reducer, initialState, init);
 ```
 
@@ -90,7 +90,7 @@ render. Cleanup will still run before unmount.
 
 You can think of context as global state.
 
-```
+```js
 const value = useContext(MyContext);
 ```
 
@@ -107,7 +107,7 @@ changes.
 
 ## useRef
 
-```
+```js
 const refContainer = useRef(initialValue);
 ```
 
@@ -121,7 +121,7 @@ But: mutating the `current` property does not trigger a re-render.
 This goes beyond refs in class components, but one use case is refs in
 functional components:
 
-```
+```js
 function TextInputWithFocusButton() {
   const inputEl = useRef(null);
   const onButtonClick = () => {

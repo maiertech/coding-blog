@@ -56,7 +56,7 @@ manually. Their main purpose is to run with
 Installing package `husky` triggers setup up of Git hooks. Configuration is done
 in `package.json` under `husky`:
 
-```
+```json
 {
   "husky": {
     "hooks": {
@@ -71,11 +71,11 @@ in `package.json` under `husky`:
 commited or pushed. For this to work you need to create a
 `lint-staged.config.js` and define by extension which scripts to run:
 
-```
+```js
 module.exports = {
   '*.js': ['eslint --fix', 'prettier --write', 'prettier --check'],
   '*.{md,mdx,css,yaml,yml}': ['prettier --write', 'prettier --check'],
-}
+};
 ```
 
 `eslint --fix` tries to fix syntactical errors. It will throw an error and fail
@@ -95,7 +95,7 @@ The
 picks up `.eslintrc` automatically and visually highlights ESLint warnings or
 errors. You need to add this configuration to your `settings.json`:
 
-```
+```json
 "editor.codeActionsOnSave": {
   "source.fixAll.eslint": true,
 }
@@ -108,9 +108,9 @@ The
 picks up your `.prettierrc`. You have to make this extension default formatter
 in `settings.json`:
 
-```
+```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
 ```
 
@@ -131,7 +131,7 @@ But to make this work in VS Code, you need to uninstall the Prettier extension
 to prevent it from interfering with the ESLint extension. And you need to make
 the following configuration changes in `settings.json`:
 
-```
+```json
 "editor.formatOnSave": false,
 "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,

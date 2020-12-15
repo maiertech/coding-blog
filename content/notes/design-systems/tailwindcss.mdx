@@ -71,8 +71,9 @@ This is a summary of the article
 Tailwind CSS with React means using Tailwind's utility classes with the
 `className` prop:
 
-```
-className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+```js
+className =
+  'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded';
 ```
 
 You could just use Reacts's standard HTML elements and slab on utility classes.
@@ -80,7 +81,7 @@ DX would be pretty close to using Tailwind in a static HTML project. To improve
 component APIs, you can use the `classnames` package. In this example component
 props are mapped to utility classes and processed with `classnames`:
 
-```
+```jsx
 function Button ({size, bgColor, textColor, children}) {
   return (
     <button className={classnames("bg-${bgColor} text-${textColor} font-bold py-2 px-4 rounded", {
