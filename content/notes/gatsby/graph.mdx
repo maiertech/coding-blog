@@ -44,6 +44,22 @@ The following extensions add resolver options to fields of a type:
 | `@fileByRelativePath` | Connect to a file node. Same as `@link`.      |
 | `@proxy`              | Proxy field names from underlying node.       |
 
+Extensions can be used on interfaces. But not all of them make sense on an
+interfaces. Lets take `Event` (interface) and `MdxEvent` (type as an example).
+Defining `startDate` as `Date! @dateformat` means that wherever `Event` gets
+`startDate` from, we add additional formatting capabilities.
+
+We define `description` as `EventDescription!` on `Event` but on `MdxEvent` we
+define it as `description: EventDescription! @link`. In this case `@link` is an
+implementation detail in which we explicitly link an `EventDescription` node
+through its ID. Interface `Event` does not care about this implementation detail
+and just says what `description` should look like. In this case `@link` on the
+`Event` interface makes no sense.
+
+Same for `@fileByRelativePath`. All interface `Event` says is that
+`attachements` aren array of `File`. But it does not care if this was created by
+linking nodes.
+
 ### createResolvers
 
 If you used the `createTypes` action to define types, you need a way to define
