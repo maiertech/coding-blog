@@ -1,0 +1,28 @@
+---
+title: Styling overview article
+description: Overview of styling.
+tags:
+  - design-systems
+---
+
+- What is the benefit of CSS-in-JS? Mostly scoped CSS.
+  - Styled components was the first prominent tool, Emotion followed with less
+    overhead. In both libraries you are still using CSS.
+  - Styled-system added an abstraction layer on top that added support for
+    themeing and made mobile first development easier. This was a significant
+    step to go from a styling solution to a framework to build design systems.
+  - Out of Styled System evovled Theme UI and added a default component mapping
+    for MDX (also a weak point) components and the `sx` prop. This was supposed
+    to be the default way of styling for Gatsby. Theme UI was the first
+    CSS-in-JS solution where I started to notice the pain of using it.
+  - But then the author took a hiatus from both and both libraries went into the
+    unmaintained state.
+  - Styled system lived on in Chakra UI and preserved its ideas.
+  - What does mOdulz bring to the table?
+- Another way of avoiding the pitfalls of unscoped CSS was using utility
+  classes. Always frowed upon because it adds a lot of classses, it just avoids
+  unscoped CSS as long as you are disciplined enough to stick with utility
+  classes. It got some traction when it was used in conjunction with Next.js in
+  2020 and Tailwind make a very strong case for utility classes. People started
+  realizing that they can have the benefits of a design system (thanks to CSS
+  variables) and avoid the overhead of CSS-in-JS.
