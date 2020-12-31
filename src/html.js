@@ -18,7 +18,6 @@ export default function HTML(props) {
         <script
           src="https://badger.maier.dev/script.js"
           data-spa="auto"
-          data-honor-dnt="true"
           data-included-domains="coding.maier.dev"
           data-site="CATAPAVW"
           defer
