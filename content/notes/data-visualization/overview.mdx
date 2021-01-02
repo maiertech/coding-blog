@@ -1,0 +1,54 @@
+---
+title: Data visualization overview
+description:
+  An overview to help you choose the right data visualization tool for React.
+tags:
+  - data-visualization
+---
+
+If you don't know how to visualize your data, check this out:
+https://www.data-to-viz.com/. This helps you make the right decision what
+visualization to use.
+
+Then you need to make a decision on which library to use. If you ask around,
+everybody will say use [D3](https://d3js.org/). But D3 is really low level and
+really complex. Therefore, I am only considering libraries that in one way or
+another take the pain out of D3. This tweet show a great overview of what your
+options are:
+
+https://twitter.com/hshoff/status/1168227878309437440
+
+## Highcharts
+
+https://www.highcharts.com/
+
+Commercial charting library that is not React based.
+
+## Nivo
+
+https://nivo.rocks/
+
+Very polished open source charting library built on top of D3 with React by
+Raphael Benitte. Used for data visualizations for https://stateofjs.com/ and
+https://stateofcss.com/. Use this library if you do not want to go into the
+weeds of D3.
+
+## React-Vis
+
+https://uber.github.io/react-vis/
+
+Uber's charting library based on React. Does not seem to be as polished as Nivo.
+
+## Victory
+
+https://formidable.com/open-source/victory/
+
+Another solution built with React and D3 by Formidable. Great documentation,
+looks polished. Probably the easiest to use but not as powerful as the others.
+
+## visx
+
+https://airbnb.io/visx/
+
+Airbnb's low level data visualization primitives for React (formerly VX). You
+can use this to build your own charting library.
