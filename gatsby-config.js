@@ -10,6 +10,7 @@ module.exports = {
     siteTwitter: '454de6e',
     siteNavLinks: [
       { href: '/posts/', text: 'Posts' },
+      { href: '/chunks/', text: 'Chunks' },
       { href: '/notes/', text: 'Notes' },
       { href: '/about/', text: 'About' },
     ],
