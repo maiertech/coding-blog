@@ -16,10 +16,10 @@ export default function HTML(props) {
         />
         {props.headComponents}
         <script
-          src="https://badger.maier.dev/script.js"
+          src="https://firefly.maier.tech/script.js"
           data-spa="auto"
-          data-included-domains="coding.maier.dev"
-          data-site="CATAPAVW"
+          data-included-domains="coding.maier.tech"
+          data-site="YRVGKMMG"
           defer
         />
       </head>
