@@ -1,0 +1,53 @@
+---
+title: Microbundle
+description: How does Microbundle work?
+tags:
+  - drafts
+---
+
+We established that we would like to produce packages compliant with
+Skypack.dev. The easiest way to achieve this is using
+
+With [Microbundle](https://github.com/developit/microbundle) you can use
+[Rollup](https://rollupjs.org/guide/en/) with having to become an expert in
+configuring it. You get most of Rollup's benefits, such as tree shaking.
+
+Microbundle supports multiple entry points for different distributions, eg.
+`main` for CJS and `module` for the ESM. For ESM and CJS it bundles your code
+but not dependencies. It also supports UMD with bundled dependencies.
+
+## For CJS
+
+It bundles the code into one file, but still uses `require` for dependencies.
+
+## For ESM
+
+It bundles the code into one file, but still uses `import` for dependencies.
+
+- module: heavy Babel transpilation.
+- modern: for new browsers only.
+
+## For UMD
+
+First question you need to ask: does it make sense to create UMD package, i.e.
+should I run my package in the browser or not?
+
+Or a better question is: should I use https://www.skypack.dev/ instead? Probably
+yes, because everyone wants to use Snowpack and not deal with UNPKG.
+
+## For Skypack.dev
+
+We go with the recommendation for Skypack (Web and Node):
+
+```
+{
+  "main": "./index-cjs.js",
+  "module": "./index-esm.js",
+  "exports": {
+    "require": "./index-cjs.js",
+    "import": "./index-esm.js"
+  }
+}
+```
+
+And for ESM we use modern.

@@ -1,0 +1,28 @@
+---
+title: UMD modules
+description: How do UMD modules work?
+tags:
+  - drafts
+---
+
+UMD modules are built in a way that they can run in a browser.
+
+## What does unpkg do?
+
+https://www.youtube.com/watch?v=2rhkgB8Cohc
+
+- It serves up npm packages.
+- By default the file linked in `main` in `package.json`.
+- E.g. https://unpkg.com/react redirects to
+  https://unpkg.com/react@17.0.1/index.js.
+- Go to https://unpkg.com/react@17.0.1/ to obtain a directory listing.
+- You can locate the UMD build and the get the URL.
+- You work with globals and include script tags that link to UMD builds on
+  unpkg. This is as basic as it gets.
+- Later on webpack said: let me create the script tags for you.
+- You can still use webpack to bundle your app, but pull out react as separate
+  script tag loaded from unpkg. The advantage would be that you don't force
+  people to download react for every single page and instead allow them to use
+  the cached version.
+
+https://www.skypack.dev/ can be considered as the successor of UNPKG.
