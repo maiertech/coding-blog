@@ -1,31 +1,29 @@
 ---
-title: Screenflow
+title: ScreenFlow
 description: Introduction to Screenflow.
+slug: screenflow
 tags:
   - digital-garden
 ---
 
-I am currently testing [Descript](https://www.descript.com/). The trade-off to
-be considered is recurring cost vs. ease of creating and editing videos.
-
 ## Installation
 
-You normally should be able to install
-[Screenflow](http://www.telestream.net/screenflow/overview.htm) with Homebrew:
+You can install [Screenflow](http://www.telestream.net/screenflow/overview.htm)
+with Homebrew:
 
 ```bash
 brew cask install screenflow
 ```
 
-However, this
-[currently fails](https://github.com/Homebrew/homebrew-cask/issues/84783). In
-the error message, you can see the actual download location and manually
-download and install Screenflow until this is fixed.
+## Learning ScreenFlow
 
-## Configuration
+- https://www.linkedin.com/learning/screenflow-8-essential-training/customizing-your-keyboard-shortcuts?u=70939946
+- https://www.youtube.com/watch?v=OzEvlW5nUwQ
 
-Screenflow needs the following permissions in System preferences => Security &
-Privacy:
+## Permissions
+
+Screenflow needs the following permissions in **System Preferences → Security &
+Privacy**:
 
 - Camera
 - Microphone
@@ -34,19 +32,92 @@ Privacy:
 
 ## Microphone calibration
 
-In system preferences => Sound => Input, choose your microphone and put input
+In **System Preferences → Sound → Input**, choose your microphone and put input
 volume to 50%. Move volume up while talking until input level reaches
 consistently 75%.
 
-If you maxed the input volume at the OS level but it is not high enough, you can
-still bump it up a in Screenflow's settings behind the audio cog wheel.
+Record a microphone test with audio only. The levels of the track should fill
+50% to 2/3 of the track. You can fine tune your microphone settings in the new
+recording dialog. But you should first adjsut the settings st system level plus
+microphone gain, if applicable and only then fine tune in Screenflow.
+
+## Define recording area
+
+You can define a recording area in new recording dialog. Screenflow records the
+actual retina pixels (HiDPI mode), which results in very crisp video. You can
+verify your effective resolution in **File → Document Settings...**.
+
+## Video editing
+
+### Fix video resolution
+
+https://egghead.io/lessons/egghead-fix-your-video-resolution-in-screenflow-after-you-accidentally-recorded-the-wrong-size
+
+### Correct audio mistakes with short voiceovers
+
+https://egghead.io/lessons/egghead-correct-audio-mistakes-in-screenflow-with-short-voiceovers
+
+### Hide things you accidentally recorded with second recording
+
+https://egghead.io/lessons/egghead-hide-mistakes-in-screenflow-with-a-second-recording-in-the-top-layer
+
+### Fixing a typo without touching the audio
+
+https://egghead.io/lessons/egghead-fixing-typos-in-screenflow-after-a-ripple-delete
+
+### Zoom in and out
+
+https://egghead.io/lessons/egghead-zoom-in-and-out-with-screenflow
+
+### Recover a cropped section
+
+https://egghead.io/lessons/egghead-recover-a-cropped-section-of-video-in-screenflow
+
+### Add annotations
+
+https://egghead.io/lessons/egghead-add-annotations-with-screenflow
+
+## Replicate Descript features in ScreenFlow
+
+- **Transcribe:** You can't replicate this in Screenflow. But you can use a
+  monthlty subscription to batch transcribe videos to produce .srt files.
+- **Overdub:** record voiceovers and edit them in.
+- **Delete gaps or uhms:** Use ripple delete.
 
 ## Keyboard shortcuts
 
-| Shortcut              | Description                     |
-| :-------------------- | :------------------------------ |
-| Command + left arrow  | Move scrubber to the beginning. |
-| Command + right arrow | Move scrubber to the end.       |
-| t                     | Trim and select incoming media. |
-| shift + t             | Trim and select outgoing media. |
-| Command + z           | Undo.                           |
+### Recording
+
+| Shortcut | Description                               |
+| :------- | :---------------------------------------- |
+| ⌘ ⇧ 2    | Start/stop screen recording.              |
+| ⌘ ⌥ 2    | Pause recording (custom shortcut).        |
+| ⌘ ⌥ M    | Add marker (custom shortcut).             |
+| ⌘ ⇧ M    | Show recording monitor (custom shortcut). |
+
+### Editing
+
+| Shortcut              | Description                                                                                    |
+| :-------------------- | :--------------------------------------------------------------------------------------------- |
+| ←                     | Move scrubber left 1 frame.                                                                    |
+| →                     | Move scrubber right 1 frame.                                                                   |
+| ⇧ ←                   | Move scrubber left 1 second.                                                                   |
+| ⇧ →                   | Move scrubber right 1 second.                                                                  |
+| ⌘ ←                   | Move scrubber to the beginning.                                                                |
+| ⌘ →                   | Move scrubber to the end.                                                                      |
+| T                     | Split (trim) all selected clips at scrubber's location and select all clips left of scrubber.  |
+| ⇧ T                   | Split (trim) all selected clips at scrubber's location and select all clips right of scrubber. |
+| W on selected clips   | Trim front to scrubber.                                                                        |
+| E on selected clips   | Trim end to scrubber.                                                                          |
+| [ on selected clips   | Move selected clips 1 frame left.                                                              |
+| ] on selected clips   | Move selected clips 1 frame right.                                                             |
+| ⇧ [ on selected clips | Move selected clips 1 second left.                                                             |
+| ⇧ ] on selected clips | Move selected clips 1 second right.                                                            |
+| I                     | Mark in point for selection.                                                                   |
+| M                     | Mark out point for selection.                                                                  |
+| ⇧ move scrubber       | Mark selection.                                                                                |
+| ⇧ click timeline      | Create selection between scrubber and click.                                                   |
+| ⌥ Z                   | Remove selection.                                                                              |
+| delete                | Delete (with gap).                                                                             |
+| ⌘ delete              | Ripple delete (without gap).                                                                   |
+| ⌘ Z                   | Undo.                                                                                          |
