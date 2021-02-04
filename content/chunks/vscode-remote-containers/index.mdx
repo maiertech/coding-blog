@@ -1,0 +1,42 @@
+---
+title: VS Code Remote Containers extension
+author: Thilo Maier
+date: 2021-02-04
+description:
+  This chunk provides an overview of the VS Code Remote Containers extension
+  (ms-vscode-remote.remote-containers).
+tags:
+  - docker
+  - vscode
+---
+
+## Extension identifier
+
+[ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+## Purpose
+
+This extension adds a `Containers` option to VS Code's remote explorer. You can
+then open a folder with a container configration inside that container or clone
+an entire repository inside a container defined by that repository. This makes
+it easy to develop on your computer without having to configure a development
+environment.
+
+## Dependencies
+
+You need to pair this extension with
+[VS Code Docker extension](/chunks/vs-code-remote-containers-extension/) to
+ensure that it can create and spin up Docker containers.
+
+## Settings
+
+Since this extension makes sense only when its dependencies are installed, you
+should add it to
+
+```json
+{
+  "settingsSync.ignoredExtensions": ["ms-vscode-remote.remote-containers"]
+}
+```
+
+Then it won't get automatically synchronized into all your projects.
