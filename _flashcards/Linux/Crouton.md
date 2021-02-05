@@ -75,8 +75,7 @@ Install nvm via brew and install a default node.
 
 Add to .bashrc after Linuxbrew:
 
-export NVM_DIR=“$HOME/.nvm”
-source $(brew —prefix nvm)/nvm.sh
+export NVM_DIR=“$HOME/.nvm” source $(brew —prefix nvm)/nvm.sh
 
 Then you should have default node in any terminal.
 
