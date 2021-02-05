@@ -1,0 +1,72 @@
+---
+title: What to do when GitHub Codespaces fails?
+author: Thilo Maier
+date: 2021-02-05
+description:
+  GitHub Codespaces has turned out to be very reliable during the beta. I have
+  moved most of my day-to-day development over to Codespaces. A few times I ran
+  into a situation where Codespaces had an outage or some other problem that
+  made it temporarily unusable. In this post I am sharing my lessons learned of
+  what to do when Codespaces fails.
+tags:
+  - productivity
+  - github
+  - vscode
+  - docker
+---
+
+In my post
+[Introduction to GitHub Codespaces](/posts/introduction-to-github-codespaces/) I
+described the benefits of developing with
+[GitHub Codespaces](https://github.com/features/codespaces) as an alternative to
+local development on a computer. As I mentioned in that post, I had occasional
+issues with Codespaces and was unable to develop with them for a few hours or in
+one instance for an entire weekend. As frustrating as this may be, it is
+expected for a service that has a beta label. But as a prudent developer, you
+should hedge against this scenario to avoid that you cannot work for a longer
+period of time.
+
+## Codespaces Beta community
+
+The first thing you should do when you notice an issue with Codespaces is visit
+the
+[Codespaces Beta community](https://github.community/c/code-to-cloud/codespaces-beta/45)
+to see if there are any known issues with Codespaces that have been brought up
+by the community. If this is not the case, you should consider posting a message
+and describe your issue. There a few members of the Codespaces team in this
+community and while you should not expect real time support, they usually
+respond very quickly. It should be obvious, but the chances of your issue
+getting fixed fast are much higher when the Codespaces team is aware of it.
+
+Here are some of the issues I had with GitHub Codespaces. The Codespaces team
+did a fantastic job to respond to every single issue very quickly:
+
+- [Yarn installation fails](https://github.community/t/yarn-installation-fails/159455)
+- [Extensions defined in devcontainer.json are not installed](https://github.community/t/extensions-defined-in-devcontainer-json-are-not-installed/156489)
+- [Missing GitHub Pull Requests and Issues extension](https://github.community/t/missing-github-pull-requests-and-issues-extension/144631)
+- [Sluggish performance](https://github.community/t/sluggish-performance/142535)
+- [Codespace terminal gets launched in wrong directory](https://github.community/t/codespace-terminal-gets-launched-in-wrong-directory/143788)
+- [postCreateCommand does not run](https://github.community/t/postcreatecommand-does-not-run/142677)
+
+## Docker Desktop to the rescue?
+
+If your issue is a blocker and you cannot wait for it to be fixed, it is time
+for plan B. As discussed in my introductory post mentioned above, you can run a
+Codespaces config with Docker. For this to work, you need to install two VS code
+extensions. I wrote a chunk about each extension to explain their config:
+
+- [Docker extension](/chunks/vs-code-docker-extension/)
+- [Remote - Containers extension](/chunks/vs-code-remote-containers-extension/)
+
+This allows you to spin up a development container from VS Code's remote
+explorer with [Docker Desktop](https://www.docker.com/products/docker-desktop)
+and clone a GitHub repository inside. You should be up and running in a few
+minutes. The only problem: running Docker Desktop on my 2019 Macbook Air with 16
+GB RAM is quite ambitious and results in a slow and sluggish development
+experience.
+
+## Homebrew to the rescue!
+
+- How I use my dotfiles repo to install my dev environment on the Mac
+- How it is different when compared to container definitions
+- Why this fall back makes sense.
