@@ -31,13 +31,13 @@
   },
   "dependencies": {
     "@maiertech/gatsby-theme-digital-garden": "^0.6.0",
-    "gatsby": "^2.32.0",
+    "gatsby": "^2.32.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@maiertech/eslint-config": "^0.16.0",
+    "@maiertech/eslint-config": "^0.16.1",
     "@maiertech/prettier-config": "^0.3.0",
     "eslint": "^7.19.0",
     "husky": "^4.3.8",
