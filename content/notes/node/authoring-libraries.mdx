@@ -1,0 +1,84 @@
+---
+title: Authoring libraries
+description: An overview of how to author JavaScript libraries.
+tags:
+  - node
+---
+
+https://tooling.js.org/
+
+## Modules
+
+There are two types of modules:
+
+- CommonJS (CJS) modules, the current default, and
+- ES modules (ESM), the future default.
+
+## Entry points
+
+- `index.js` in project root is the default entry point.
+- `main`
+- `browser`
+- `module`: this is an inofficial convention entry point for ESM, honored by
+  Rollup and Webpack.
+- `exports`: this is about encapsualtion
+
+## `package.json`
+
+When `type` is set to `module` this signals that all packages should be
+interpreted as ESM. This is the carte blanche approach. If you want to do file
+by file you need to work with the `.mjs` extension.
+
+## Why should you use a bundler?
+
+The primary reason for usinf a bundler when creating NPM packages is that it can
+create entry points for different package formats automatically. Nowadays you
+should support at least CJS and ESM.
+
+Additional benefits are:
+
+- A bundler can bundle only what the package actually uses and tree shake
+  dependencies.
+- For formats that can be loaded from the web, such as UMD, the bundler can
+  bundle all dependencies.
+- A bundler can optimize CSS or package assets.
+
+But you do not have to use a bundler to create an NPM package.
+
+### No bundler
+
+This [blog post](https://2ality.com/2019/10/hybrid-npm-packages.html) discusses
+options to manually create hybrid NPM packages that support ESM and CJS. If you
+do not bundle your package, you need to be aware of all the things ES modules do
+not support, eg if you require CommonJS modules from an ES module, named imports
+do not work. There is a workaround for that, using package
+[`esm`](https://www.npmjs.com/package/esm), but it's another tool when you
+probably did not want to use a tool in the first place.
+
+### Rollup
+
+[Rollup](https://rollupjs.org/guide/en/) is the bundler that introduced tree
+shaking. It is able to do static code analysis and include only named imports
+into the bundle. Rollup is complicated to use and you should therefore consider
+using one of the following Rollup based options:
+
+- **@pika/pack:** You can think of this package build pipeline as a lightweight
+  bundler. `@pika/pack` is mostly about choosing good defaults for common tools
+  such as Babel and Rollup to minimize configuration.
+- **Microbundle:**
+- **TSDX:** The idea is to make it easy to create packages with typescrip
+  configuration.
+
+TSDX and @pika/pack are in the category of zero-config presets. To write
+libraries, the choice should be between these two.
+
+### Webpack
+
+Technically you can use Webpack for
+[authoring libraries](https://webpack.js.org/guides/author-libraries/). If you
+consider Webpack you should probably choose Rollup instead. While it caught up
+with Rollup's features, such as tree shaking, it lacks other features such as
+support for different distributions.
+
+- **Neutrino:** is a Webpack based simplifcation for package bundling.
+  https://github.com/neutrinojs/neutrino/
