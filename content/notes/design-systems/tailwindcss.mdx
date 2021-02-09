@@ -5,16 +5,20 @@ tags:
   - design-systems
 ---
 
-The reason why I'm looking into Tailwind CSS is because my team finds it hard to
-wrap their heads around [Theme UI](https://theme-ui.com/home). We still have a
-lot of legacy static websites for which a visual update is due but for which
-rewriting them with Theme UI is not an option.
+The reason why I'm looking into Tailwind CSS is because I find it hard to wrap
+my head around [Theme UI](https://theme-ui.com/home). For many legacy
+applications rewriting them with Theme UI is not an option.
 
-We would like to have something that works in both worlds, legacy websites and
-modern React apps, and that relies on one single source of truth for styling. It
-is not clear if such a solution is technically feasible. In this note I explore
-if [Tailwind CSS](https://tailwindcss.com/) can be used to build such a
-solution.
+I would like to have method of styling that works in both worlds, legacy
+websites and modern React apps. Ideally, it should rely on a single source of
+truth for styling. It is not clear if such a solution is technically feasible.
+In this note I explore if [Tailwind CSS](https://tailwindcss.com/) can be used
+to build such a solution.
+
+## A case for utility classes
+
+- https://adamwathan.me/css-utility-classes-and-separation-of-concerns/
+- https://johnpolacek.github.io/the-case-for-atomic-css/
 
 ## PostCSS
 
