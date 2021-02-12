@@ -1,0 +1,39 @@
+---
+title: Web analytics
+description: Web analytics options for a digital garden.
+tags:
+  - digital-garden
+---
+
+I am looking for a privacy friendly web anaytics solution. Google Analytics it a
+no go.
+
+## Fathom analytics
+
+[Fathom analytics](https://usefathom.com/) is an easy to setup privacy friendly
+solution. I will write a chunk on how to set it up for a Gatsby website. The big
+pro is that you can host the tracking script from you own domain and it will
+therefore practically not get blocked. The downside is the cost of 14$, which is
+justifiable if you make money from your site, but which is too much for
+side-projects. But since Cloudflare Web Analytics does not support single page
+apps, Fathom is currently the only option.
+
+## Cloudflare Web Analytics
+
+[Cloudflare Web Analytics](https://support.cloudflare.com/hc/en-us/articles/360052685432-Cloudflare-Web-Analytics)
+is a free alternative to Google Analytics, but privacy friendly. The tracking
+script cannot be hosted from a custom domain and is therefore more prone to
+getting blocked. You do not have to route your website through Cloudflare to use
+the free analytics prodcut.
+
+The documentation states that you can only add one website to Cloudflare Web
+Analytics. This has changed recently and you can now add multiple web
+properties. However,
+[Cloudflare Web Analytics does not support single page apps as of December 2020](https://community.cloudflare.com/t/web-analytics-with-progressive-web-site-gatsby-js/229068).
+
+## Splitbee
+
+[Splitbee](https://splitbee.io/) is a new analytics service and competitor to
+Fathom Analytics. The documentation on single page apps and Gatsby is non
+existent. But their [Next.js Proxy](https://splitbee.io/docs/nextjs-proxy) seems
+to be worth looking into when workign with Next.js.
