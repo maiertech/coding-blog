@@ -1,0 +1,112 @@
+---
+title: Husky v5 pitfalls
+author: Thilo Maier
+date: 2021-02-16
+description:
+  I recently upgraded husky from v4 to v5. It turned out that this was more
+  complicated than I expected. In this chunk I explain how to migrate a simple
+  v4 config to v5.
+tags:
+  - git
+  - node
+  - tooling
+---
+
+[Husky](https://github.com/typicode/husky) is an NPM package which needs to be
+installed as part of `devDependencies` in your `package.json`. It installs Git
+hooks that can be executed when certain Git commands run. The most common use
+case for Git Hooks is a pre-commit hook which runs prior to a `git commit`. I
+use a pre-commit hook to run
+[lint-staged](https://github.com/okonet/lint-staged) to lint all files that are
+part of a commit.
+
+In husky v4 my hooks were configured in a `.huskyrc`:
+
+```json
+// .huskyrc
+{
+  "hooks": {
+    "pre-commit": "lint-staged",
+    "pre-push": "yarn lint && yarn test"
+  }
+}
+```
+
+Husky v4 took care of installing hooks automatically. The
+[v4-to-v5 migration guide](https://typicode.github.io/husky/#/?id=migrate-from-v4-to-v5)
+explains that in v5 instead of maintaining a config file you maintain hook files
+directly.
+
+Before creating any hook files, you need to manually wire up husky in your
+`.git` folder:
+
+```bash
+npx husky install
+```
+
+This creates `.husky` folder with a `.gitignore` inside. Next you create an
+empty pre-commit hook with this command:
+
+```bash
+npx husky add .husky/pre-commit
+```
+
+Then add the pre-commit commands from your v4 config file. Since hooks run
+outside of Yarn, you need to type `yarn lint-staged` instead of `lint-staged`.
+This is what the generated and modified pre-commit hook looks like:
+
+```bash
+// .husky/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn lint-staged
+```
+
+Now create an empty pre-push hook with this command
+
+```bash
+npx husky add .husky/pre-push
+```
+
+and add the pre-push commands from the v4 config file. The pre-push hook now
+looks like this:
+
+```bash
+// .husky/pre-push
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn lint
+yarn test
+```
+
+You can try committing a file with a lint error, which should fail. To test the
+pre-push hook, you can commit a file with a lint error with using `--no-verify`
+option with `git commit` and then try pushing the branch, which should fail.
+
+Note that you should not create Git hooks manually since they need execute
+permissions to run. `husky add` makes sure that permissions are correct. But if
+someone else clones the repository after you committed all of above config
+files, hooks will not be installed automatically inside the cloned repo.
+
+In a private repo, including monorepos, you can add the following script to
+ensure that hooks are installed automatically when `yarn install` runs:
+
+```json
+// package.json
+{
+  "private": true,
+  "scripts": {
+    "postinstall": "husky install"
+  }
+}
+```
+
+And finally, there is no point installing hooks in CI. Set variable `HUSKY` to
+`0` in CI to suppress hooks.
+
+## Links
+
+- [What's new in husky 5](https://dev.to/typicode/what-s-new-in-husky-5-32g5)
+- [Husky docs](https://typicode.github.io/husky/)
