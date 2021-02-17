@@ -1,0 +1,140 @@
+---
+title: Choosing a foundation for a React component library
+description: What is the best way moving forward with my own design system?
+tags:
+  - design-systems
+---
+
+When I created [my own design system](https://design-system.maier.tech/), I
+chose [Theme UI](https://theme-ui.com/) for styling. Back then Theme UI was on
+track to become the go to styling solution for
+[Gatsby](https://www.gatsbyjs.com/) websites. But then, for a number of reasons
+[discussed here](https://github.com/system-ui/theme-ui/discussions/1354),
+contributions to the
+[Theme UI repository](https://github.com/system-ui/theme-ui) leveled off. Theme
+UI is still maintained, but activity on the repository is much less than it used
+to be and the team has a hard time getting v1.0 out of the door.
+
+This is a common problem with open source projects. They tend to depend on a few
+active contributors. On the other hand, consumers of open source projects, like
+me, are often unable to contribute due to time or skill contraints. This makes
+it very challenging to replace key contributors when they drop out.
+
+I am now looking for alternatives to Theme UI for the next iteration on my
+design system. This article looks at three different styling solutions. The goal
+was not to create a comprehensive review of styling solutions for a React
+component library, but to help me choose among styling solutions that I had on
+my radar.
+
+## Why did I choose Theme UI initially?
+
+It all started with [Styled Components](https://styled-components.com/), which
+was my first experience with CSS-in-JS. Two features stood out to me: scoped CSS
+and theming. Then I came across [Styled System](https://styled-system.com/) by
+[Brent Jackson](https://jxnblk.com/), which is a layer on top of Styled
+Components that adds three more features: design tokens (e.g. space scales),
+themes that use those design tokens, and an easy to grasp mobile-first syntax
+for styling. This makes Styled System a powerful framework for creating design
+systems in code.
+
+Since Styled System is not a component library, I reached for
+[Rebass](https://rebassjs.org/), a layer on top of Styled System by the same
+author. Rebass introduces 8 atomic components that can be used to build complex
+components. Atomic components are a powerful design patternfor design systems.
+They are like Lego bricks you can use to compose pretty much anything you can
+think of.
+
+[Theme UI](https://theme-ui.com/) is Rebass's successor and the latest iteration
+on the concepts that Styled System and Rebass introdcued. It felt like a natural
+choice for my design system, since it added a component library, syntax
+improvements and integration with [MDX](https://mdxjs.com/). The latter was
+important for MDX powered Gatsby sites. The downside of Theme UI is that it is
+opinionated about styling. The cost of switching over to another styling
+solution is expensive. But Theme UI empowered me to be very productive and
+create themable websites with consitent spacing and font sizes in no time.
+
+## Chakra UI
+
+[Chakra UI](https://chakra-ui.com/) is built on Styled System. This underlines
+Styled System's compelling proposition to make it easy to create design systems
+in code. Unfortunately, the
+[Styled System repository](https://github.com/styled-system/styled-system) faced
+the same fate as Theme UI: activity and contributions leveled off. Chakra UI was
+proactive about a key dependecy not being maintained any more and absorbed
+Styled System into their codebase as
+[@chakra-ui/styled-system](https://github.com/chakra-ui/chakra-ui/tree/main/packages/styled-system).
+
+A very strong argument in favor of choosing Chakra UI as a replacement for Theme
+UI is that both APIs are very similar, because they share the Styled System
+foundation. Chakra UI's compelling component library is a big bonus.
+
+But this is the key question: is Chakra UI's community more robust than Theme
+UI's? It is definitively in in much better shape, but
+[Chakra UI's contributors graph](https://github.com/chakra-ui/chakra-ui/graphs/contributors)
+reveals a strong dependecy on the original creator
+[Segun Adebayo](https://twitter.com/thesegunadebayo). If he left the project,
+Chakra UI could face the same fate as Theme UI.
+
+## Radix and Stitches
+
+[Modulz](https://www.modulz.app/) is a startup with a web app that helps you
+create design systems visually and delivers production ready code. One
+foundational technology for this web app is
+[Radix Primitives](https://radix-ui.com/), a library of unstyled React
+components. You can bring your own styling solution to style these components.
+This by itself is a very compelling value proposition. Most existing React
+component libraries mandate a specific styling technology, e.g. you have to use
+Styled Components or you have to use Emotion or you have to use classnames.
+
+The recommended styling solution for Radix Primitives is
+[Stitches](https://stitches.dev/), another foundational technology for the
+Modulz app. You can think of Stitches as a rewrite of Styled System. The same
+concepts, a different syntax, and no actual dependecy on Styled System.
+
+Radix Primitives and Stitches are open source and maintained mostly by Modulz
+employees.
+[Modulz has secured VC funding in 2020](https://www.modulz.app/blog/modulz-raises-4-million-funding),
+which should give them enough runway to get Radix Primitives and Stitches off
+the ground.
+
+## Tailwind CSS
+
+I don't understand why [Tailwind CSS](https://tailwindcss.com/) is so
+polarizing. Some developers are very vocal about it and reject the idea of using
+utility classes for styling. Controversy aside, the company behind Tailwind CSS,
+Tailwind Labs, was bootstrapped by [Adam Wathan](https://adamwathan.me/) from
+zero employees to four employees without any VC money. You probably could not
+make a safer choice for a styling solution. There is no dependency on community
+contributors and no risk that of VC money not returning profits fast enough.
+
+There is so much hotness and hype around Tailwind CSS. Almost too much. Let's
+start with some downsides:
+
+- Tailwind CSS does not come with any components. Because it's components are
+  the commercial spin-off [Tailwind UI](https://tailwindui.com/). And none of
+  these components can be packaged and distributed in a design system.
+- [Optimizing for production](https://tailwindcss.com/docs/optimizing-for-production)
+  is a hassle in Tailwind and involves stripping utility classes based on
+  regular expressions. For a component library
+  [this gets messy and involved](https://gist.github.com/somebody32/48277662e55dd450d542724bc989c62d).
+
+But Tailwind CSS also makes a case for styling being just a very thin and
+lightweight layer that can be swapped for some other styling technology. Their
+[Headless UI](https://headlessui.dev/) suggests that components should probably
+be put in a library without styling and then be styled in the site only.
+Headless UI is very early and I am not sure if I want to rely on it already.
+
+React component libraries that use Tailwind CSS:
+
+- https://nature-ui.com/ ([GitHub](https://github.com/nature-ui/nature-ui)):
+  Built with Emotion and Tailwind CSS.
+
+How to build a React component library with Tailwind CSS:
+
+- https://tilomitra.com/building-react-components-using-tailwind/
+
+## Which solution did I choose?
+
+## More unstyled components
+
+- https://reakit.io/
