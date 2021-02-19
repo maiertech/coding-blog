@@ -1,0 +1,36 @@
+---
+title: Avoiding version conflicts when using Gatsby themes
+description:
+  Gatsby's plugin array is vulnerable to version conflicts. This notes represent
+  my learnings in how to deal with or even better avoid version conflicts.
+tags:
+  - gatsby
+images:
+  - ./version-conflict.png
+---
+
+import { Box, GatsbyImage } from '@maiertech/gatsby-theme-digital-garden';
+
+Gatsby themes are Gatsby plugins that come with a `gatsby-config.js` file, which
+needs to be merged with the site's `gatsby-config.js` file. Since themes can be
+composed as sibling themes or as parent/child themes, the consolidation of the
+`plugins` array of a site's `gatsby-config.js` is complex. At the end of the
+consolidation stands a deplupicated `plugins` array with plugins only.
+
+The consolidation of the `plugins` arrays comes with some pitfalls as this
+screenshot shows:
+
+<Box mb={3}>
+  <GatsbyImage
+    image={props.images[0]}
+    alt="Version conflict due to the same theme being included twice at different versions."
+    loading="eager"
+  />
+</Box>
+
+In this example I included @maiertech/gatsby-theme-pages-core twice.
+
+https://github.com/gatsbyjs/gatsby/discussions/28944
+
+For the second, there are some challenges here. But ideally it should respect
+the version in the main project if more than one exists.
