@@ -1,9 +1,85 @@
 ---
-title: Gatsby themes
+title: Themes
 description: How Gatsby themes work.
 tags:
   - gatsby
 ---
+
+Laurie
+
+https://www.gatsbyjs.com/docs/theme-api/
+
+The main thing to know is that the config files will be consolidated against the
+hierarchy they’re included. So the top-most config will win if there are
+clashes.
+
+This probably means that there is no real deduplication and that each plugin
+will be run at it's specified verions. If plugins are duplicate they will run
+multiple times and the definition/version higher up in the list is the one that
+wins. There is probably nothing really sophistocated happening here!
+
+Try to avoid diverging versions of packages! Because you may have issues.
+
+## Resolutions
+
+Here is an example where I end up with different versions of gatsb-plugin-sharp,
+even though it makes no sense:
+
+```bash
+yarn why v1.22.5
+[1/4] Why do we have the module "gatsby-plugin-sharp"...?
+[2/4] Initialising dependency graph...
+[3/4] Finding dependency...
+[4/4] Calculating file sizes...
+=> Found "gatsby-plugin-sharp@2.14.0"
+info Reasons this module exists
+   - "@maiertech#gatsby-theme-digital-garden#@maiertech#gatsby-theme-pages-core" depends on it
+   - Hoisted from "@maiertech#gatsby-theme-digital-garden#@maiertech#gatsby-theme-pages-core#gatsby-plugin-sharp"
+info Disk size without dependencies: "1.73MB"
+info Disk size with unique dependencies: "49.09MB"
+info Disk size with transitive dependencies: "126.52MB"
+info Number of shared dependencies: 249
+=> Found "@maiertech/gatsby-theme-posts-core#gatsby-plugin-sharp@2.14.1"
+info This module exists because "@maiertech#gatsby-theme-digital-garden#@maiertech#gatsby-theme-posts-core" depends on it.
+info Disk size without dependencies: "1.04MB"
+info Disk size with unique dependencies: "48.4MB"
+info Disk size with transitive dependencies: "125.84MB"
+info Number of shared dependencies: 249
+Done in 2.08s.
+```
+
+It caused this error:
+
+```bash
+ ERROR
+
+Gatsby-plugin-sharp wasn't setup correctly in gatsby-config.js. Make sure you add it to the plugins array.
+
+not finished run static queries - 4.077s
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+```
+
+Not clear why Yarn went with two different versions. Here I need to force the
+latest version of gatsby
+
+This [issue](https://github.com/system-ui/theme-ui/issues/1345) is an example
+where conflicting versions of a package result in a problem. When it is not
+possible to resolve the version conflict by pinning dependencies, you can force
+a dependency to be resovled to a specific version using the `resolutions` prop
+in your project root `package.json`.
+
+Temporarily add this to fix it and then run yarn and remove it again.
+
+```json
+"resolutions": {
+  "gatsby-plugin-sharp": "^2.14.1"
+}
+```
+
+alternatively, you could have removes @maiertech/gatsby-theme-digital-garden and
+add it again.
 
 ## Definitions
 
