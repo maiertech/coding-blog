@@ -1,10 +1,16 @@
 ---
 title: How Yarn 1 manages conflicting package versions
+author: Thilo Maier
+date: 2021-02-19
 description:
-  How to use 'yarn why' and the yarn.lock file to understand how Yarn minimizes
-  the dependecy tree.
+  Yarn 1 uses hoisting to eliminate nodes from the dependency tree. This post
+  discusses examples of how to use `yarn why` and the yarn.lock file to
+  understand how Yarn hoists dependencies and deals with conflicting package
+  versions.
 tags:
   - node
+  - webdev
+  - yarn
 ---
 
 This post discusses the concept of
@@ -19,7 +25,7 @@ this post Yarn (without version number) refers to Yarn 1.
 Yarn converts dependencies from a `package.json` into a tree by resolving them
 recursively. An un-optimized dependency tree can be quite complex and many
 levels deep to reflect dependencies of dependencies. Some packages show up
-multiple times in the tree, possibly at different versions. Yarn uses hoisting
+multiple times in the tree, possibly at conflicting versions. Yarn uses hoisting
 to optimize (or rather deduplicate) the dependency tree by removing as many
 nodes as possible. Yarn's documentation states that "There isn't a single way to
 decide how to transform the tree, and different package managers make different
@@ -37,7 +43,7 @@ to keep in mind is that hoisting packages only works when package versions are
 compatible in a [semantic versioning](https://semver.org/) sense, i.e. they need
 to have the same major version number (but not 0).
 
-## yarn why
+## `yarn why`
 
 Once a Yarn install is complete, you can use
 [`yarn why`](https://classic.yarnpkg.com/en/docs/cli/why/) to figure out what
@@ -73,6 +79,7 @@ at version 0.8.0, which is a dependency of
 [@maiertech/gatsby-theme-digitial-garden](https://github.com/maiertech/gatsby-themes/tree/master/packages/gatsby-theme-digital-garden).
 It also tells you that it hoisted this version, which makes sense because
 @maiertech/gatsby-theme-posts-core is used only once in the entire project.
+
 Let's look at another `yarn why` output from a different repository, this time
 for package
 [@maiertech/gatsby-theme-pages-core](https://github.com/maiertech/gatsby-themes/tree/master/packages/gatsby-theme-pages-core):
@@ -161,10 +168,11 @@ Done in 0.96s.
 
 Yarn tells you that browserslist is a direct dependency of package
 [gatsby](https://www.gatsbyjs.com/) and it appears a few more times in the
-dependecy tree. All versions of browserslist are compatible with version 4.16.3,
-which was the latest version when I created this output. Therefore, Yarn hoisted
-version 4.16.3. The entry for browserslist in `yarn.lock` reveals which version
-declarations it actually found, all of them compatible with 4.16.3:
+dependecy tree. All specified versions of browserslist are compatible with
+version 4.16.3, which was the latest version when I created this output.
+Therefore, Yarn hoisted version 4.16.3. The entry for browserslist in
+`yarn.lock` reveals which version declarations it actually found, all of them
+compatible with 4.16.3:
 
 ```bash
 \\ yarn.lock
@@ -183,7 +191,8 @@ browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.12.2, browserslist@^4
 ```
 
 Let's look at one more example. This time I installed package browserslist in my
-dependencies and pinned it to version 4.16.2. This changed things quite a bit:
+dependencies and pinned it to a previous version 4.16.2. This changed things
+quite a bit:
 
 ```bash
 [1/4] Why do we have the module "browserslist"...?
@@ -216,7 +225,7 @@ Done in 1.96s.
 ```
 
 Yarn hoisted version 4.16.2, which is the version I pinned in my dependencies.
-In all other instances where browserslist is further down the dependency tree
+In all other instances where browserslist is further down in the dependency tree
 (10 total), Yarn stores a copy of version 4.16.3. This means that pinning one
 dependency to a specific version triggerd a massive change in the layout of
 `node_modules`. There are now 10 nodes with 10 copies of version 4.16.3 and one
@@ -261,8 +270,9 @@ browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.12.2, browserslist@^4
   imported anywhere. If you happen to forget to declare a dependency in your
   `package.json` and then import it, it might still work when Yarn happens to
   hoist this dependency from another node in the dependency tree. But it might
-  also stop working unexpectedly, when the layout of `node_modules` changes.
+  also stop working unexpectedly, when the layout of `node_modules` changes
+  because of something as minor as a pinned dependency.
 - Yarn always
   [honors its basic guarantees for dependencies declared as `dependencies`, `devDependencies` and `peerDependencies` in `package.json`](https://classic.yarnpkg.com/blog/2018/04/18/dependencies-done-right/),
-  i.e. Yarn will always deliver a version compatible with what you specified
-  when you import a dependency.
+  i.e. when you import a dependency, Yarn will always deliver a version
+  compatible with what you specified.
