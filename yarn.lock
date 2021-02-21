@@ -1704,10 +1704,10 @@
     prop-types "^15.7.2"
     react-helmet "^6.1.0"
 
-"@maiertech/gatsby-theme-digital-garden@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@maiertech/gatsby-theme-digital-garden/-/gatsby-theme-digital-garden-0.7.0.tgz#9975842abd3f0f6641e58874548526bef05ceeab"
-  integrity sha512-FmCGQj9G66v5ljOFJvSKjP5xOHcp7BzggrUo4N7pkO2yZy/9fdx3FMsmfsQiPw4iHZaFQ87MVHokLgELW6oI4Q==
+"@maiertech/gatsby-theme-digital-garden@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@maiertech/gatsby-theme-digital-garden/-/gatsby-theme-digital-garden-0.8.0.tgz#6ba3148e31153dc922f651a2eed658d8eeeb0725"
+  integrity sha512-OWpJthNtrbk3ewRz+STsEgQA3WtlWZqCnorcejNctqW4sdLmWnCicMX8XxvLe4aQB3SnVpU4G4pbU/IAMth/4Q==
   dependencies:
     "@maiertech/gatsby-helpers" "^0.3.0"
     "@maiertech/gatsby-theme-base" "^0.5.0"
