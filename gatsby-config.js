@@ -7,7 +7,7 @@ module.exports = {
     siteAuthor: 'Thilo Maier',
     siteDescription: pkg.description,
     siteUrl: pkg.homepage,
-    siteTwitter: '454de6e',
+    siteTwitter: 'maiertech',
     siteNavLinks: [
       { href: '/posts/', text: 'Posts' },
       { href: '/chunks/', text: 'Chunks' },
