@@ -99,39 +99,7 @@ the ground.
 
 ## Tailwind CSS
 
-I don't understand why [Tailwind CSS](https://tailwindcss.com/) is so
-polarizing. Some developers are very vocal about it and reject the idea of using
-utility classes for styling. Controversy aside, the company behind Tailwind CSS,
-Tailwind Labs, was bootstrapped by [Adam Wathan](https://adamwathan.me/) from
-zero employees to four employees without any VC money. You probably could not
-make a safer choice for a styling solution. There is no dependency on community
-contributors and no risk that of VC money not returning profits fast enough.
-
-There is so much hotness and hype around Tailwind CSS. Almost too much. Let's
-start with some downsides:
-
-- Tailwind CSS does not come with any components. Because it's components are
-  the commercial spin-off [Tailwind UI](https://tailwindui.com/). And none of
-  these components can be packaged and distributed in a design system.
-- [Optimizing for production](https://tailwindcss.com/docs/optimizing-for-production)
-  is a hassle in Tailwind and involves stripping utility classes based on
-  regular expressions. For a component library
-  [this gets messy and involved](https://gist.github.com/somebody32/48277662e55dd450d542724bc989c62d).
-
-But Tailwind CSS also makes a case for styling being just a very thin and
-lightweight layer that can be swapped for some other styling technology. Their
-[Headless UI](https://headlessui.dev/) suggests that components should probably
-be put in a library without styling and then be styled in the site only.
-Headless UI is very early and I am not sure if I want to rely on it already.
-
-React component libraries that use Tailwind CSS:
-
-- https://nature-ui.com/ ([GitHub](https://github.com/nature-ui/nature-ui)):
-  Built with Emotion and Tailwind CSS.
-
-How to build a React component library with Tailwind CSS:
-
-- https://tilomitra.com/building-react-components-using-tailwind/
+See [note on Tailwind CSS](/notes/design-systems/tailwind-css/).
 
 ## Which solution did I choose?
 
