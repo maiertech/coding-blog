@@ -1,146 +1,9 @@
 ---
-title: Themes
-description: How Gatsby themes work.
+title: Gatsby themes kitchen sink
+description: A collection of issues around Gatsby themes.
 tags:
   - gatsby
 ---
-
-Laurie
-
-https://www.gatsbyjs.com/docs/theme-api/
-
-The main thing to know is that the config files will be consolidated against the
-hierarchy they’re included. So the top-most config will win if there are
-clashes.
-
-This probably means that there is no real deduplication and that each plugin
-will be run at it's specified verions. If plugins are duplicate they will run
-multiple times and the definition/version higher up in the list is the one that
-wins. There is probably nothing really sophistocated happening here!
-
-Try to avoid diverging versions of packages! Because you may have issues.
-
-## Resolutions
-
-Here is an example where I end up with different versions of gatsb-plugin-sharp,
-even though it makes no sense:
-
-```bash
-yarn why v1.22.5
-[1/4] Why do we have the module "gatsby-plugin-sharp"...?
-[2/4] Initialising dependency graph...
-[3/4] Finding dependency...
-[4/4] Calculating file sizes...
-=> Found "gatsby-plugin-sharp@2.14.0"
-info Reasons this module exists
-   - "@maiertech#gatsby-theme-digital-garden#@maiertech#gatsby-theme-pages-core" depends on it
-   - Hoisted from "@maiertech#gatsby-theme-digital-garden#@maiertech#gatsby-theme-pages-core#gatsby-plugin-sharp"
-info Disk size without dependencies: "1.73MB"
-info Disk size with unique dependencies: "49.09MB"
-info Disk size with transitive dependencies: "126.52MB"
-info Number of shared dependencies: 249
-=> Found "@maiertech/gatsby-theme-posts-core#gatsby-plugin-sharp@2.14.1"
-info This module exists because "@maiertech#gatsby-theme-digital-garden#@maiertech#gatsby-theme-posts-core" depends on it.
-info Disk size without dependencies: "1.04MB"
-info Disk size with unique dependencies: "48.4MB"
-info Disk size with transitive dependencies: "125.84MB"
-info Number of shared dependencies: 249
-Done in 2.08s.
-```
-
-It caused this error:
-
-```bash
- ERROR
-
-Gatsby-plugin-sharp wasn't setup correctly in gatsby-config.js. Make sure you add it to the plugins array.
-
-not finished run static queries - 4.077s
-
-error Command failed with exit code 1.
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-```
-
-Not clear why Yarn went with two different versions. Here I need to force the
-latest version of gatsby
-
-This [issue](https://github.com/system-ui/theme-ui/issues/1345) is an example
-where conflicting versions of a package result in a problem. When it is not
-possible to resolve the version conflict by pinning dependencies, you can force
-a dependency to be resovled to a specific version using the `resolutions` prop
-in your project root `package.json`.
-
-Temporarily add this to fix it and then run yarn and remove it again.
-
-```json
-"resolutions": {
-  "gatsby-plugin-sharp": "^2.14.1"
-}
-```
-
-alternatively, you could have removes @maiertech/gatsby-theme-digital-garden and
-add it again.
-
-## Definitions
-
-- Themes are plugins that include a `gatsby-config.js`.
-- Themes that are configured in `gatsby-config.js` are called sibling themes.
-- A theme that is used by another theme is called parent theme. In other words:
-  any theme defined in a theme's `gatsby-config.js` is a parent theme.
-
-## Composition
-
-Your site's `gatsby-config.js` defines a `plugins` array that contains plugins
-and themes. Each theme in the `plugins` array comes with a `gatsby-config.js`
-that needs to be somehow merged with the site's `gatsby-config.js`. The problem
-of merging all configs can be broken down to merging two configs. Every prop in
-a `gatsby-config.js`, but the `plugins` prop, is deep merged. In a deep merge
-the last value always wins.
-
-How are two `plugins` arrays merged? Use these simple rules:
-
-1. The initial merge step starts with an empty consolidation array, which will
-   hold the result of the current merge step. Start iterating through the
-   `plugins` array of the site's `gatsby-config.js`.
-1. If the current element is a plugin, add it to the consolidation array.
-1. If the current element is a theme, recursively start a new merge step using
-   that theme's `plugins` array and a separate consolidation array for this
-   step. Start iterating through the theme's `plugins` array and process plugins
-   and themes. the resulting consolidation array then needs to be merged into
-   the consolidation array of the previous merge step.
-1. Plugins are normalized to make it easier to figure out whether two plugins
-   are duplicates, factoring in options. When mergin a consolidation array into
-   a consolidation array one recursion step higher, only keep the first
-   occurrence of a duplicate.
-1. At the end of every merge step the consolidation array contains plugins only,
-   no themes.
-
-In the consolidated array plugins are ordered in the sequence in which sibling
-themes are defined. For each sibling theme its parent themes go first (in the
-sequence in which they are defined), then the theme itself and then the
-following sibling's parent themes and so on. Keep in mind that themes are
-eventually replaced with a collection of plugins that make up a theme. The
-consolidated array does not contain duplicates (meaning the same plugin with the
-same options), but it can contain the same plugin with different options. For
-some plugins, such as
-[`gatsby-source-filesystem`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-filesystem),
-multiple occurrences of this plugin are no issue. In this example multiple
-occurrences define multiple file locations to be processed by Gatsby. For other
-plugins, such as
-[`gatsby-plugin-theme-ui`](https://theme-ui.com/packages/gatsby-plugin/),
-multiple occurrences overwrite each other and the last occurrence wins. Options
-of previous occurrences are not merged.
-
-Component shadowing can be done in a site or in any plugin, including themes.
-The consolidated array also defines how component shadowing works. If the same
-file is shadowed in more than one location, the follwoing rules apply:
-
-- Shadowing in the site always takes precedence over any other location.
-- The first shadowing plugin of the sequence described above wins.
-
-See
-[this file](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/src/utils/merge-gatsby-config.ts)
-for the algorithm to merge `gatsby-config.js` files.
 
 ## Authoring Themes
 
@@ -221,9 +84,21 @@ confiugred multiple times in a meaningful way.
 **A theme cannot be configured more than once in a site, unless you add theme
 options to make using it more than once meaningful.**
 
-## Webpack
+## Recommendations
 
-It is important to mention that Gatsby themes are buil on webpack and the
+- [Reflex](https://reflexjs.org/) is a collection og packages and Gatsby themes.
+  Awesome material to learn from.
+- [Doctocat](https://github.com/primer/doctocat) is backed by GitHub and a
+  pretty polished theme that is suitable to document component libraries.
+- Book: https://github.com/SaraVieira/gatsby-starter-book
+- Still need to vet [Catalyst](https://www.gatsbycatalyst.com/) to see if its
+  good quality.
+- [gatsby-theme-courses](https://github.com/hangindev/gatsby-theme-courses):
+  check if this can be used as basis for a course platform.
+
+## Webpack and Shadowing
+
+It is important to mention that Gatsby themes are build on webpack and the
 component shadowing mechanism is follows webpack's way of resolving modules.
 This means that a core functionality of Gatsby is married to Webpack and will
 make it difficult long term to move away from Webpack.
@@ -236,17 +111,3 @@ during build. If there are conflicting files, processing sequence matters. Site
 static files always win.
 
 See https://github.com/maiertech/gatsby-themes/issues/125.
-
-## Recommendations
-
-- [`gatsby-theme-blog`](https://github.com/gatsbyjs/themes/tree/master/packages/gatsby-theme-blog)
-- [`gatsby-theme-notes`](https://github.com/gatsbyjs/themes/tree/master/packages/gatsby-theme-notes)
-- [Reflex](https://reflexjs.org/) is a collection og packages and Gatsby themes.
-  Awesome material to learn from.
-- [Doctocat](https://github.com/primer/doctocat) is backed by GitHub and a
-  pretty polished theme that is suitable to document component libraries.
-- Book: https://github.com/SaraVieira/gatsby-starter-book
-- Still need to vet [Catalyst](https://www.gatsbycatalyst.com/) to see if its
-  good quality.
-- [gatsby-theme-courses](https://github.com/hangindev/gatsby-theme-courses):
-  check if this can be used as basis for a course platform.
