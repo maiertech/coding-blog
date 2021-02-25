@@ -9,12 +9,6 @@
     "gatsby"
   ],
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run lint"
-    }
-  },
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
@@ -39,8 +33,8 @@
   "devDependencies": {
     "@maiertech/eslint-config": "^0.16.1",
     "@maiertech/prettier-config": "^0.3.0",
-    "eslint": "^7.19.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.3"
+    "eslint": "^7.20.0",
+    "husky": "^5.1.1",
+    "lint-staged": "^10.5.4"
   }
 }
