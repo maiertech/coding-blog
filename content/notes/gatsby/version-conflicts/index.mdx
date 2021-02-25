@@ -115,6 +115,55 @@ other package.json file might say. To solve above problem, you temporaily add
 to your `package.sjon` and run `yarn install`. This will update `yarn.lock` and
 make sure that there is only one entry for `gatsby-plugin-sharp`.
 
+## One more example
+
+```bash
+ ERROR #85919  GRAPHQL
+
+Found two different GraphQL fragments with identical name "PageFragment". Fragment names must be unique
+
+  File: /home/node/workspace/covid-19-response/node_modules/@maiertech/gatsby-theme-pages-core/src/page-fragment.js
+  > 1 | fragment PageFragment on Page{id title description images{childImageSharp{gatsbyImageData}}body path canonicalUrl}
+|             ^^^^^^^^^^^^
+
+  File:
+/home/node/workspace/covid-19-response/node_modules/@undataforum/gatsby-theme-base/node_modules/@maiertech/gatsby-theme-pages-core/src/page-fragment.js
+  > 1 | fragment PageFragment on Page{id title description image body path canonicalUrl}
+|             ^^^^^^^^^^^^
+```
+
+@maiertech/gatsby-theme-pages-core should be included only once, but it looks
+like we have it twice:
+
+```bash
+yarn why v1.22.5
+[1/4] Why do we have the module "@maiertech/gatsby-theme-pages-core"...?
+[2/4] Initialising dependency graph...
+[3/4] Finding dependency...
+[4/4] Calculating file sizes...
+=> Found "@maiertech/gatsby-theme-pages-core@0.5.0"
+info Has been hoisted to "@maiertech/gatsby-theme-pages-core"
+info This module exists because it's specified in "dependencies".
+info Disk size without dependencies: "76KB"
+info Disk size with unique dependencies: "8.05MB"
+info Disk size with transitive dependencies: "76KB"
+info Number of shared dependencies: 372
+=> Found "@undataforum/gatsby-theme-base#@maiertech/gatsby-theme-pages-core@0.4.0"
+info This module exists because "@undataforum#gatsby-theme-base" depends on it.
+info Disk size without dependencies: "72KB"
+info Disk size with unique dependencies: "8.05MB"
+info Disk size with transitive dependencies: "72KB"
+info Number of shared dependencies: 372
+Done in 1.79s.
+```
+
+@undataforum/gatsby-theme-base depends on version 0.4.0, while the website uuses
+version 0.5.0. I could now re-release @undataforum/gatsby-theme-base with the
+correct versions or i can pull the resolutions trick.
+
+Resolutions workaround requires you to leave the resoutions in package.json.
+Otherwise yarn.lock will be reverted.
+
 ## Links
 
 - https://blog.joshwalsh.me/gatsby-update-sharp/
