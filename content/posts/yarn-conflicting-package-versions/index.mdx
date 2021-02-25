@@ -57,7 +57,7 @@ yarn why @maiertech/gatsby-theme-posts-core
 ```
 
 inside the
-[repository with which I deployed this post](https://github.com/maiertech/coding-garden):
+[repository with which I deployed this post which you are reading right now](https://github.com/maiertech/coding-garden):
 
 ```bash
 yarn why v1.22.5
@@ -76,11 +76,11 @@ info Number of shared dependencies: 374
 Done in 1.61s.
 ```
 
-Yarn tells you that it found package
+Yarn tells us that it found package
 [@maiertech/gatsby-theme-posts-core](https://github.com/maiertech/gatsby-themes/tree/master/packages/gatsby-theme-posts-core)
 at version 0.8.0, which is a dependency of
 [@maiertech/gatsby-theme-digitial-garden](https://github.com/maiertech/gatsby-themes/tree/master/packages/gatsby-theme-digital-garden).
-It also tells you that it hoisted this version, which makes sense because
+It also tells us that it hoisted this version, which makes sense because
 @maiertech/gatsby-theme-posts-core is used only once in the entire project.
 
 Let's look at another `yarn why` output from a different repository, this time
@@ -136,7 +136,7 @@ and 0.4.0:
 ...
 ```
 
-Note that `yarn.lock` does not tell you which packages were hoisted.
+Note that `yarn.lock` does not tell us which packages were hoisted.
 
 Let's look at another example. This time we look at what `yarn why` tells us
 about package [browserslist](https://browserl.ist/), a dependency that is used
@@ -169,7 +169,7 @@ info Number of shared dependencies: 5
 Done in 0.96s.
 ```
 
-Yarn tells you that browserslist is a direct dependency of package
+Yarn tells us that browserslist is a direct dependency of package
 [gatsby](https://www.gatsbyjs.com/) and it appears a few more times in the
 dependecy tree. All specified versions of browserslist are compatible with
 version 4.16.3, which was the latest version when I created this output.
