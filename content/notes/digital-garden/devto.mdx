@@ -19,11 +19,24 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet
 You can use any tag, up to 4 tags, but it is recommended you use
 [top tags](https://dev.to/tags).
 
-## Cross posting to dev.to
+## Cross posting
 
-What we do not want to do:
-[using dev.to as a CMS](https://www.swyx.io/devto-cms/). Our authoritative
-versions are the MDX files in the Git repo.
+I am not [using dev.to as a CMS](https://www.swyx.io/devto-cms/). The single
+source of truth are my MDX files in the GitHub repo.
+
+For the time being, I cross-post manually with this workflow:
+
+1. Do a final edit on the MDX file and publish it.
+1. Run `npx prettier --prose-wrap never --write <path/to/file>` to eliminate
+   line breaks.
+1. Copy the MDX code over to dev.to.
+1. Remove frontmatter date and frontmatter tweets.
+1. Add `published: false`.
+1. Add `canonical_url`.
+1. Save and double check.
+1. Set `published: true`.
+1. Pin post.
+1. Submit tweet suggestion.
 
 Cross posting to dev.to via RSS feed:
 https://christianlobaugh.com/blog/2020/01/add-automatic-cross-posting-from-my-sanity-gatsby-blog-to-dev-to/
