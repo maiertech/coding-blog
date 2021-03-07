@@ -34,8 +34,8 @@ In husky v4 my hooks were configured in a `.huskyrc`:
 
 Husky v4 took care of installing hooks automatically. The
 [v4-to-v5 migration guide](https://typicode.github.io/husky/#/?id=migrate-from-v4-to-v5)
-explains that in v5 instead of maintaining a config file you maintain hook files
-directly.
+explains that in v5, instead of maintaining a config file, you maintain hook
+files directly.
 
 Before creating any hook files, you need to manually wire up husky in your
 `.git` folder:
@@ -44,7 +44,7 @@ Before creating any hook files, you need to manually wire up husky in your
 npx husky install
 ```
 
-This creates `.husky` folder with a `.gitignore` inside. Next you create an
+This creates a `.husky` folder with a `.gitignore` inside. Next you create an
 empty pre-commit hook with this command:
 
 ```bash
@@ -86,12 +86,13 @@ pre-push hook, you can commit a file with a lint error using the `--no-verify`
 option with `git commit` and then try pushing the branch, which should fail.
 
 Note that you should not create Git hooks manually since they need execute
-permissions to run. `husky add` makes sure that permissions are correct. But if
-someone else clones the repository after you committed all of above config
-files, hooks will not be installed automatically inside the cloned repo.
+permissions to run. `husky add` makes sure that permissions are correct.
 
-In a private repo, including monorepos, you can add the following script to
-ensure that hooks are installed automatically when `yarn install` runs:
+But if someone else clones the repository after you committed all of above
+config files, hooks will not be installed automatically inside the cloned
+repository. In a **private repository**, including monorepos, you can add the
+following script to ensure that hooks are installed automatically when
+`yarn install` runs:
 
 ```json
 // package.json
@@ -103,8 +104,27 @@ ensure that hooks are installed automatically when `yarn install` runs:
 }
 ```
 
-And finally, there is no point installing hooks in CI. Set variable `HUSKY` to
-`0` in CI to suppress hooks.
+If your package is not private and you publish it to NPM, you need to
+[disable the `postinstall` script as pointed out in the husky docs](https://typicode.github.io/husky/#/?id=install-1):
+
+```json
+// package.json
+{
+  "private": false,
+  "scripts": {
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
+  }
+}
+```
+
+For this to work you need to add `pinst` to your `devDependencies`.
+
+And finally, there is no point installing hooks in continuous integration (CI)
+or services like [Netlify](https://www.netlify.com/) or
+[Vercel](https://vercel.com/). Set environment variable `HUSKY` to `0` in CI to
+suppress hooks.
 
 ## Links
 
