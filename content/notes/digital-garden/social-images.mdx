@@ -1,20 +1,49 @@
 ---
-title: Social images (unfurling)
-description: More on unfurling.
+title: Open graph metadata
+description: How to implement support for open graph metadata.
 tags:
   - digital-garden
 ---
 
-## Test how pages unfurl
+## Step 1
 
-https://unfurler.com/
-
-## Links
+Read up on the basics:
 
 - [Everything you ever wanted to know about unfurling](https://medium.com/slack-developer-blog/everything-you-ever-wanted-to-know-about-unfurling-but-were-afraid-to-ask-or-how-to-make-your-e64b4bb9254)
 - [Custom social card image services](https://notebook.lachlanjc.me/2019-11-05_custom_social_card_services/)
-- Wes Bos is using custom generated preview images for his new website:
-  [overview article](https://wesbos.com/new-wesbos-website). Verify with
-  unfurler. He generates images serverless during Gatsby build.
-- [Social sharing cards with Gatsby](https://www.gatsbyjs.org/tutorial/seo-and-social-sharing-cards-tutorial/)
-- [Designing OpenGraph unfurls in Figma](https://egghead.io/lessons/figma-designing-opengraph-unfurls-in-figma)
+
+## Step 2
+
+Read
+[Social sharing cards with Gatsby](https://www.gatsbyjs.org/tutorial/seo-and-social-sharing-cards-tutorial/)
+from the Gatsby docs.
+
+Wes Bos generates his open graph images with Netlify functions:
+
+```html
+<meta
+  property="og:image"
+  content="https://wesbos.com/.netlify/functions/ogimage?title=Parity+Purchasing+Power&amp;url=https%3A%2F%2Fwesbos.com%2Fparity-purchasing-power"
+  data-react-helmet="true"
+/>
+```
+
+No images are generated during the Gatsby build, only the URL to retrieve the
+image from a serverless function.
+
+Many others like Lee Rob add an open graph image to the GitHub repo and link it
+directly.
+
+Gatsby uses one hard wired image for all blog posts. This could be the fatest
+way to get this off teh ground.
+
+Swyx uses an image from the post and if there are no images, a default image.
+
+## Step 3
+
+Take this Egghed course:
+https://egghead.io/courses/building-an-opengraph-image-generation-api-with-cloudinary-netlify-functions-and-react-914e
+
+## Step 4
+
+Test with https://cards-dev.twitter.com/validator.

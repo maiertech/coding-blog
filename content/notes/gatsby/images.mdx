@@ -36,10 +36,15 @@ process:
   [these plugins](https://cloudinary.com/blog/introducing_cloudinary_s_gatsby_plugins).
   This transfers the pain of creating images in different sizes over to
   Cloudinary and the transformer plugin can pull in cached processed images
-  during the build process.
+  during the build process. This can get very expensive for popular sites, see
+  this
+  [Twitter thread](https://twitter.com/spences10/status/1367824426964811776).
 - Use [imgIX](https://www.imgix.com/) with
   [`@imgix/gatsby-transform-url`](https://github.com/imgix/gatsby/tree/main/packages/gatsby-transform-url).
   Same approach as for Cloudinary.
+- Cloudflare also offers an image resizing service:
+  https://developers.cloudflare.com/images/.
+- Santiy also offers image transformations.
 
 You need to be familiar with their APIs to make this work.d
 
