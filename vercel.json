@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/chunks/husky-v5-pitfalls/",
+      "destination": "/posts/husky-v5-pitfalls/",
+      "permanent": true
+    },
+    {
+      "source": "/chunks/optimizing-lint-staged-config-js-for-prettier/",
+      "destination": "/posts/optimizing-lint-staged-config-js-for-prettier/",
+      "permanent": true
+    }
+  ]
+}
