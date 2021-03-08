@@ -3,7 +3,7 @@ title: Optimizing lint-staged.config.js for Prettier
 author: Thilo Maier
 date: 2021-01-12
 description:
-  This chunk shows how you optimize your lint-staged.config.js for Prettier to
+  This post shows how you optimize your lint-staged.config.js for Prettier to
   work on any supported file without having to maintain file endings.
 tags:
   - javascript
@@ -19,7 +19,7 @@ equivalent):
 
 ```js
 module.exports = {
-  '*.js': ['eslint --fix', 'prettier --write'],
+  '*.{js,jsx,ts,tsx}': ['eslint --fix', 'prettier --write'],
   '*.{md,mdx,css,yaml,yml}': ['prettier --write'],
 };
 ```
@@ -47,7 +47,9 @@ const addQuotes = (a) => `"${a}"`;
 
 module.exports = (allStagedFiles) => {
   // Match files for ESLint including dirs and files starting with dot.
-  const eslintFiles = micromatch(allStagedFiles, ['**/*.js'], { dot: true });
+  const eslintFiles = micromatch(allStagedFiles, ['**/*.{js,jsx,ts,tsx'], {
+    dot: true,
+  });
 
   // Match files for Prettier including dirs and files starting with dot.
   const prettierFiles = micromatch(
