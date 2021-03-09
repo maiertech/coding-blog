@@ -2,8 +2,8 @@ const pkg = require('./package.json');
 
 module.exports = {
   siteMetadata: {
-    siteTitle: 'coding.maier.tech',
-    seoTitle: "Thilo Maier's digital garden on web development",
+    siteTitle: "Thilo's Digital Garden",
+    seoTitle: "Thilo Maier's Digital Garden",
     siteAuthor: 'Thilo Maier',
     siteDescription: pkg.description,
     siteUrl: pkg.homepage,
