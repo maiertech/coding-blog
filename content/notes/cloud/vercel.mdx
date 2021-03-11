@@ -1,0 +1,19 @@
+---
+title: Vercel
+description: Hosting on Vercel.
+tags:
+  - cloud
+---
+
+They coined the term immutable deployment and pioneered deploy previews. They
+support static hosting but do not necessarily have the same optimizations in
+place as specialized services like Gatsby Cloud for Gatsby. Vercel focuses on
+Next.js hosting and serverless applications. They have fully embraced serverless
+and discourage going old school.
+
+## Findings
+
+Vercel does not support symbolic links in Git repos:
+
+- https://github.com/vercel/vercel/issues/3521
+- https://github.com/UNDataForum/gatsby-themes/issues/591
