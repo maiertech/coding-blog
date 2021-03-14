@@ -1,0 +1,24 @@
+---
+title: Styled Components
+description: My notes on styled components.
+tags:
+  - design-systems
+---
+
+Styled components is a mature styling option. What it lacks is support for
+design tokens.
+
+Its `ThemeProvider` is completely optional. It's a legacy approach to add design
+tokens. But we can add design tokens with CSS variables, then we do not need a
+ThemeProvider and we still get the benefit of scoped CSS.
+
+It really should be possible to pull off styling with styled components and
+adding design tokens with CSS variables.
+
+Variants are als supported.
+
+Wes Bos's Gatsby site uses styled components and stays as barebones CSS as
+possible. He has a few design tokens in his global CSS.
+
+The question is: would Stitches add any value in a styled components minus
+ThemeProvider scenario?
