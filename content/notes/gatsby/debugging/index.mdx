@@ -1,0 +1,72 @@
+---
+title: Debugging Gatsby with VS Code
+description: How to debug the Gatsby build process.
+tags:
+  - gatsby
+images:
+  - ./automatic-browser-debugging.png
+  - ./easy-npm-script-debugging.png
+---
+
+import { Box, GatsbyImage } from '@maiertech/gatsby-theme-digital-garden';
+
+I will turn this into 2 chunks:
+
+1. A thread chunk about debugging Gatsby with VS Code.
+1. A thread chunk about debugging on GitHub Codespaces.
+
+## Automatic browser debugging
+
+🍪 vscode-js-debug is @code's default JS debugger. It does not need a
+launch.json.
+
+Use ⌘ ⇧ P and select
+
+'Debug: Create JavaScript Debug Terminal'
+
+to create a debug terminal in which clicked links launch in @googlechrome with
+debugger attached (automatic browser debugging).
+
+<Box mb={3}>
+  <GatsbyImage
+    image={props.images[0]}
+    alt="Automatic browser debugging."
+    loading="eager"
+  />
+</Box>
+
+## Easy NPM script debugging
+
+🍪 vscode-js-debug in @code can do another trick. Hover over any NPM script in
+any package.json and select
+
+'Debug Script'
+
+to launch this script in a debug terminal.
+
+This is called easy NPM script debugging and it works anywhere in a monorepo.
+
+<Box mb={3}>
+  <GatsbyImage
+    image={props.images[1]}
+    alt="Automatic browser debugging."
+    loading="eager"
+  />
+</Box>
+
+## Links
+
+- [launch.json docs](https://code.visualstudio.com/docs/editor/debugging#_launchjson-attributes)
+- [automatic browser debugging](https://github.com/microsoft/vscode-js-debug#automatic-browser-debugging)
+- [easy NPM script debugging](https://github.com/microsoft/vscode-js-debug#easy-npm-script-debugging),
+
+## Does it work with Codespaces?
+
+Running the same debugging steps inside a codespace does not work. I summarized
+my findings in
+[this discussion](https://github.com/github/feedback/discussions/3536). This is
+probably related to the fact that a codespace is a Docker container. Here are
+some related GitHub issues:
+
+- https://github.com/microsoft/vscode-js-debug/issues/822
+- https://github.com/microsoft/vscode-js-debug/issues/908
