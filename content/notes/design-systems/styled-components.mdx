@@ -5,20 +5,25 @@ tags:
   - design-systems
 ---
 
-Styled components is a mature styling option. What it lacks is support for
-design tokens.
+Styled components is a battle tested styling option. What it lacks is support
+for design tokens. It comes with a `ThemeProvider` component for theming. Pedro
+Duarte calls this approach a legacy approach in
+[this video](https://www.youtube.com/watch?v=Gw28VgyKGkw).
 
-Its `ThemeProvider` is completely optional. It's a legacy approach to add design
-tokens. But we can add design tokens with CSS variables, then we do not need a
-ThemeProvider and we still get the benefit of scoped CSS.
-
+The `ThemeProvider` is actually completely optional. You can add design tokens
+with CSS variables. This gives you the best of CSS and you still get scoped CSS.
 It really should be possible to pull off styling with styled components and
 adding design tokens with CSS variables.
 
-Variants are als supported.
+[Wes Bos's Gatsby site](https://github.com/wesbos/wesbos) uses styled component
+combined with CSS variables. He has only a few design tokens as global CSS
+variables and stays as barebone CSS as possible.
 
-Wes Bos's Gatsby site uses styled components and stays as barebones CSS as
-possible. He has a few design tokens in his global CSS.
+One caveat is that styled components do not support variants. The question is:
+do I really need them? My previous solution was to patch something like Styled
+System on top, which is bad for performance.
 
-The question is: would Stitches add any value in a styled components minus
-ThemeProvider scenario?
+A solution like [Stitches](https://stitches.dev/) is a true CSS-in-JS solution
+that adds better support for design tokens and a nicer syntax that supports
+variants. But is it worth betting on Stitches, or is it better to got with
+styled components?
