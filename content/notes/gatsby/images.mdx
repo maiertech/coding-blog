@@ -5,51 +5,64 @@ tags:
   - gatsby
 ---
 
-There are some new developments for
-[`gatsby-image`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-image).
-Gatsby is in the process of replacing `gatsby-image` with
-[`gatsby-plugin-image`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-image).
-
-[StaticImage also supports remote URLs](https://www.gatsbyjs.com/docs/reference/release-notes/v2.30/#support-remote-image-urls-experimental).
+[gatsby-plugin-image](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-image)
+has been released and has now replaced
+[gatsby-image](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-image).
+The new API comes with `GatsbyImage` and `StaticImage`, which also supports
+[remote URLs](https://www.gatsbyjs.com/docs/reference/release-notes/v2.30/#support-remote-image-urls-experimental).
+gatsby-plugin-image can be used with files or with providers to other image
+services.
 
 Gatsby was the first framework that made creating responsive images a breeze
 with plugins
 [`gatsby-plugin-sharp`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp)
 and
 [`gatsby-transformer-sharp`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp).
-Querying image nodes would trigger image processing and generation of metadata
-that could be passed into `Img` from
-[`gatsby-image`](https://www.gatsbyjs.com/plugins/gatsby-image/) to create fixed
-or fluid images. The big downside of this approach is that image processing
-happens at build time, which puts a huge penalty on build duration. It's also
-not great that image processing can only be griggered through GraphQL queries.
+Querying image nodes triggers image processing and generation of metadata that
+can be passed into `GatsbyImage`. The downside of this approach is that image
+processing happens at build time, which puts a penalty on build duration.
 
 Chris Biscardi says in [this video](https://www.youtube.com/watch?v=wtIsCBrXluI)
 that Gatsby's build process is 100% not the place to process images, because it
-slows you down. He says you need to have a separate process for image
-processing, e.g., a service like [Cloudinary](https://cloudinary.com/).
+slows everything down. He says you need to have a separate process for image
+processing, e.g. a service like [Cloudinary](https://cloudinary.com/).
 
-There are two cloud-based solutions that remove image processing from the build
-process:
+## Cloudinary
 
-- Use Cloudinary with
-  [these plugins](https://cloudinary.com/blog/introducing_cloudinary_s_gatsby_plugins).
-  This transfers the pain of creating images in different sizes over to
-  Cloudinary and the transformer plugin can pull in cached processed images
-  during the build process. This can get very expensive for popular sites, see
-  this
-  [Twitter thread](https://twitter.com/spences10/status/1367824426964811776).
-- Use [imgIX](https://www.imgix.com/) with
-  [`@imgix/gatsby-transform-url`](https://github.com/imgix/gatsby/tree/main/packages/gatsby-transform-url).
-  Same approach as for Cloudinary.
-- Cloudflare also offers an image resizing service:
-  https://developers.cloudflare.com/images/.
-- Santiy also offers image transformations.
-- https://images.weserv.nl/ is a transformation service. You bring your own
-  image stored somewhere else and let the service do transformations and
-  caching.
+Use Cloudinary with
+[these plugins](https://cloudinary.com/blog/introducing_cloudinary_s_gatsby_plugins).
+This transfers the pain of creating images in different sizes over to Cloudinary
+and the transformer plugin can pull in cached processed images during the build
+process. Check out these links:
 
-You need to be familiar with their APIs to make this work.d
+- How Kent C. Dodd does it:
+  https://twitter.com/kentcdodds/status/1372012951989669892.
+- How Jason Lengstorf does it:
+  https://github.com/jlengstorf/jason.af/blob/main/src/components/photos.js
+- Why Cloudinary can get very expensive: for popular sites:
+  https://twitter.com/spences10/status/1367824426964811776.
+
+## ImgIX
+
+Use [imgIX](https://www.imgix.com/) with
+[`@imgix/gatsby-transform-url`](https://github.com/imgix/gatsby/tree/main/packages/gatsby-transform-url).
+Same approach as with Cloudinary.
+
+## Cloudflare
+
+Cloudflare also offers an
+[image resizing service](https://developers.cloudflare.com/images/).
+
+## Sanity
+
+Santiy also offers image transformations.
+
+## weserv.nl
+
+https://images.weserv.nl/ is a transformation service. You bring your own image
+stored somewhere else and let the service do transformations and caching.
+
+## Other options
 
 Instead of removing image processing from the build process you can also try to
 optimize the build process:
@@ -57,7 +70,7 @@ optimize the build process:
 - You can use [Gatsby cloud](https://www.gatsbyjs.com/cloud/) to accelerate
   builds. The first thing this does is it parallelizes image processing. The
   second thing it does it keeps Gatsby's cache around between builds. This
-  dramatically reduces build times.
+  reduces build times.
 - You can
   [enable Gatsby incremental builds on Netlify](https://www.netlify.com/blog/2020/04/23/enable-gatsby-incremental-builds-on-netlify/?utm_source=blog&utm_medium=gatsby-perf-jl&utm_campaign=devex).
   This is poor man's Gatsby cloud. It keeps Gatsby's build cache around,
