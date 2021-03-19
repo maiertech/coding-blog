@@ -1,0 +1,15 @@
+---
+title: Jest
+description: Testing with Jest.
+tags:
+  - testing
+---
+
+In [this repository](https://github.com/maiertech/gatsby-themes) I use Jest to
+test Node API functions. These tests mostly test arguments with which actions
+have been invoked using
+[`toHaveBeenCalledWith(arg1, arg2, ...)`](https://jestjs.io/docs/expect#tohavebeencalledwitharg1-arg2-).
+
+When arguments do not match exactly, displayed errors seem to compare random
+expected values with actual values, which makes figuring out why a test failed
+very hard.
