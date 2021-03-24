@@ -24,8 +24,8 @@
     "purge": "rm -rf ./node_modules"
   },
   "dependencies": {
-    "@maiertech/gatsby-theme-digital-garden": "^0.12.0",
-    "gatsby": "^3.1.1",
+    "@maiertech/gatsby-theme-digital-garden": "^0.12.1",
+    "gatsby": "^3.1.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -34,7 +34,7 @@
     "@maiertech/eslint-config": "^0.17.1",
     "@maiertech/prettier-config": "^0.3.0",
     "eslint": "^7.22.0",
-    "husky": "^5.1.3",
+    "husky": "^5.2.0",
     "lint-staged": "^10.5.4"
   }
 }
