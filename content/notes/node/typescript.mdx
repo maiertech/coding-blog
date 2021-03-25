@@ -15,13 +15,23 @@ TypeScript is a major project.
 
 ## Resources
 
-The
-[React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
-is gold to get started. Think of it as the condensed version of the TypeScript
-documentation.
+- [TypeScript's relation to JavaScript](https://stackoverflow.com/questions/12694530/what-is-typescript-and-why-would-i-use-it-in-place-of-javascript/35048303#35048303)
+- The
+  [React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
+  is gold to get started. Think of it as the condensed version of the TypeScript
+  documentation.
+- Check out the [TSConfig Reference](https://www.typescriptlang.org/tsconfig).
 
-## tsconfig.json
+## TSC vs. Babel
 
-Check out the [TSConfig Reference](https://www.typescriptlang.org/tsconfig).
+First, TSC analyzes your code and does type checking. After your code
+successfully passes type checking, TSC compiles (or transpiles) TypeScript into
+JavaScript. It can output regular JavaScript, ESM or CJS. TSC is the best way to
+do type checking.
 
-## Courses
+If you have an existing build pipeline, e.g. one that runs with Babel, you can
+use [preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript) to
+do the transpile step. You still need to use TSC for type checking, which your
+text editor can do for you or you can run it in CI on pull requests. The Babel
+route is a good way to ease into TypeScript. The advantage of using Babel is
+that you can use JavaScript features that are not yet supported in TypeScript.
