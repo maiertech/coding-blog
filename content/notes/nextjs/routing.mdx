@@ -5,4 +5,18 @@ tags:
   - nextjs
 ---
 
-- Anything in the `pages` directory will be converted into a route.
+## `pages`
+
+Next.js uses file-system based routing inside the `pages` directory. Pages map
+to routes as you would expect.
+
+You can also create a page for a dynamic route, e.g. `pages/posts/[id].js`:
+
+- It needs to export async function `getStaticPaths`, which needs to return
+  possible values for `id`.
+- It also needs to export `getStaticProps({ params })` to fetch data for each
+  route to be generated.
+
+## `public`
+
+Static assets go into directory `public`.
