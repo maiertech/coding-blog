@@ -24,7 +24,7 @@
     "purge": "rm -rf ./node_modules"
   },
   "dependencies": {
-    "@maiertech/gatsby-theme-digital-garden": "^0.12.1",
+    "@maiertech/gatsby-theme-digital-garden": "^0.13.0",
     "gatsby": "^3.1.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
