@@ -1,0 +1,22 @@
+---
+title: Debugging Gatsby with VS Code in Codespaces
+description: How to debug the Gatsby build process.
+tags:
+  - vscode
+---
+
+I covered debugging in VS Code in
+[this thread](https://coding.maier.tech/chunks/automatic-browser-debugging/).
+This worked fine on local projects, but it did not work in Codespaces. This
+might be related to the fact that a codespace is a Docker container.
+
+I summarized my findings in
+[this discussion](https://github.com/github/feedback/discussions/3536). There
+are mixed opinions on whether this should work or not. For the time being it is
+best to observe this further and check again when there is a need to debug
+soemthing.
+
+Here are some related GitHub issues:
+
+- https://github.com/microsoft/vscode-js-debug/issues/822
+- https://github.com/microsoft/vscode-js-debug/issues/908

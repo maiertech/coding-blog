@@ -1,0 +1,17 @@
+---
+title: TypeScript support in Next.js
+description: How to go about TypeScript in Next.js
+tags:
+  - nextjs
+---
+
+Using TypeScript in Next.js is a good starting point to learn TypeScript. To add
+TypeScript to a Next.js project, add an empty `tsconfig.json`. Then add packages
+`typescript`, `@types/react` and `@types/node`.
+
+The next time you start your development server, Next.js will
+
+- populate `tsconfig.json`
+- create `next-env.d.ts`.
+
+this means that Next.js uses the Typescript compiler directly and not Babel.
