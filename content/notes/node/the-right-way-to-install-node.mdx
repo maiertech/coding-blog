@@ -1,0 +1,45 @@
+---
+title: The right way to install Node
+description: There are so many ways to install Node. Which is the right one?
+tags:
+  - node
+---
+
+Different projects may require different Node versions. In the past I would
+reach out for one of these tools:
+
+## NVM
+
+https://github.com/nvm-sh/nvm
+
+| Command                       | Description                                                                                                    |
+| :---------------------------- | :------------------------------------------------------------------------------------------------------------- |
+| `nvm ls-remote`               | list all Node versions that can be installed (check latest stable version on [nodejs.org](http://nodejs.org/)) |
+| `nvm install <version>`       | install Node `<version>`                                                                                       |
+| `nvm ls`                      | list installed Node versions                                                                                   |
+| `nvm use <version>`           | use Node `<version>`                                                                                           |
+| `nvm use`                     | use Node version from `.nvmrc` file                                                                            |
+| `nvm alias default <version>` | make Node `<version>` default                                                                                  |
+| `nvm uninstall <version>`     | uninstall Node.js `<version>`                                                                                  |
+
+Use `which node` to figure out which Node version is active.
+
+## Nodenv
+
+https://github.com/nodenv/nodenv
+
+## n
+
+https://github.com/tj/n
+
+## Node via Homebrew
+
+This is good enough for local development, especially when you work with
+Codespaces or containers.
+
+## Other approaches
+
+Node is not the only piece of your development environment that you want to
+manage. There are more. Therefore, you need to manage more thatn just a Node
+installation. Use Codespaces/containers and you have you entire development
+environment managed, not just one piece.

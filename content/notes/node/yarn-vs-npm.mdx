@@ -14,3 +14,39 @@ tags:
 | `yarn remove`                                     | `npm uninstall` or `npm remove`                    | Remove package.                                                                                  |
 | `yarn outdated`                                   | `npm outdated`                                     | Check for outdated packages.                                                                     |
 | `yarn upgrade-interactive --latest`               | `npx npm-check -u`                                 | Interactive upgrades. For `npm`: package `npm-check` needs to be installed in `devDependencies`. |
+
+## Package Management with `npm`
+
+When you install Node via NVM, you also get the latest version of `npm`, the
+Node package manager. `npm` is to Node what `gem` is to Ruby. With `npm`, you
+can manage any [Node packaged modules](https://www.npmjs.org/).
+
+NVM does not know an abstraction equivalent to RVM's gemsets. But `npm`
+distinguishes between _local_ and _global_ installation:
+
+- A _global installation_ makes a package and its documentation available on the
+  command-line by installing it into Node's `lib/node-modules` directory. With
+  NVM installed and Node `<version>` in use, this corresponds to
+  `$HOME/.nvm/<version>/lib/node_modules`.
+
+- A _local installation_ installs a package without documentation into the the
+  `node-modules` directory of the _current directory_. Local installations can
+  be used for project-specific installations into a project directory.
+
+Unlike in bower, npm installs dependencies with each package, i.e. they may be
+duplicated. That's why npm is not really suitable to manage dependencies,
+because you need to cherrypick from the duplicates. Bower installes every
+package exactly once.
+
+Here is an overview of `npm` commands you should know:
+
+| Command                        | Description                                                                                           |
+| :----------------------------- | :---------------------------------------------------------------------------------------------------- |
+| `npm list [-g] --depth=n`      | list locally [globally] installed packages with dependencies up to depth `n` (normally use `depth=0`) |
+| `npm outdated [-g] --depth=n`  | list locally [globally] outdated packages with dependencies up to depth `n` (normally use `depth=0`)  |
+| `npm install <package> [-g]`   | install `<package>` locally [globally]                                                                |
+| `npm update <package> [-g]`    | update `<package>` locally [globally]                                                                 |
+| `npm update`                   | update local packages according to `package.json`                                                     |
+| `npm uninstall <package> [-g]` | uninstall `<package>` locally [globally]                                                              |
+| `npm search <string>`          | search for available packages containing `<string>`                                                   |
+| `npm prune`                    | prune local packages not listed in local `package.json` (use within project directory)                |
