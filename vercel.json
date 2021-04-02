@@ -2,13 +2,15 @@
   "redirects": [
     {
       "source": "/chunks/husky-v5-pitfalls/",
-      "destination": "/posts/husky-v5-pitfalls/",
-      "permanent": true
+      "destination": "/posts/husky-v6-pitfalls/"
+    },
+    {
+      "source": "/posts/husky-v5-pitfalls/",
+      "destination": "/posts/husky-v6-pitfalls/"
     },
     {
       "source": "/chunks/optimizing-lint-staged-config-js-for-prettier/",
-      "destination": "/posts/optimizing-lint-staged-config-js-for-prettier/",
-      "permanent": true
+      "destination": "/posts/optimizing-lint-staged-config-js-for-prettier/"
     }
   ]
 }
