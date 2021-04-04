@@ -1,0 +1,20 @@
+---
+title: File System Route API
+description: Insights on the file system route API.
+tags:
+  - gatsby
+---
+
+For my
+[post about the files system route API](/posts/what-you-need-to-know-about-the-file-system-route-api-in-gatsby/),
+I had a Gatsby site in mind that runs on MDX pages. For this use case the file
+system route API was not an adequate repalcement for `gatsby-node.js` yet,
+especially when using custom context to create pages.
+
+I came across
+[this theme](https://github.com/arshad/gatsby-theme-twentytwentyone/blob/master/src/styles/twentytwentyone.css)
+which pulls data from WordPress and which uses the route API. It makes much more
+sense in this example because you do not need to work with custom context
+because you get all the data you need from WorPress.
+
+Maybe I should update my post and mention this.
