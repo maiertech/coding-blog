@@ -1,0 +1,24 @@
+---
+id: '1380152228913221641'
+thread: VS Code extensions
+title: Workspace extension recommendations in VS Code
+url: https://twitter.com/maiertech/status/1380152228913221641
+tags:
+  - vscode
+images:
+  - src: ./extensions-json-file.png
+    alt:
+      'This screenshot shows the `extensions.json` file with property
+      `recommendations` with an array of VS Code extension identifiers that VS
+      Code will read and suggest to users for installation.'
+---
+
+🍪 Workspace extensions in [@code](https://twitter.com/code) are specific to a
+workspace. You cannot enforce workspace extensions, only make recommendations.
+
+Extension recommendations go in
+
+`.vscode/extensions.json`
+
+under `recommendations`. From there VS Code picks them up and suggests them to
+users.

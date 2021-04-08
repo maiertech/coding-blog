@@ -1,0 +1,29 @@
+---
+id: '1380152224320479245'
+thread: VS Code extensions
+title: User extensions in VS Code
+url: https://twitter.com/maiertech/status/1380152224320479245
+tags:
+  - vscode
+images:
+  - src: ./ignored-extensions.png
+    alt:
+      "This screenshot shows the `settingsSync.ignoredExtensions` setting in VS
+      Code's `settings.json` with an array of extension identifiers that defines
+      extensions that should not be synced."
+---
+
+🍪 User extensions in [@code](https://twitter.com/code) are installed in
+
+`~/.vscode/extensions`
+
+or
+
+`~/.vscode-remote/extensions`
+
+for containers. Extensions are synced by default, but not into containers. To
+control sync behavior use
+
+`settingsSync.ignoredExtensions`
+
+in `settings.json`.
