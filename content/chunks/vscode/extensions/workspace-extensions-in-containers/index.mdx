@@ -1,0 +1,21 @@
+---
+id: '1380152233183035395'
+thread: VS Code extensions
+title: VS Code workspace extensions in containers
+url: https://twitter.com/maiertech/status/1380152233183035395
+tags:
+  - vscode
+images:
+  - src: ./devcontainer-json-file.png
+    alt:
+      "This screenshot shows `devcontainer.json` with the `extensions` prop,
+      which contains an array of VS Code extension identifiers, which define the
+      container's workspace extensions."
+---
+
+🍪 When using containers with [@code](https://twitter.com/code), you can
+hard-wire workspace extensions in `devcontainer.json` under `extensions`.
+
+Corresponding extension settings go in `.vscode/settings.json`, not
+`devcontainer.json`, to make them available for both local and container
+development.
