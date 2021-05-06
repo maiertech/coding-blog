@@ -1812,10 +1812,10 @@
   dependencies:
     "@theme-ui/preset-base" "^0.6.0-alpha.7"
 
-"@maiertech/prettier-config@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@maiertech/prettier-config/-/prettier-config-0.3.1.tgz#f6c5d138ea8bbdc7c01bd695158cb632ce90ba5a"
-  integrity sha512-WBYgJspTGvxzvaIqm7oVa6+y3DbR2HctIj+wSWY7N/OqQHo5qUbAAHAut7iX09vGN0B9gA49SGPwSGVFjbaflQ==
+"@maiertech/prettier-config@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@maiertech/prettier-config/-/prettier-config-1.0.1.tgz#60014e5a44bacd54d86a87ae8525441964d3fcce"
+  integrity sha512-oJkh0Hq/cJC1zbrrq/6eQfFWW3ftuoQTGQpQPslGpqNyd2ec6b9G194WZLSIER1e6FpSNSctHBrCMr+jZphB/g==
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
