@@ -2,15 +2,47 @@
   "redirects": [
     {
       "source": "/chunks/husky-v5-pitfalls/",
-      "destination": "/posts/husky-v6-pitfalls/"
+      "destination": "https://maier.tech/posts/husky-v6-pitfalls"
     },
     {
       "source": "/posts/husky-v5-pitfalls/",
-      "destination": "/posts/husky-v6-pitfalls/"
+      "destination": "https://maier.tech/posts/husky-v6-pitfalls"
+    },
+    {
+      "source": "/posts/husky-v6-pitfalls/",
+      "destination": "https://maier.tech/posts/husky-v6-pitfalls"
     },
     {
       "source": "/chunks/optimizing-lint-staged-config-js-for-prettier/",
-      "destination": "/posts/optimizing-lint-staged-config-js-for-prettier/"
+      "destination": "https://maier.tech/posts/optimizing-lint-staged-config-js-for-prettier"
+    },
+    {
+      "source": "/posts/optimizing-lint-staged-config-js-for-prettier/",
+      "destination": "https://maier.tech/posts/optimizing-lint-staged-config-js-for-prettier"
+    },
+    {
+      "source": "/posts/introduction-to-github-codespaces/",
+      "destination": "https://maier.tech/posts/introduction-to-github-codespaces"
+    },
+    {
+      "source": "/posts/what-you-need-to-know-about-the-file-system-route-api-in-gatsby/",
+      "destination": "https://maier.tech/posts/what-you-need-to-know-about-the-file-system-route-api-in-gatsby"
+    },
+    {
+      "source": "/posts/what-to-do-when-github-codespaces-is-down/",
+      "destination": "https://maier.tech/posts/what-to-do-when-github-codespaces-is-down"
+    },
+    {
+      "source": "/posts/how-yarn-1-manages-conflicting-package-versions/",
+      "destination": "https://maier.tech/posts/how-yarn-1-manages-conflicting-package-versions"
+    },
+    {
+      "source": "/posts/upgrading-my-gatsby-themes-to-gatsby-v3/",
+      "destination": "https://maier.tech/posts/upgrading-my-gatsby-themes-to-gatsby-v3"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://maier.tech"
     }
   ]
 }
