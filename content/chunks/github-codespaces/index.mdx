@@ -1,0 +1,23 @@
+---
+id: codespaces
+thread: Understanding GitHub Codespaces
+title: Outline
+url: codespaces
+tags:
+  - github
+  - docker
+---
+
+To help understand how GitHub Codespaces works under the hood.
+
+- GitHub Codespaces is just running Docker
+- The repository to keep an eye on is this one:
+  https://github.com/microsoft/vscode-dev-containers.
+- The containers folder contains actual image definitions:
+  https://github.com/microsoft/vscode-dev-containers/tree/master/containers.
+- The scripts-library folder contains scripts that are pulled in to build
+  containers.
+- Scripts are documented here:
+  https://github.com/microsoft/vscode-dev-containers/tree/master/script-library/docs
+- Example: How to add GitHub CLI to a container how to mix library scripts
+- Consolidate https://github.com/maiertech/vscode-dev-containers
