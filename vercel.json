@@ -26,7 +26,7 @@
     },
     {
       "source": "/posts/what-you-need-to-know-about-the-file-system-route-api-in-gatsby/",
-      "destination": "https://maier.tech/posts/what-you-need-to-know-about-the-file-system-route-api-in-gatsby"
+      "destination": "https://maier.tech/posts/what-you-need-to-know-about-gatsby-s-file-system-route-api"
     },
     {
       "source": "/posts/what-to-do-when-github-codespaces-is-down/",
@@ -34,7 +34,7 @@
     },
     {
       "source": "/posts/how-yarn-1-manages-conflicting-package-versions/",
-      "destination": "https://maier.tech/posts/how-yarn-1-manages-conflicting-package-versions"
+      "destination": "https://maier.tech/posts/a-guide-to-understanding-how-yarn-hoists-dependencies-and-handles-conflicting-packages"
     },
     {
       "source": "/posts/upgrading-my-gatsby-themes-to-gatsby-v3/",
