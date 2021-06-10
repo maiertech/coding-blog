@@ -22,7 +22,7 @@
     },
     {
       "source": "/posts/introduction-to-github-codespaces/",
-      "destination": "https://maier.tech/posts/introduction-to-github-codespaces"
+      "destination": "https://maier.tech/posts/move-your-ide-to-the-cloud-introduction-to-github-codespaces"
     },
     {
       "source": "/posts/what-you-need-to-know-about-the-file-system-route-api-in-gatsby/",
@@ -30,7 +30,7 @@
     },
     {
       "source": "/posts/what-to-do-when-github-codespaces-is-down/",
-      "destination": "https://maier.tech/posts/what-to-do-when-github-codespaces-is-down"
+      "destination": "https://maier.tech/posts/how-to-brace-for-a-github-codespaces-outage"
     },
     {
       "source": "/posts/how-yarn-1-manages-conflicting-package-versions/",
